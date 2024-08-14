@@ -1,6 +1,4 @@
-
-// hi iam rola gaber 
-
+//nour remove the command
 import React, { Component } from 'react'
 import style from "../Styles/Contact.module.css"
 export default class Contactus extends Component {
