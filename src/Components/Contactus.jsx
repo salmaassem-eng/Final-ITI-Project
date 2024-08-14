@@ -1,12 +1,3 @@
-
-//nour remove the command
-
-// hi iam rola gaber 
-// new pull request 
-
-
-//بعدت يبخيتبنب لاصثتبث بثتنباثشيببيبيببيس i just wanna to push main 
-//
 import React, { Component } from 'react'
 import style from "../Styles/Contact.module.css"
 export default class Contactus extends Component {
