@@ -190,39 +190,18 @@
   ],
   "orderItem": [
     {
-      "title": "The Lantern of Lost Memories by Sanaka Hiiragi",
-      "price": 34,
+      "title": "Birthday Girl by Penelope Douglas",
+      "price": 88.23,
       "qty": 1,
-      "image": "https://bookworlduae.com/cdn/shop/files/IMG-0742.jpg?v=1723547578&width=713",
-      "id": "ab7b"
+      "image": "https://bookworlduae.com/cdn/shop/files/image_8afc897b-d2f7-413d-955b-2cb544877e40.png?v=1686137612&width=713",
+      "id": "97cf"
     },
     {
-      "title": "A Monster Calls by Patrick Ness",
-      "price": 50,
-      "qty": 1,
-      "image": "https://bookworlduae.com/cdn/shop/files/CopyofBookworldMockup_36_6dd91935-d1b4-4fb0-93c2-2adb788928ce.png?v=1716409690&width=713",
-      "id": "028e"
-    },
-    {
+      "id": "ffaa",
       "title": "A Study in Drowning by Ava Reid",
       "price": 100.9,
-      "qty": 2,
-      "image": "https://bookworlduae.com/cdn/shop/files/IMG-5381.jpg?v=1695748533&width=713",
-      "id": "773c"
-    },
-    {
-      "id": "12b6",
-      "title": "Bunny by Mona Awad (Paperback)",
-      "price": 79.99,
       "qty": 1,
-      "image": "https://bookworlduae.com/cdn/shop/files/IMG-2092.jpg?v=1690933099&width=713"
-    },
-    {
-      "id": "d0fd",
-      "title": "Lady Tan's Circle Of Women by Lisa See",
-      "price": 88,
-      "qty": 1,
-      "image": "https://bookworlduae.com/cdn/shop/files/IMG-1610.jpg?v=1706202918&width=713"
+      "image": "https://bookworlduae.com/cdn/shop/files/IMG-5381.jpg?v=1695748533&width=713"
     }
   ],
   "User": [
