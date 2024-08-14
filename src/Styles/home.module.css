@@ -8,8 +8,14 @@
 }
 h4 {
   font-size: 30px;
-  color: white;
+
 }
+
+::selection{
+  color: 
+  #803D3B;
+}
+
 .button {
   color: white;
   border: 1px solid white;

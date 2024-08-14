@@ -3,6 +3,12 @@
   color: white;
 }
 .link:hover {
-  color: orange;
+  color: 
+  #803D3B;
   text-decoration: underline;
+}
+
+::selection{
+  color: 
+  #803D3B;
 }

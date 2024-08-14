@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import style from "../../Styles/Navbar.module.css";
+import books from "../../Images/books.png"
 
 export default function Navbar({ isLogin, setIsLogin }) {
   const handleSignOut = () => {
@@ -13,34 +14,27 @@ export default function Navbar({ isLogin, setIsLogin }) {
       className="navbar navbar-expand-lg sticky-top top-0 w-100"
       style={{
         background:
-          "linear-gradient(95deg, rgba(10,13,17,1) 0%, rgba(42,57,74,1) 63%)",
+      "  #1A110B ",
       }}
     >
       <div className="container-fluid">
-        <Link className="navbar-brand" to="#">
-          <img
-            src="https://img.icons8.com/?size=512&id=81934&format=png"
+        <Link className="navbar-brand" to="/Home">
+          <img 
+            src={books}
             alt=""
-            height="40px"
-            width="40px"
+            height="60px"
+            width="60px"
           />
         </Link>
         <span className="text-light">
           <span
             style={{
               fontWeight: "bold",
-              letterSpacing: "2px",
+              letterSpacing: "1px",
               fontSize: "22px",
-              paddingLeft: "3px",
             }}
           >
-            IKEA
-          </span>
-          <br />
-          <span
-            style={{ color: "orange", letterSpacing: "2px", fontSize: "14px" }}
-          >
-            Furniture
+            BookHub
           </span>
         </span>
         <button
@@ -54,8 +48,8 @@ export default function Navbar({ isLogin, setIsLogin }) {
         >
           <span className="navbar-toggler-icon"></span>
         </button>
-        <div className="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul className="navbar-nav ms-auto gap-5 me-5">
+        <div className="collapse navbar-collapse " id="navbarSupportedContent">
+          <ul className="navbar-nav m-auto gap-5 me-6  ">
             <li className="nav-item">
               <Link
                 className={`${style.link} text-decoration-none`}
@@ -71,7 +65,7 @@ export default function Navbar({ isLogin, setIsLogin }) {
               </Link>
             </li>
 
-            {/* !!!!!!!very importaaaaaaaaaaaaaaaaaaaaaaaaaty focus (admin access) */}
+            {/* !!!!!!!very importaaaaaaaaaaty focus (admin access) */}
             {localStorage.getItem("username") === "rewaa" ? (
               <li className="nav-item">
                 <Link
@@ -84,12 +78,7 @@ export default function Navbar({ isLogin, setIsLogin }) {
             ) : (
               ""
             )}
-
-
-
-
-
-
+            
             {!isLogin ? (
               <>
                 <li className="nav-item">
@@ -97,7 +86,7 @@ export default function Navbar({ isLogin, setIsLogin }) {
                     to="/Login"
                     className={`${style.link} text-decoration-none`}
                   >
-                    Login
+                    Sign In
                   </Link>
                 </li>
                 <li className="nav-item">
@@ -105,7 +94,7 @@ export default function Navbar({ isLogin, setIsLogin }) {
                     to="/Signin"
                     className={`${style.link} text-decoration-none`}
                   >
-                    Signup
+                    Sign Up
                   </Link>
                 </li>
               </>
@@ -113,6 +102,7 @@ export default function Navbar({ isLogin, setIsLogin }) {
               <li className="nav-item">
                 <Link
                   onClick={handleSignOut}
+                  to="/Home"
                   className={`${style.link} text-decoration-none`}
                 >
                   Sign Out
@@ -127,8 +117,10 @@ export default function Navbar({ isLogin, setIsLogin }) {
                 Contact Us
               </Link>
             </li>
-            {localStorage.getItem("username") ? (
-              <li className="nav-item">
+  
+          </ul>
+          {localStorage.getItem("username") ? (
+              <li className="nav-item me-5 ms-5">
                 <Link
                   to="/cart"
                   className={`${style.link} text-decoration-none`}
@@ -148,7 +140,6 @@ export default function Navbar({ isLogin, setIsLogin }) {
             ) : (
               ""
             )}
-          </ul>
         </div>
       </div>
     </nav>
