@@ -8,7 +8,7 @@ const Login = ({ setIsLogin }) => {
   const [password, passwordupdate] = useState("");
 
   const usenavigate = useNavigate();
-
+  
   useEffect(() => {
     localStorage.clear();
   }, []);
