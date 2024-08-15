@@ -34,7 +34,7 @@ height: 660px;;
   margin-top: 30px;
   padding: 13px 17px;
   border: 0;
-  background-color: #1a110bd4 ;
+  background-color: #1a110bd4;
   border-radius: 30px;
   font-size: 20px;
   font-weight: bold;
@@ -50,8 +50,8 @@ height: 660px;;
   margin-top: 10px;
   padding: 13px 17px;
   border: 0;
-  background-color: transparent;
-  border: 1px solid #1A110B;
+  background-color:#1a110bd4;
+  border: 0;
   border-radius: 30px;
   font-size: 20px;
   font-weight: bold;
@@ -77,18 +77,24 @@ height: 660px;;
 }
 .link3 {
   text-decoration: none;
-  color: #1A110B;
+  color: #fff;
 }
 .text {
-  font-family: Courier, monospace;
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
 }
 .h3text{
+  font-family: Courier, monospace;
   margin-top: 70px;
-  font-weight: bold;
+  font-weight:900;
+  font-size: 30px;
   color: #1A110B;
+}
+.textp{
+  font-family: Courier, monospace;
+  font-size: 16px;
+  color: #2e2b29;
 }
 @media(max-width: 768px) {
   .parentt{
