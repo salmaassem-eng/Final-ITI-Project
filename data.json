@@ -190,18 +190,11 @@
   ],
   "orderItem": [
     {
-      "title": "Birthday Girl by Penelope Douglas",
-      "price": 88.23,
+      "id": "42f6",
+      "title": "Once Upon A Broken Heart ",
+      "price": 48.5,
       "qty": 1,
-      "image": "https://bookworlduae.com/cdn/shop/files/image_8afc897b-d2f7-413d-955b-2cb544877e40.png?v=1686137612&width=713",
-      "id": "97cf"
-    },
-    {
-      "id": "ffaa",
-      "title": "A Study in Drowning by Ava Reid",
-      "price": 100.9,
-      "qty": 1,
-      "image": "https://bookworlduae.com/cdn/shop/files/IMG-5381.jpg?v=1695748533&width=713"
+      "image": "https://bookworlduae.com/cdn/shop/files/image_590e1248-fb4c-414c-a1b9-f3c8c3b41524.jpg?v=1688598704&width=713"
     }
   ],
   "User": [

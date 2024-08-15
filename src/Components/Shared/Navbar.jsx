@@ -14,7 +14,7 @@ export default function Navbar({ isLogin, setIsLogin }) {
       className="navbar navbar-expand-lg sticky-top top-0 w-100"
       style={{
         background:
-      "  #1A110B ",
+      "  #1a110bd4 ",
       }}
     >
       <div className="container-fluid">
@@ -38,15 +38,15 @@ export default function Navbar({ isLogin, setIsLogin }) {
           </span>
         </span>
         <button
-          className="navbar-toggler"
+          className={`${style.navbartoggler} navbar-toggler`}
           type="button"
           data-bs-toggle="collapse"
           data-bs-target="#navbarSupportedContent"
           aria-controls="navbarSupportedContent"
           aria-expanded="false"
-          aria-label="Toggle navigation"
+          aria-label="Toggle navigation"    
         >
-          <span className="navbar-toggler-icon"></span>
+          <span className="navbar-toggler-icon "></span>
         </button>
         <div className="collapse navbar-collapse " id="navbarSupportedContent">
           <ul className="navbar-nav m-auto gap-5 me-6  ">
@@ -61,7 +61,7 @@ export default function Navbar({ isLogin, setIsLogin }) {
             </li>
             <li className="nav-item">
               <Link className={`${style.link} text-decoration-none`} to="/shop">
-                Furniture
+                Books
               </Link>
             </li>
 
@@ -72,7 +72,7 @@ export default function Navbar({ isLogin, setIsLogin }) {
                   to="/addProduct"
                   className={`${style.link} text-decoration-none`}
                 >
-                  Add Furniture
+                  Add Book
                 </Link>
               </li>
             ) : (

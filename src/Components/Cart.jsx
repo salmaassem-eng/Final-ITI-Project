@@ -166,7 +166,7 @@ const Profile = () => {
                 <h5 style={{ color: "rgb(31, 55, 82)", fontSize: "18px" }}>
                   Total Cost={total}$
                 </h5>
-                <button className={style.checkout}
+                <button className={style.checkout} 
                     onClick={() => alert("Your Order Made Successfully")}
                 >CheckOut</button>
               </div>
