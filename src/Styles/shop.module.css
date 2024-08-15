@@ -1,6 +1,10 @@
 * {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
+
+
 
 .cardContainer {
   display: grid;
@@ -15,9 +19,11 @@
   text-decoration: line-through;
   margin-left: 10px;
 }
+
 .templateContainer {
   margin-left: 20px;
 }
+
 .inputsearch {
   margin: 20px;
   margin-left: 5%;
@@ -27,14 +33,16 @@
   background-color: #cc9e58;
   width: 20%;
 }
+
 @media (max-width:750px) {
-  .inputsearch{
+  .inputsearch {
     width: 300px;
     margin-bottom: 10px;
   }
-  .form-floating{
+
+  .form-floating {
     width: 300px;
   }
 
-  
+
 }
