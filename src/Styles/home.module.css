@@ -1,109 +1,174 @@
-.para {
-  margin-top: 70px;
-  font-size: 50px;
+.bkg{
+  background-color: #FFFBF5;
+  align-self: center;
+  padding: auto;
+  margin: auto;
+} 
+.imgcard{
+background-image: url("../Images/library-6889590_1280.jpg");
+background-size: cover;
+background-position: center;
+background-repeat: no-repeat;
+text-align: center;
+align-items: center;
+height: 660px;;
+}  
+.parentt{
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
+  padding-top: 250px;
+
+} 
+.title {
+  font-family: Courier, monospace;
+  font-weight: bold;
+  font-size: 60px;
   color: white;
 }
-.para h3 {
-  color: rgb(192, 97, 42);
-}
-h4 {
-  font-size: 30px;
-
-}
-
-::selection{
-  color: 
-  #803D3B;
-}
-
 .button {
-  color: white;
-  border: 1px solid white;
-  background-color: rgb(192, 97, 42, 0.7);
+  font-family: Courier, monospace;
+  margin: auto;
   margin-top: 30px;
-  padding: 10px;
-  border-radius: 10px;
+  padding: 13px 17px;
+  border: 0;
+  background-color: #1A110B;
+  border-radius: 30px;
+  font-size: 20px;
+  font-weight: bold;
+  transition: all 0.5s;
 }
 .button:hover {
-  color: white;
+  border: 1px solid white;
   background-color: transparent;
+}
+.button2 {
+  font-family: Courier, monospace;
+  margin: auto;
+  margin-top: 10px;
+  padding: 13px 17px;
+  border: 0;
+  background-color: transparent;
+  border: 1px solid #1A110B;
+  border-radius: 30px;
+  font-size: 20px;
+  font-weight: bold;
+  transition: all 0.5s;
+}
+.button2:hover {
+  transform: translateY(-10px);
 }
 .about {
   display: flex;
   justify-content: center;
-  gap: 50px;
   padding-top: 100px;
-}
-.link{
-  text-decoration: none;
-  color: antiquewhite;
-}
-.link2{
-  text-decoration: none;
-  color: aliceblue;
-}
-.link2:hover{
-  color: black;
-  border: 2px solid black;
+  justify-content: space-around;
 }
 .about img {
-  width: 300px;
+  width: 440px;
   height: 370px;
   margin-bottom: 50px;
 }
-.about::before {
-  content: "";
-  position: absolute;
-  background-color: rgb(18, 77, 145);
-  width: 300px;
-  height: 280px;
-  top: 105%;
-  left: 14%;
-  z-index: -1;
-  filter: brightness(0.7);
-  margin-top: 100px;
+.link {
+  text-decoration: none;
+  color: rgb(255, 255, 255);
+}
+.link3 {
+  text-decoration: none;
+  color: #1A110B;
 }
 .text {
-  margin-top: 57px;
+  font-family: Courier, monospace;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
 }
-.slider{
+.h3text{
+  margin-top: 70px;
+  font-weight: bold;
+  color: #1A110B;
+}
+@media(max-width: 768px) {
+  .parentt{
+    padding-top: 110px;
+  
+  } 
+  .imgcard{
+    height: 500px;;
+    }
+  .about {
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    text-align: center;
+    margin: auto;
+    padding: auto;
+    margin-bottom: 30px;
+  }
+  .about img {
+    align-self: center;
+  }
+
+}
+
+
+.link2 {
+  text-decoration: none;
+  color: aliceblue;
+}
+
+.link2:hover {
+  color: black;
+  border: 2px solid black;
+}
+
+
+.slider {
   width: 50%;
   height: 500px;
   margin-left: 23%;
   margin-bottom: 40px;
 
 }
-.images{
+
+.images {
   width: 40%;
   height: 400px;
   margin-left: 25%;
-  margin-bottom:50px
+  margin-bottom: 50px
 }
-@media (max-width:750px) {
+
+/* @media (max-width:750px) {
   .para {
     margin-top: 0px;
     font-size: 20px;
   }
+
   .para h3 {
     font-size: 20px;
 
   }
+
   h4 {
     font-size: 20px;
   }
-  .images{
+
+  .images {
     width: 60%;
     height: 400px;
     margin-left: 20%;
-    margin-bottom:10px
+    margin-bottom: 10px
   }
-  .slider{
+
+  .slider {
     width: 80%;
     height: 500px;
     margin-left: 10%;
     margin-bottom: 10px;
-  
+
   }
+
   .button {
     margin-top: 10px;
     padding: 5px;
@@ -114,24 +179,28 @@ h4 {
     gap: 30px;
     padding-top: 60px;
   }
+
   .text {
     margin-top: 10px;
     font-size: 15px;
   }
-  .h3text{
+
+  .h3text {
     font-size: 20px;
     width: auto;
   }
+
   .about::before {
     width: 250px;
     height: 280px;
     top: 30%;
     left: 3%;
   }
+
   .about img {
     width: 350px;
     height: 370px;
     margin-bottom: 20px;
   }
-  
-}
+
+} */
