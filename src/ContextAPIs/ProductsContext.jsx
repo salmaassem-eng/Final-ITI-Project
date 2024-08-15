@@ -34,7 +34,7 @@ export const ProductsContextProvider = (props) => {
   };
   useEffect(() => {
     getProducts();
-  }, [products]);
+  }, []);
 
 
   // For pass the functions and data from context to othor pages

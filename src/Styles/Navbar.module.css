@@ -20,3 +20,6 @@
   background-color: whitesmoke !important;
 }
 
+li{
+  list-style: none;
+}
