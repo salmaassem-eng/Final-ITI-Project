@@ -30,7 +30,7 @@ export default function Home() {
             We build the best Furniture for your comfort and
             choice
           </h3>
-          <p>
+          <p className={style.textp}>
             Lorem ipsum dolor sit, amet consectetur adipisicing elit.
             <br /> A officia itaque corrupti quidem inventore ex corporis natus{" "}
             <br /> distinctio. Perspiciatis maxime nam, reprehenderit odit qui
