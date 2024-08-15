@@ -1,14 +1,22 @@
 .link {
   text-decoration: none;
+  list-style-type: none;
   color: white;
 }
 .link:hover {
   color: 
   #803D3B;
-  text-decoration: underline;
+  /* text-decoration: underline; */
 }
 
 ::selection{
   color: 
   #803D3B;
+   color: #1a110bd4 ;
+
 }
+
+.navbartoggler{
+  background-color: whitesmoke !important;
+}
+
