@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import style from "../Styles/Signin.module.css";
 import market from "../Images/market.png"
+import { fetchCartItems } from "./Shared/CartCount";
 
 const Profile = () => {
   const productsUrl = "http://localhost:5000/orderItem";
@@ -18,6 +19,7 @@ const Profile = () => {
 
   useEffect(() => {
     loadItems();
+    fetchCartItems();
   }, []);
 
   const loadItems = async () => {
@@ -31,6 +33,7 @@ const Profile = () => {
         totalPrice += item.qty * Number(item.price);
       });
       setTotal(totalPrice.toFixed(2));
+      fetchCartItems();
     } catch (error) {
       console.error("Error fetching items:", error);
     }
@@ -44,6 +47,7 @@ const Profile = () => {
       try {
         await axios.delete(`http://localhost:5000/orderItem/${id}`);
         loadItems();
+        fetchCartItems();
       } catch (error) {
         console.error("Error deleting item:", error);
       }
@@ -114,7 +118,7 @@ const Profile = () => {
     }
     const order = { title, price, qty: newQty, image };
     try {
-      await axios.put(`http://localhost:5000/orderItem/${id}`, order);
+      await axios.put(`http://localhost:5000/orderItem/${id}, order`);
       loadItems();
     } catch (error) {
       console.error("Error updating item:", error);
@@ -330,5 +334,3 @@ const Profile = () => {
 };
 
 export default Profile;
-
-    

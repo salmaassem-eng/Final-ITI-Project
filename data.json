@@ -188,7 +188,22 @@
       "thumbnail": "https://bookworlduae.com/cdn/shop/files/IMG-3260_6d6dbe2c-4de8-42c6-ac25-604aba7609d5.jpg?v=1708644062&width=713"
     }
   ],
-  "orderItem": [],
+  "orderItem": [
+    {
+      "id": "5dbf",
+      "title": "King of Pride (Kings of Sin #2) Ana Huang",
+      "price": 65.55,
+      "qty": 1,
+      "image": "https://bookworlduae.com/cdn/shop/files/CopyofPRE-ORDER-2023-11-09T043042.597.png?v=1699533057&width=713"
+    },
+    {
+      "id": "fa3a",
+      "title": "Lady Tan's Circle Of Women by Lisa See",
+      "price": 88,
+      "qty": 1,
+      "image": "https://bookworlduae.com/cdn/shop/files/IMG-1610.jpg?v=1706202918&width=713"
+    }
+  ],
   "User": [
     {
       "id": "rewaa",
