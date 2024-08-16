@@ -7,17 +7,17 @@ function Shop() {
   const [searchTerm, setSearchTerm] = useState("");
   const { products, getProducts, deleteProduct } = useContext(ProductContext);
   return (
-    <div className={` ${style.templateContainer} py-5 `}>
+    <div className={` ${style.templateContainer} py-5 ${style.backg}`}>
       <div className="container m-auto py-5">
-            <input
-            className= 'form-control'
-            id="searchInput"
-            type="search"
-            placeholder="Search here..."
-            onChange={(event) => {
-              setSearchTerm(event.target.value);
-            }}
-          />
+        <input
+          className={`form-control`}
+          id="searchInput"
+          type="search"
+          placeholder="Search here..."
+          onChange={(event) => {
+            setSearchTerm(event.target.value);
+          }}
+        />
         <div className={`${style.cardContainer} py-5`}>
           {products
             .filter((p) => {

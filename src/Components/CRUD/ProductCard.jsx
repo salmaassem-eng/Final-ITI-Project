@@ -42,12 +42,10 @@ export default function ProductCard({
     }
   };
   return (
-    <div className="card p-0 border-0" key={product.id}>
-      <div className="position-relative">
-        {/*     {userData.role === "admin" && (
-        )}  */}
+    <div className={`card p-0 border-0 ${style.pbkg}`} key={product.id}>
+      <div className={`position-relative`}>
         <button
-          className={`p-2 btn-close position-absolute ${localStorage.getItem('username') == 'rewaa'?'' : 'd-none'}`}
+          className={`p-2 btn-close position-absolute ${localStorage.getItem('username') == 'rewaa' ? '' : 'd-none'}`}
           onClick={(e) => {
             deleteProduct(product.id);
             e.stopPropagation();
@@ -56,15 +54,15 @@ export default function ProductCard({
         <Link to={`/shop/${product.id}`}>
           <img
             src={product.thumbnail}
-            className="card-img-top object-fit-cover"
+            className={`card-img-top object-fit-cover`}
             alt="Product-img"
             height="300"
           />
         </Link>
       </div>
-      <div className="card-body text-center">
-        <h5 className="card-title">{product.title}</h5>
-        <p className="card-text text-dark fw-bold">
+      <div className={`card-body text-center`}>
+        <h5 className={`card-title ${style.head}`}>{product.title}</h5>
+        <p className={`card-text text-dark fw-bold`}>
           $
           {(
             product.price -
@@ -75,19 +73,19 @@ export default function ProductCard({
           ) : null}
         </p>
         {
-          localStorage.getItem('username') === 'rewaa' ?(
-            <Link to={`/edit/${product.id}`} className="btn btn-dark px-5">
-          Edit
-        </Link>
+          localStorage.getItem('username') === 'rewaa' ? (
+            <Link to={`/edit/${product.id}`} className={`btn btn-dark px-5 ${style.pbtn}`}>
+              Edit
+            </Link>
           ) : ""
         }
         <button
-          className="btn btn-dark w-50 mx-auto ms-1"
+          className={`btn btn-dark w-50 mx-auto ms-1 ${style.pbtn} `}
           onClick={() =>
             addItem(product.title, product.price, product.thumbnail)
           }
         >
-          Add To Cart{/* {cartItemAmount > 0 && <>()</>} */}
+          Add To Cart
         </button>
       </div>
     </div>
