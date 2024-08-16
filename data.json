@@ -188,15 +188,7 @@
       "thumbnail": "https://bookworlduae.com/cdn/shop/files/IMG-3260_6d6dbe2c-4de8-42c6-ac25-604aba7609d5.jpg?v=1708644062&width=713"
     }
   ],
-  "orderItem": [
-    {
-      "id": "42f6",
-      "title": "Once Upon A Broken Heart ",
-      "price": 48.5,
-      "qty": 1,
-      "image": "https://bookworlduae.com/cdn/shop/files/image_590e1248-fb4c-414c-a1b9-f3c8c3b41524.jpg?v=1688598704&width=713"
-    }
-  ],
+  "orderItem": [],
   "User": [
     {
       "id": "rewaa",

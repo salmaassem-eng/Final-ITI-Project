@@ -1,11 +1,20 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import style from "../Styles/Signin.module.css";
+import market from "../Images/market.png"
 
 const Profile = () => {
   const productsUrl = "http://localhost:5000/orderItem";
   const [items, setItems] = useState([]);
-  const [total, setTotal] = useState(0); // Set initial total to 0
+  const [total, setTotal] = useState(0);
+  const [formData, setFormData] = useState({
+    userName: '',
+    email: '',
+    address: '',
+    cardNumber: '',
+    expiry: '',
+    cvv: ''
+  });
 
   useEffect(() => {
     loadItems();
@@ -41,6 +50,56 @@ const Profile = () => {
     }
   };
 
+  const handleCheckout = async (event) => {
+    event.preventDefault(); // Prevent form submission
+
+    // Validate form data
+    const { userName, email, address, cardNumber, expiry, cvv } = formData;
+    if (!userName || !email || !address || !cardNumber || !expiry || !cvv) {
+      alert("Please fill out all fields before checking out.");
+      return;
+    }
+
+    if (items.length === 0) {
+      alert("You need to order at least one product before checking out.");
+      return;
+    }
+
+    let isCheckout = window.confirm("Are you sure you want to checkout?");
+    if (isCheckout) {
+      try {
+        // Delete all items
+        for (let item of items) {
+          await axios.delete(`http://localhost:5000/orderItem/${item.id}`);
+        }
+        setItems([]); // Clear items from state
+        setTotal(0); // Reset total cost
+
+        // Clear form inputs
+        setFormData({
+          userName: '',
+          email: '',
+          address: '',
+          cardNumber: '',
+          expiry: '',
+          cvv: ''
+        });
+
+        alert("Your order has been processed successfully! It will be for you in week !");
+      } catch (error) {
+        console.error("Error during checkout:", error);
+      }
+    }
+  };
+
+  const handleInputChange = (event) => {
+    const { name, value } = event.target;
+    setFormData((prevData) => ({
+      ...prevData,
+      [name]: value
+    }));
+  };
+
   const incDec = async (qty, id, action, title, price, image) => {
     let newQty = qty;
     if (action === "dec") {
@@ -67,70 +126,80 @@ const Profile = () => {
       <div className="row">
         <div className="col-8">
           {items.length === 0 ? (
-            <h4 className="m-5 text-center">You have not made an order yet.</h4>
+            <div className="text-center">
+            <img src={market} className="mt-5" alt="market" style={{ width: '350px', height: 'auto' , backgroundcolor:"white" }} />
+            <h3 className="mb-5">You Cart Is Currently Empty.</h3>
+          </div>
           ) : (
-            <table
-              className="table border-1 text-dark"
-              style={{ margin: "15px", border: "2px solid gray" }}
-            >
-              <thead>
+            <table className="table" style={{ margin: "15px" }}>
+              <thead className="table-light">
                 <tr>
-                  <th>Product</th>
-                  <th>Title</th>
-                  <th className="m-2">Quantity</th>
-                  <th className="m-2">Price</th>
+                  <th className="text-center">Book</th>
+                  <th className="text-center">Title</th>
+                  <th className="text-center">Quantity</th>
+                  <th className="text-center">Price</th>
                   <th></th>
                 </tr>
               </thead>
               <tbody>
                 {items.map((item, index) => (
                   <tr key={index}>
-                    <td>
+                    <td className="text-center">
                       <img src={item.image} className={style.imgtable} alt="" />
                     </td>
-                    <td>{item.title}</td>
-                    <td>
+                    <td className="text-center">{item.title}</td>
+                    <td className="text-center">
                       <button
                         className={style.incbutton}
-                        onClick={() => incDec(item.qty, item.id, "dec", item.title, item.price, item.image)}
+                        onClick={() =>
+                          incDec(
+                            item.qty,
+                            item.id,
+                            "dec",
+                            item.title,
+                            item.price,
+                            item.image
+                          )
+                        }
                       >
                         -
                       </button>
-                      <input type="text" className={style.qtybuton} value={item.qty} readOnly />
+                      <input
+                        type="text"
+                        className={style.qtybuton}
+                        value={item.qty}
+                        readOnly
+                      />
                       <button
                         className={style.incbutton}
-                        onClick={() => incDec(item.qty, item.id, "inc", item.title, item.price, item.image)}
+                        onClick={() =>
+                          incDec(
+                            item.qty,
+                            item.id,
+                            "inc",
+                            item.title,
+                            item.price,
+                            item.image
+                          )
+                        }
                       >
                         +
                       </button>
                     </td>
-                    <td>{item.price}</td>
-                    <td>
+                    <td className="text-center">{item.price}</td>
+                    <td className="text-center">
                       <button
-                        className="border-0 mx-2 mt-1"
-                        style={{ height: "30px", backgroundColor: "white", marginBottom: "10px" }}
+                        type="button"
+                        className={`${style.delbtn} btn-close`}
+                        aria-label="Close"
                         onClick={() => deleteOrder(item.id)}
-                      >
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          width="25"
-                          height="25"
-                          fill="currentColor"
-                          className="bi bi-x-octagon"
-                          viewBox="0 0 16 16"
-                          style={{ color: "red" }}
-                        >
-                          <path d="M4.54.146A.5.5 0 0 1 4.893 0h6.214a.5.5 0 0 1 .353.146l4.394 4.394a.5.5 0 0 1 .146.353v6.214a.5.5 0 0 1-.146.353l-4.394 4.394a.5.5 0 0 1-.353.146H4.893a.5.5 0 0 1-.353-.146L.146 11.46A.5.5 0 0 1 0 11.107V4.893a.5.5 0 0 1 .146-.353L4.54.146zM5.1 1 1 5.1v5.8L5.1 15h5.8l4.1-4.1V5.1L10.9 1H5.1z" />
-                          <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z" />
-                        </svg>
-                      </button>
+                      ></button>
                     </td>
                   </tr>
                 ))}
               </tbody>
             </table>
           )}
-          
         </div>
         <div
           className="col-3"
@@ -141,35 +210,118 @@ const Profile = () => {
             height: "700px",
           }}
         >
-          <form  class="row g-3" className={style.flexab}>
+          <form className="row g-3 needs-validation" noValidate onSubmit={handleCheckout}>
             <div className={style.card}>
-              <h1 style={{ color: "  #1A110B", fontSize: "35px" }}>Customer Data</h1>
+              <h1 style={{ color: "#1A110B", fontSize: "35px" }}>
+                Customer Data
+              </h1>
               <hr />
 
-                  <div class="col-md-12">
-                  <label for="userName" class="form-label">User Name</label>
-                  <input type="name" class="form-control" id="userName"/>
-                </div>           
-                <div class="col-md-12">
-                  <label for="inputEmail4" class="form-label">Email</label>
-                  <input type="email" class="form-control" id="inputEmail4"/>
-                </div>
-                <div class="col-12">
-                  <label for="inputAddress" class="form-label">Address</label>
-                  <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St"/>
-                </div>
-                <div class="col-md-12">
-                <label for="inputZip" class="form-label">Promo Code</label>
-                <input type="text" class="form-control" id="inputZip"/>
+              <div className="col-md-12">
+                <label htmlFor="userName" className="form-label">
+                  User Name
+                </label>
+                <input
+                  type="text"
+                  className="form-control"
+                  id="userName"
+                  name="userName"
+                  value={formData.userName}
+                  onChange={handleInputChange}
+                />
               </div>
-                <hr />
-                <h5 style={{ color: "rgb(31, 55, 82)", fontSize: "18px" }}>
-                  Total Cost={total}$
-                </h5>
-                <button className={style.checkout} 
-                    onClick={() => alert("Your Order Made Successfully")}
-                >CheckOut</button>
+              <div className="col-md-12">
+                <label htmlFor="inputEmail4" className="form-label">
+                  Email
+                </label>
+                <input
+                  type="email"
+                  className="form-control"
+                  id="inputEmail4"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleInputChange}
+                />
               </div>
+              <div className="col-12">
+                <label htmlFor="inputAddress" className="form-label">
+                  Address
+                </label>
+                <input
+                  type="text"
+                  className="form-control"
+                  id="inputAddress"
+                  name="address"
+                  placeholder="1234 Main St"
+                  value={formData.address}
+                  onChange={handleInputChange}
+                />
+              </div>
+              <div className="col-md-12 position-relative">
+                <label htmlFor="cardNumber" className="form-label">
+                  Card Number
+                </label>
+                <div className="input-group has-validation">
+                  <input
+                    type="text"
+                    className="form-control"
+                    id="cardNumber"
+                    name="cardNumber"
+                    aria-describedby="validationTooltipUsernamePrepend"
+                    required
+                    value={formData.cardNumber}
+                    onChange={handleInputChange}
+                  />
+                  <div className="invalid-tooltip">
+                    Please enter a valid card number.
+                  </div>
+                </div>
+              </div>
+              <div className="col-12">
+                <div className="d-flex flex-row">
+                  <div className="col-6 pe-2">
+                    <div className="d-flex flex-column">
+                      <p className="text mb-1">Expiry</p>
+                      <input
+                        className="form-control"
+                        type="text"
+                        name="expiry"
+                        placeholder="MM/YYYY"
+                        value={formData.expiry}
+                        onChange={handleInputChange}
+                      />
+                    </div>
+                  </div>
+                  <div className="col-6 ps-2">
+                    <div className="d-flex flex-column">
+                      <p className="text mb-1">CVV/CVC</p>
+                      <input
+                        className="form-control pt-2"
+                        type="password"
+                        name="cvv"
+                        placeholder="***"
+                        value={formData.cvv}
+                        onChange={handleInputChange}
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <hr />
+              <h5 style={{ color: "rgb(31, 55, 82)", fontSize: "18px" }}>
+                Total Cost = {total}$
+              </h5>
+              <div className="col-12 mt-2">
+                <button
+                  type="submit"
+                  className={style.checkout}
+                  disabled={items.length === 0}
+                >
+                  Checkout
+                </button>
+              </div>
+            </div>
           </form>
         </div>
       </div>
@@ -178,3 +330,5 @@ const Profile = () => {
 };
 
 export default Profile;
+
+    
