@@ -258,22 +258,7 @@
       "category": "31"
     }
   ],
-  "orderItem": [
-    {
-      "title": "Once Upon A Broken Heart ",
-      "price": 48.5,
-      "qty": 2,
-      "image": "https://bookworlduae.com/cdn/shop/files/image_590e1248-fb4c-414c-a1b9-f3c8c3b41524.jpg?v=1688598704&width=713",
-      "id": "42f6"
-    },
-    {
-      "id": "d34c",
-      "title": "Lady Tan's Circle Of Women by Lisa See",
-      "price": 88,
-      "qty": 1,
-      "image": "https://bookworlduae.com/cdn/shop/files/IMG-1610.jpg?v=1706202918&width=713"
-    }
-  ],
+  "orderItem": [],
   "User": [
     {
       "id": "rewaa",

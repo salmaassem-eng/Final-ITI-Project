@@ -3,8 +3,8 @@ import "./App.css";
 import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import "../node_modules/bootstrap/dist/js/bootstrap.min.js";
 import "../node_modules/react-toastify/dist/ReactToastify.css";
-import {  useState } from "react";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import React ,{  useState } from "react";
+import { BrowserRouter as Router, Route, Routes  } from "react-router-dom";
 import { ProductsContextProvider } from "./ContextAPIs/ProductsContext.jsx";
 import Home from "./Components/Home";
 import Footer from "./Components/Shared/Footer";
@@ -18,12 +18,14 @@ import EditProduct from "./Components/CRUD/EditProduct";
 import AddProduct from "./Components/CRUD/addProduct";
 import Contactus from "./Components/Contactus.jsx";
 import Notfound from "./Components/NotFound";
+import ScrollToTop from './Components/ScrollToTop.jsx';
 
 function App() {
   const [isLogin, setIsLogin] = useState(localStorage.getItem("username"));
 
   return (
-    <BrowserRouter>
+    <Router>
+    <ScrollToTop />
       <ProductsContextProvider>
         <Navbar isLogin={isLogin} setIsLogin={setIsLogin} />
         <Routes>
@@ -45,7 +47,7 @@ function App() {
         </Routes>
         <Footer />
       </ProductsContextProvider>
-    </BrowserRouter>
+      </Router>
   );
 }
 

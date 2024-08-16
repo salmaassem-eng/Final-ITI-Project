@@ -1,5 +1,7 @@
 body {
   overflow-x: hidden;
+  /* font-family: Courier, monospace; */
+  color: #1A110B;
 }
 .flexab {
   display: flex;
@@ -10,6 +12,29 @@ body {
   width: 400px;
   margin-left: 20px;
   margin-top: 8%;
+}
+
+
+.form-control {
+  color: white;
+  background-color: #223C60;
+  border: 2px solid transparent;
+  height: 60px;
+  padding-left: 20px;
+  vertical-align: middle;
+}
+
+.form-control:focus {
+  color: white;
+  background-color: #0C4160;
+  border: 2px solid #2d4dda;
+  box-shadow: none;
+}
+
+.table-dark {
+  background-color: #1a110bd4 !important; /* New background color */
+  color: #fff;
+  border-color: #4d5154;
 }
 
 .flexy {
@@ -38,20 +63,34 @@ body {
   margin-right: 10px;
 }
 .qtybuton{
+  text-align: center;
   width: 30px;
+  border: none;
+
+  /* border-radius: 15px; */
 }
+
 .incbutton{
-  background-color: #37546b;
-  color: aliceblue;
-  border-radius: 10px;
-  margin: 2px;
+  width: 25px;
+  background-color: #1a110bb6;
+  color: white;
+  border-radius: 100%;
+  margin: 5px;
+  padding:3px;
   font-weight: bold;
 }
+
+.delbtn{
+  cursor: pointer;
+  --bs-btn-close-focus-shadow: none;
+}
+
 .imgtable{
   width: 100px;
   height: 100px;
   border-radius: 20px;
 }
+
 @media (max-width: 750px) {
   .flexab {
     display: flex;
@@ -85,7 +124,8 @@ body {
   font-size: 15px;
   margin-top: 20px;
   border: 1px solid rgb(31, 55, 82);
-  background-color: rgb(31, 55, 82);
+  background-color: #1a110bd4;
   color: azure;
+  cursor: pointer;
 
 }
