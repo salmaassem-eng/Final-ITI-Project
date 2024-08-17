@@ -1,47 +1,170 @@
-import React, { Component } from 'react'
-import style from "../Styles/Contact.module.css"
-export default class Contactus extends Component {
-  render() {
-    return (
-      <div className='container-fluid'>
-        <div className="row" >
-          <div className='col-lg-5 col-10'>
-            <form class="p-5">
-              <h1>Contact Us</h1>
-              <div class="mb-3">
-                <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Name" style={{ backgroundColor: "#e6ebeb", width: "80%", height: "50px", borderRadius: "40px" }} />
-              </div>
+/* eslint-disable no-undef */
+import React from "react";
+import styles from "../Styles/Contact.module.css";
+import me from "../Images/mysef.jpg";
+import saloma from "../Images/saloma.jpg";
+import norty from "../Images/norty.jpg";
+import khokha from "../Images/khokha.jpg";
+import aboutus from "../Images/aboutus.jpg";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faFacebook,
+  faTwitter,
+  faLinkedin,
+  faGithub,
+} from "@fortawesome/free-brands-svg-icons";
+import Card from "@mui/material/Card";
+import CardActions from "@mui/material/CardActions";
+import CardContent from "@mui/material/CardContent";
+import CardMedia from "@mui/material/CardMedia";
+import Button from "@mui/material/Button";
+import Typography from "@mui/material/Typography";
 
-              <div class="mb-3">
-                <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Email" style={{ backgroundColor: "#e6ebeb", width: "80%", height: "50px", borderRadius: "40px" }} />
+export default function Contactus() {
+  return (
+    <>
+      {" "}
+      {/* header  */}
+      <div className={styles.header}>
+        <div className={styles.container}>
+          <h1>Meet Our Team</h1>
+        </div>
+      </div>
+      {/* about us  */}
+      <div className={styles.aboutUs}>
+        <div className={styles.container}>
+          <div className={styles.card}>
+            <div className={styles.content}>
+              <div className={styles.teamImg}>
+                <img src={me} alt="Rewaa Gaber" />
               </div>
-
-              <div class="mb-3">
-
-                <textarea class="form-control" id="exampleFormControlTextarea1" rows="4" column="5" placeholder="Message" style={{ backgroundColor: "#e6ebeb", width: "80%", height: "100px", borderRadius: "20px" }} ></textarea>
+              <div className={styles.content}>
+                <h4>Rewaa Gaber</h4>
+                <h5>Front-End</h5>
               </div>
-              <div class="col-12">
-                <button type="submit" class="btn " style={{
-                  backgroundColor: "rgb(76, 56, 164)",
-                  width: "200px",
-                  height: "40px",
-                  color: "white",
-                  borderRadius: "50px",
-                  fontweight: "bold"
-                }}>Send Message</button>
+              <div className={styles.social}>
+                <a href="#">
+                  <FontAwesomeIcon icon={faFacebook} />
+                </a>
+                <a href="#">
+                  <FontAwesomeIcon icon={faTwitter} />
+                </a>
+                <a href="#">
+                  <FontAwesomeIcon icon={faLinkedin} />
+                </a>{" "}
+                <a href="#">
+                  <FontAwesomeIcon icon={faGithub} />
+                </a>
               </div>
-            </form>
+            </div>
           </div>
-          <div className="col-lg-5 col-10" >
-            <img src='https://img.freepik.com/free-vector/matchmaking-website-idea-social-network-geolocation-search-user-account-personal-profile-internet-surfing-online-dating-service-vector-isolated-concept-metaphor-illustration_335657-2215.jpg?t=st=1692788397~exp=1692788997~hmac=3cbe3b9eb5d0f7e82b9a2099f0fb5eb2713dae6f6f02170b562bc027d7b46f49' width="200px" height="500px" />
+          <div className={styles.card}>
+            <div className={styles.content}>
+              <div className={styles.teamImg}>
+                <img src={saloma} alt="Salma Assem" />
+              </div>
+              <div className={styles.content}>
+                <h4>Salma Assem</h4>
+                <h5>Front-End</h5>
+              </div>
+              <div className={styles.social}>
+                <a href="#">
+                  <FontAwesomeIcon icon={faFacebook} />
+                </a>
+                <a href="#">
+                  <FontAwesomeIcon icon={faTwitter} />
+                </a>
+                <a href="#">
+                  <FontAwesomeIcon icon={faLinkedin} />
+                </a><a href="#">
+                  <FontAwesomeIcon icon={faGithub} />
+                </a>
+              </div>
+            </div>
+          </div>
+          <div className={styles.card}>
+            <div className={styles.content}>
+              <div className={styles.teamImg}>
+                <img src={norty} alt="Nour Noaman" />
+              </div>
+              <div className={styles.content}>
+                <h4>Nour Noaman</h4>
+                <h5>Front-End</h5>
+              </div>
+              <div className={styles.social}>
+                <a href="#">
+                  <FontAwesomeIcon icon={faFacebook} />
+                </a>
+                <a href="#">
+                  <FontAwesomeIcon icon={faTwitter} />
+                </a>
+                <a href="#">
+                  <FontAwesomeIcon icon={faLinkedin} />
+                </a><a href="#">
+                  <FontAwesomeIcon icon={faGithub} />
+                </a>
+              </div>
+            </div>
+          </div>
+          <div className={styles.card}>
+            <div className={styles.content}>
+              <div className={styles.teamImg}>
+                <img src={khokha} alt="Khoulod Khaled" />
+              </div>
+              <div className={styles.content}>
+                <h4>Khoulod Khaled</h4>
+                <h5>Front-End</h5>
+              </div>
+              <div className={styles.social}>
+                <a href="#">
+                  <FontAwesomeIcon icon={faFacebook} />
+                </a>
+                <a href="#">
+                  <FontAwesomeIcon icon={faTwitter} />
+                </a>
+                <a href="#">
+                  <FontAwesomeIcon icon={faLinkedin} />
+                </a>
+              </div>
+            </div>
           </div>
         </div>
-
-
-
+      </div>{" "}
+      {/* about website */}
+      <div className={styles.header}>
+        <div className={styles.container}>
+          <h1>Explore Our Book Collection</h1>
+        </div>
       </div>
-
-    )
-  }
+      <Card className="container" sx={{ maxWidth: 1000 }}>
+        <CardMedia
+          sx={{ height: 300 }}
+          image={aboutus}
+          title="green iguana"
+          className={styles.CardMedia}
+        />
+        <CardContent>
+          <Typography gutterBottom variant="h5" component="div">
+            BookHub
+          </Typography>
+          <Typography variant="body2" color="text.secondary">
+            Welcome to our website, your ultimate destination for discovering
+            and purchasing a diverse range of books. Whether you're an avid
+            reader seeking your next great adventure, a student in search of
+            academic texts, or someone looking for the perfect gift, we offer an
+            extensive collection that caters to all tastes and needs. From
+            bestsellers to hidden gems, our curated selection ensures you'll
+            find something that piques your interest. Enjoy a seamless shopping
+            experience with detailed book descriptions, user reviews, and easy
+            navigation, all designed to make your reading journey enjoyable and
+            rewarding.
+          </Typography>
+        </CardContent>
+        <CardActions>
+  <Button size="small" sx={{ color: 'white', backgroundColor: '#74593b', '&:hover': { backgroundColor: '#a0937d' } }}>Share</Button>
+  <Button size="small" sx={{ color: 'white', backgroundColor: '#74593b', '&:hover': { backgroundColor: '#a0937d' } }}>Learn More</Button>
+</CardActions>
+      </Card>
+    </>
+  );
 }
-
