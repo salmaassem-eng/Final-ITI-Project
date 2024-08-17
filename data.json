@@ -4,7 +4,7 @@
       "id": "35",
       "title": " The Lantern of Lost Memories by Sanaka Hiiragi",
       "description": "There is a stack of photos on their lap, one for every day of their life, and now they must choose the pictures that capture their most treasured memories, which will be placed in a beautiful lantern. Once completed, it will be set spinning, and their cherished moments will flash before their eyes, guiding them to another world.",
-      "price": "77",
+      "price": 34,
       "discountPercentage": 12.96,
       "rating": 4.7,
       "stock": 68,
@@ -238,6 +238,16 @@
       "category": "213"
     },
     {
+      "id": "w6t2lkl",
+      "title": "123wdsad",
+      "price": "12",
+      "discountPercentage": "13",
+      "description": "123",
+      "stock": "213",
+      "thumbnail": "32312",
+      "category": "21"
+    },
+    {
       "id": "w7l0455",
       "title": "rewasaaaa",
       "price": "33",
@@ -248,80 +258,70 @@
       "category": "31"
     },
     {
-
-      "id": "k2775zj",
+      "id": "3l61mol",
       "title": "12",
-      "price": "12",
-      "discountPercentage": "1",
-      "description": "1",
-      "stock": "2",
-      "thumbnail": "2",
-      "category": "12"
-
-      "id": "qlgro55",
-      "title": "kdckjds",
-      "price": "54",
-      "discountPercentage": "54534",
-      "description": "mnmnmnmn",
-      "stock": "4",
+      "price": "122",
+      "discountPercentage": "121212",
+      "description": "21212",
+      "stock": "212",
       "thumbnail": "https://www.energyfit.com.mk/wp-content/plugins/ap_background/images/default/default_large.png",
-      "category": "mnjmn"
+      "category": "2"
     },
     {
-      "id": "h695549",
-      "title": "mnsa,m",
-      "price": "2423",
-      "discountPercentage": "543",
-      "description": "jnjjjjhjhiu",
-      "stock": "4",
+      "id": "blucw28",
+      "title": "2",
+      "price": "12",
+      "discountPercentage": "21",
+      "description": "23",
+      "stock": "21",
       "thumbnail": "https://www.energyfit.com.mk/wp-content/plugins/ap_background/images/default/default_large.png",
-      "category": "nm,mn,m"
-
+      "category": "2"
+    },
+    {
+      "id": "9uy0kts",
+      "title": "21",
+      "price": "12",
+      "discountPercentage": "21",
+      "description": "qs",
+      "stock": "21",
+      "thumbnail": "https://www.energyfit.com.mk/wp-content/plugins/ap_background/images/default/default_large.png",
+      "category": "s"
+    },
+    {
+      "id": "u38pazy",
+      "title": "w12",
+      "price": "12",
+      "discountPercentage": "21",
+      "description": "12",
+      "stock": "21",
+      "thumbnail": "https://www.energyfit.com.mk/wp-content/plugins/ap_background/images/default/default_large.png",
+      "category": "12"
+    },
+    {
+      "id": "0l4vv76",
+      "title": "qw1",
+      "price": "1",
+      "discountPercentage": "11",
+      "description": "1111",
+      "stock": "11",
+      "thumbnail": "https://www.energyfit.com.mk/wp-content/plugins/ap_background/images/default/default_large.png",
+      "category": "1"
     }
   ],
   "orderItem": [
     {
-
-      "id": "259c",
-      "title": "The Predator (Dark Verse #1) by Runyx",
-      "price": 86.33,
+      "id": "756d",
+      "title": "12",
+      "price": "12",
       "qty": 1,
-      "image": "https://bookworlduae.com/cdn/shop/files/image_9d6faa8f-04d2-47c4-b531-f387bcc62c6c.jpg?v=1687896241&width=713"
+      "image": "2"
     },
     {
-      "id": "9d43",
-      "title": "A Study in Drowning by Ava Reid",
-      "price": 100.9,
-      "qty": 1,
-      "image": "https://bookworlduae.com/cdn/shop/files/IMG-5381.jpg?v=1695748533&width=713"
-    },
-    {
-      "id": "5531",
-      "title": "Bunny by Mona Awad (Paperback)",
-      "price": 79.99,
-      "qty": 1,
-      "image": "https://bookworlduae.com/cdn/shop/files/IMG-2092.jpg?v=1690933099&width=713"
-
-      "id": "e762",
-      "title": "rewasaaaa",
-      "price": "33",
+      "id": "1f80",
+      "title": "232",
+      "price": "123",
       "qty": 1,
       "image": "https://www.energyfit.com.mk/wp-content/plugins/ap_background/images/default/default_large.png"
-    },
-    {
-      "id": "ea18",
-      "title": "King of Pride (Kings of Sin #2) Ana Huang",
-      "price": 65.55,
-      "qty": 1,
-      "image": "https://bookworlduae.com/cdn/shop/files/CopyofPRE-ORDER-2023-11-09T043042.597.png?v=1699533057&width=713"
-    },
-    {
-      "id": "e9dc",
-      "title": "Once Upon A Broken Heart w",
-      "price": 48.5,
-      "qty": 1,
-      "image": "https://bookworlduae.com/cdn/shop/files/image_590e1248-fb4c-414c-a1b9-f3c8c3b41524.jpg?v=1688598704&width=713"
-
     }
   ],
   "User": [
@@ -384,16 +384,6 @@
       "phone": "01093664769",
       "country": "india",
       "address": "kfs",
-      "gender": "female"
-    },
-    {
-      "id": "salma",
-      "name": "assem",
-      "password": "123",
-      "email": "salmaassem",
-      "phone": "",
-      "country": "india",
-      "address": "",
       "gender": "female"
     }
   ]

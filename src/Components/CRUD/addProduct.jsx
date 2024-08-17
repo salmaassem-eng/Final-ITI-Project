@@ -32,10 +32,11 @@ function AddProducts() {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e) => { 
+    setAlertMessage("Product added successfully!");
     e.preventDefault();
     addProduct(product);
-    setAlertMessage("Product added successfully!");
+   
     setProduct({
       id: Math.random().toString(36).substring(2, 9),
       title: "",
