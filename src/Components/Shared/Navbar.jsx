@@ -27,8 +27,7 @@ export default function Navbar({ isLogin, setIsLogin }) {
     <nav
       className="navbar navbar-expand-lg sticky-top top-0 w-100"
       style={{
-        background:
-      "#887564ee",
+        background:"#887564ee",
       }}
     >
       <div className="container-fluid">
