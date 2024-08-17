@@ -198,16 +198,6 @@
       "category": "21"
     },
     {
-      "id": "9iubkwh",
-      "title": "alert selelected1",
-      "price": "545",
-      "discountPercentage": "57",
-      "description": "742",
-      "stock": "757",
-      "thumbnail": "https://www.energyfit.com.mk/wp-content/plugins/ap_background/images/default/default_large.png",
-      "category": "87"
-    },
-    {
       "id": "1yeg52j",
       "title": "qwqwq1",
       "price": "55",
@@ -310,13 +300,6 @@
   ],
   "orderItem": [
     {
-      "title": "Lady Tan's Circle Of Women by Lisa See",
-      "price": 88,
-      "qty": 5,
-      "image": "https://bookworlduae.com/cdn/shop/files/IMG-1610.jpg?v=1706202918&width=713",
-      "id": "a10e"
-    },
-    {
       "title": "Once Upon A Broken Heart ",
       "price": 48.5,
       "qty": 22,
@@ -329,13 +312,6 @@
       "qty": 2,
       "image": "https://bookworlduae.com/cdn/shop/files/IMG-0742.jpg?v=1723547578&width=713",
       "id": "295f"
-    },
-    {
-      "title": "Birthday Girl by Penelope Douglas",
-      "price": 88.23,
-      "qty": 2,
-      "image": "https://bookworlduae.com/cdn/shop/files/image_8afc897b-d2f7-413d-955b-2cb544877e40.png?v=1686137612&width=713",
-      "id": "8dbd"
     },
     {
       "id": "1f80",
