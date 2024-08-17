@@ -1,8 +1,7 @@
-/* eslint-disable no-undef */
 import React from "react";
 import emailjs from "emailjs-com";
 import { useState } from "react";
-import 'bootstrap/dist/css/bootstrap.min.css';
+import "bootstrap/dist/css/bootstrap.min.css";
 import styles from "../Styles/Contact.module.css";
 import me from "../Images/mysef.jpg";
 import saloma from "../Images/saloma.jpg";
@@ -22,13 +21,13 @@ import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
-
+import { Link } from "react-router-dom";
 export default function Contactus() {
   const [formData, setFormData] = useState({
-    to_name: 'Your Name', // The recipient's name
-    from_name: '',
-    email: '',
-    message: ''
+    to_name: "Rewaa",
+    from_name: "",
+    email: "", 
+    message: "",
   });
   const [sending, setSending] = useState(false);
   const [sent, setSent] = useState(false);
@@ -42,11 +41,22 @@ export default function Contactus() {
   const handleSubmit = (e) => {
     e.preventDefault();
     setSending(true);
-    emailjs.send('service_n9ot47p', 'template_nddc7mv', formData, 'qa_Cs5tj3nnrD5xpi')
+    emailjs
+      .send(
+        "service_n9ot47p",
+        "template_nddc7mv",
+        formData,
+        "qa_Cs5tj3nnrD5xpi"
+      )
       .then((response) => {
         setSending(false);
         setSent(true);
-        setFormData({ to_name: 'Rewaa', from_name: '', email: '', message: '' });
+        setFormData({
+          to_name: "Rewaa",
+          from_name: "",
+          email: "",
+          message: "",
+        });
       })
       .catch((err) => {
         setSending(false);
@@ -75,16 +85,16 @@ export default function Contactus() {
                 <h5>Front-End</h5>
               </div>
               <div className={styles.social}>
-                <a href="#">
+                <a href="https://www.facebook.com/" target="_blank">
                   <FontAwesomeIcon icon={faFacebook} />
                 </a>
-                <a href="#">
+                <a href="https://x.com/?logout=1723917569208" target="_blank">
                   <FontAwesomeIcon icon={faTwitter} />
                 </a>
-                <a href="#">
+                <a href="https://www.linkedin.com/in/rewaa-arafa-8134b0275/" target="_blank">
                   <FontAwesomeIcon icon={faLinkedin} />
                 </a>{" "}
-                <a href="#">
+                <a href="https://github.com/RewaaGaber" target="_blank">
                   <FontAwesomeIcon icon={faGithub} />
                 </a>
               </div>
@@ -100,15 +110,16 @@ export default function Contactus() {
                 <h5>Front-End</h5>
               </div>
               <div className={styles.social}>
-                <a href="#">
+                <a href="#" target="_blank">
                   <FontAwesomeIcon icon={faFacebook} />
                 </a>
-                <a href="#">
+                <a href="#" target="_blank">
                   <FontAwesomeIcon icon={faTwitter} />
                 </a>
-                <a href="#">
+                <a href="#" target="_blank">
                   <FontAwesomeIcon icon={faLinkedin} />
-                </a><a href="#">
+                </a>
+                <a href="#" target="_blank">
                   <FontAwesomeIcon icon={faGithub} />
                 </a>
               </div>
@@ -124,15 +135,16 @@ export default function Contactus() {
                 <h5>Front-End</h5>
               </div>
               <div className={styles.social}>
-                <a href="#">
+                <a href="#" target="_blank">
                   <FontAwesomeIcon icon={faFacebook} />
                 </a>
-                <a href="#">
+                <a href="#" target="_blank">
                   <FontAwesomeIcon icon={faTwitter} />
                 </a>
-                <a href="#">
+                <a href="#" target="_blank">
                   <FontAwesomeIcon icon={faLinkedin} />
-                </a><a href="#">
+                </a>
+                <a href="#" target="_blank">
                   <FontAwesomeIcon icon={faGithub} />
                 </a>
               </div>
@@ -148,14 +160,17 @@ export default function Contactus() {
                 <h5>Front-End</h5>
               </div>
               <div className={styles.social}>
-                <a href="#">
+                <a href="#" target="_blank">
                   <FontAwesomeIcon icon={faFacebook} />
                 </a>
-                <a href="#">
+                <a href="#" target="_blank" >
                   <FontAwesomeIcon icon={faTwitter} />
                 </a>
-                <a href="#">
+                <a href="#" target="_blank">
                   <FontAwesomeIcon icon={faLinkedin} />
+                </a>
+                <a href="#" target="_blank">
+                  <FontAwesomeIcon icon={faGithub} />
                 </a>
               </div>
             </div>
@@ -193,75 +208,107 @@ export default function Contactus() {
           </Typography>
         </CardContent>
         <CardActions>
-  <Button size="small" sx={{ color: 'white', backgroundColor: '#74593b', '&:hover': { backgroundColor: '#a0937d' } }}>Share</Button>
-  <Button size="small" sx={{ color: 'white', backgroundColor: '#74593b', '&:hover': { backgroundColor: '#a0937d' } }}>Learn More</Button>
-</CardActions>
+          
+        <Button
+  size="medium" 
+  sx={{
+    color: "white",
+    backgroundColor: "#74593b",
+    "&:hover": {
+      backgroundColor: "#a0937d",
+      transform: "scale(1.05)", 
+    },
+    transition: "background-color 0.3s ease, transform 0.3s ease",
+    padding: "10px 20px", 
+    fontWeight: "bold", 
+  }}
+  component={Link}
+  to="/Home"
+>
+  Learn More
+</Button>
+        </CardActions>
       </Card>
-  {/* Contact Us */}
-  {/* Contact Us */}
-  <div className="container p-5">
-        <h1 className="text-center mb-4">Contact Us</h1>
-        <div className="row justify-content-center">
-          <div className="col-md-6">
-            <div className="card">
-              <div className="card-body">
-                <form onSubmit={handleSubmit}>
-                  <div className="mb-3">
-                    <label htmlFor="from_name" className="form-label">Name</label>
-                    <input
-                      type="text"
-                      id="from_name"
-                      name="from_name"
-                      className="form-control"
-                      value={formData.from_name}
-                      onChange={handleChange}
-                      required
-                    />
-                  </div>
-                  <div className="mb-3">
-                    <label htmlFor="email" className="form-label">Email</label>
-                    <input
-                      type="email"
-                      id="email"
-                      name="email"
-                      className="form-control"
-                      value={formData.email}
-                      onChange={handleChange}
-                      required
-                    />
-                  </div>
-                  <div className="mb-3">
-                    <label htmlFor="message" className="form-label">Message</label>
-                    <textarea
-                      id="message"
-                      name="message"
-                      rows="5"
-                      className="form-control"
-                      value={formData.message}
-                      onChange={handleChange}
-                      required
-                    ></textarea>
-                  </div>
-                  <button
-                    type="submit"
-                    className="btn w-100"
-                    style={{
-                      backgroundColor: "#B59B82",
-                      borderColor: "#8B7866",
-                      color: "white",
-                    }}
-                    disabled={sending}
-                  >
-                    {sending ? 'Sending...' : 'Send Message'}
-                  </button>
-                  {sent && <p className="text-success mt-3">Message sent successfully!</p>}
-                  {error && <p className="text-danger mt-3">Error: {error}</p>}
-                </form>
+      {/* Contact Us */}
+      {/* Contact Us */}
+      <section>
+        
+        <div className=" p-5 container" style={{paddingTop: '20px'}}>
+          <h1 className="text-center mb-4  " style={{paddingTop: '50px'}}>Contact Us</h1>
+          <div className="row justify-content-center ">
+            <div className="col-md-9">
+              <div className="card">
+                <div className="card-body">
+                  <form onSubmit={handleSubmit}>
+                    <div className="mb-3">
+                      <label htmlFor="from_name" className="form-label">
+                        Name
+                      </label>
+                      <input
+                        type="text"
+                        id="from_name"
+                        name="from_name"
+                        className="form-control"
+                        value={formData.from_name}
+                        onChange={handleChange}
+                        required
+                      />
+                    </div>
+                    <div className="mb-3">
+                      <label htmlFor="email" className="form-label">
+                        Email
+                      </label>
+                      <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        className="form-control"
+                        value={formData.email}
+                        onChange={handleChange}
+                        required
+                      />
+                    </div>
+                    <div className="mb-3">
+                      <label htmlFor="message" className="form-label">
+                        Message
+                      </label>
+                      <textarea
+                        id="message"
+                        name="message"
+                        rows="5"
+                        className="form-control"
+                        value={formData.message}
+                        onChange={handleChange}
+                        required
+                      ></textarea>
+                    </div>
+                    <button
+                      type="submit"
+                      className="btn w-100"
+                      style={{
+                        backgroundColor: "#74593b",
+                        borderColor: "#8B7866",
+                        color: "white",
+                      }}
+                      disabled={sending}
+                    >
+                      {sending ? "Sending..." : "Send Message"}
+                    </button>
+                    {sent && (
+                      <p className="text-success mt-3">
+                        Message sent successfully!
+                      </p>
+                    )}
+                    {error && (
+                      <p className="text-danger mt-3">Error: {error}</p>
+                    )}
+                  </form>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-      </div>
+        </div>{" "}
+      </section>
     </>
   );
 }
