@@ -24,6 +24,19 @@ li{
   list-style: none;
 }
 
+.cartItemCount {
+  background-color: whitesmoke;
+  color: #1a110b;
+  border-radius: 50%;
+  padding: 0.2rem 0.5rem;
+  font-size: 0.8rem;
+  position: absolute;
+  top: 0;
+  right: 0;
+  transform: translate(50%, -50%);
+}
+
+
 /* body{ */
  /* font-family: Courier, monospace; */
 /* } */

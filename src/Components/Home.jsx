@@ -2,7 +2,6 @@ import React, { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import style from "../Styles/home.module.css";
 import main from "../Styles/shop.module.css";
-import image from "../Images/library-6889590_1280.jpg";
 import image2 from "../Images/shelf2.png";
 import ProductCard from "../Components/CRUD/ProductCard";
 import PostsContext from "../ContextAPIs/ProductsContext";
@@ -13,9 +12,9 @@ export default function Home() {
 
   return (
     <div className={style.bkg}>
-      <div class="card text-center" className={style.imgcard}>
-        <div class="card-body" className={style.parentt}>
-          <h1 class="card-title title" className={style.title}>
+      <div className={`card text-center ${style.imgcard}`}>
+        <div className={`card-body ${style.parentt}`}>
+          <h1 className={`card-title title ${style.title}`}>
             welcome to our BookShop
           </h1>
           <button className={style.button} >
@@ -24,7 +23,7 @@ export default function Home() {
         </div>
       </div>
       <div className={style.about}>
-        <img src={image2} alt="" class='col-md-7'/>
+        <img src={image2} alt="A decorative shelf with books" class='col-md-7'/>
         <div className={style.text} class='col-md-5 contianer'>
           <h3 className={style.h3text}>
             We build the best Furniture for your comfort and
@@ -43,14 +42,12 @@ export default function Home() {
           </button>
         </div>
       </div>
-      {/* <div className="container m-auto mt-5 p-5">
-        <h1 className="text-center mb-5">Our Products</h1>
+      <div className={`container m-auto mt-5 p-5`}>
+        <h1 className={`text-center mb-5`}>Our Products</h1>
         <div className={main.cardContainer}>
           {products?.map((prodcutItem) => {
-            // console.log("prodcutItem", prodcutItem);
             return (
               // ProductCard
-
               <ProductCard
                 getProducts={getProducts}
                 deleteProduct={deleteProduct}
@@ -60,8 +57,7 @@ export default function Home() {
             );
           })}
         </div>
-      </div> */}
+      </div>
     </div>
   );
 }
-
