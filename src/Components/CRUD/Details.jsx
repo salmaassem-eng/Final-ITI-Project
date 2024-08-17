@@ -1,8 +1,8 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import style from "../../Styles/details.module.css";
 import "../../Styles/detailActive.module.css";
-import { NavLink, useParams } from "react-router-dom";
-import ProductContext from "../../ContextAPIs/ProductsContext";
+import {  useParams } from "react-router-dom";
+// import ProductContext from "../../ContextAPIs/ProductsContext";
 import axios from "axios";
 
 function Details() {

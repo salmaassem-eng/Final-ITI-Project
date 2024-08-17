@@ -5,7 +5,7 @@ import market from "../Images/market.png"
 import { fetchCartItems } from "./Shared/CartCount";
 
 const Profile = () => {
-  const productsUrl = "http://localhost:5000/orderItem";
+  // const productsUrl = "http://localhost:5000/orderItem";
   const [items, setItems] = useState([]);
   const [total, setTotal] = useState(0);
   const [formData, setFormData] = useState({
@@ -18,22 +18,20 @@ const Profile = () => {
   });
 
   useEffect(() => {
-    loadItems();
-    fetchCartItems();
+    const userId = localStorage.getItem("userId"); // Retrieve the userId from localStorage
+    loadItems(userId);
   }, []);
 
-  const loadItems = async () => {
+  const loadItems = async (userId) => {
     try {
-      const result = await axios.get(productsUrl);
-      const fetchedItems = result.data;
-      setItems(fetchedItems);
+      const result = await fetchCartItems(userId); // Use the function with userId
+      setItems(result);
 
       let totalPrice = 0;
-      fetchedItems.forEach((item) => {
+      result.forEach((item) => {
         totalPrice += item.qty * Number(item.price);
       });
       setTotal(totalPrice.toFixed(2));
-      fetchCartItems();
     } catch (error) {
       console.error("Error fetching items:", error);
     }
@@ -46,8 +44,8 @@ const Profile = () => {
     if (isDelete) {
       try {
         await axios.delete(`http://localhost:5000/orderItem/${id}`);
-        loadItems();
-        fetchCartItems();
+        const userId = localStorage.getItem("userId");
+        loadItems(userId);
       } catch (error) {
         console.error("Error deleting item:", error);
       }
@@ -55,7 +53,7 @@ const Profile = () => {
   };
 
   const handleCheckout = async (event) => {
-    event.preventDefault(); // Prevent form submission
+    event.preventDefault();
 
     // Validate form data
     const { userName, email, address, cardNumber, expiry, cvv } = formData;
@@ -72,14 +70,12 @@ const Profile = () => {
     let isCheckout = window.confirm("Are you sure you want to checkout?");
     if (isCheckout) {
       try {
-        // Delete all items
         for (let item of items) {
           await axios.delete(`http://localhost:5000/orderItem/${item.id}`);
         }
-        setItems([]); // Clear items from state
-        setTotal(0); // Reset total cost
+        setItems([]);
+        setTotal(0);
 
-        // Clear form inputs
         setFormData({
           userName: '',
           email: '',
@@ -89,7 +85,7 @@ const Profile = () => {
           cvv: ''
         });
 
-        alert("Your order has been processed successfully! It will be for you in week !");
+        alert("Your order has been processed successfully! It will be for you in a week!");
       } catch (error) {
         console.error("Error during checkout:", error);
       }
@@ -116,16 +112,16 @@ const Profile = () => {
         return;
       }
     }
-    
-    const order = { title, price, qty: newQty, image };
+
+    const order = { title, price, qty: newQty, image, userId: localStorage.getItem("userId") };
     try {
       await axios.put(`http://localhost:5000/orderItem/${id}`, order);
-      loadItems();
+      const userId = localStorage.getItem("userId");
+      loadItems(userId);
     } catch (error) {
       console.error("Error updating item:", error);
     }
   };
-
   return (
     <div className="container">
       <div className="row">
@@ -147,8 +143,8 @@ const Profile = () => {
                 </tr>
               </thead>
               <tbody>
-                {items.map((item, index) => (
-                  <tr key={index}>
+                {items.map((item) => (
+                  <tr key={item.id}>
                     <td className="text-center">
                       <img src={item.image} className={style.imgtable} alt="" />
                     </td>

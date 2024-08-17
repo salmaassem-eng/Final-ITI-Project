@@ -1,43 +1,56 @@
 import axios from "axios";
 import { createContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+
 const ProductsContext = createContext();
 
 export const ProductsContextProvider = (props) => {
-  let [products, setProducts] = useState([]);
+  const [products, setProducts] = useState([]);
   const { children } = props;
-  let navigator = useNavigate();
+  const navigate = useNavigate();
+  
+  const userId = localStorage.getItem('userId'); // Retrieve userId from localStorage
 
-  let getProducts = () => {
+  const getProducts = () => {
     axios
       .get("http://localhost:5000/products")
       .then((res) => setProducts(res.data))
       .catch((err) => console.log(err));
   };
-  let getProductById = (productId) => {
+
+  const getProductById = (productId) => {
     axios
-      .get(`http://localhost:5000/products/${productId} `)
+      .get(`http://localhost:5000/products/${productId}`)
       .then((res) => setProducts(res.data))
       .catch((err) => console.log(err));
   };
-  let deleteProduct = (productId) => {
+
+  const deleteProduct = (productId) => {
     axios
       .delete(`http://localhost:5000/products/${productId}`)
       .then(() => getProducts())
       .catch((err) => console.log(err));
   };
 
-  let addProduct = (product) => {
-    axios.post(`http://localhost:5000/products`, product);
-    getProducts();
-    navigator("/shop");
+  const addProduct = (product) => {
+    axios.post(`http://localhost:5000/products`, product)
+      .then(() => {
+        getProducts();
+        navigate("/shop");
+      })
+      .catch((err) => console.log(err));
   };
+
+  const getUserSpecificOrders = () => {
+    // Fetch orders specific to the logged-in user
+    return axios.get(`http://localhost:5000/orderItem?userId=${userId}`)
+      .then(res => res.data)
+      .catch(err => console.log(err));
+  };
+
   useEffect(() => {
     getProducts();
   }, []);
-
-
-  // For pass the functions and data from context to othor pages
 
   return (
     <ProductsContext.Provider
@@ -48,6 +61,7 @@ export const ProductsContextProvider = (props) => {
         getProductById,
         deleteProduct,
         addProduct,
+        getUserSpecificOrders, // Provide this function to other components
       }}
     >
       {children}

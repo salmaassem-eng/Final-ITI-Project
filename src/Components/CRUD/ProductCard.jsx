@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import style from "../../Styles/shop.module.css";
 import axios from "axios";
@@ -10,42 +10,49 @@ export default function ProductCard({
   getProductsById,
 }) {
   let qty = 1;
-  const addItem = async (a, b, c) => {
+
+  const addItem = async (title, price, image) => {
+    const userId = localStorage.getItem('userId'); // Get userId from localStorage
     let isExisting = false;
-    const result = await axios.get("http://localhost:5000/orderItem");
+
+    const result = await axios.get(`http://localhost:5000/orderItem?userId=${userId}`);
     if (result.data.length === 0) {
-      const order = { title: a, price: b, qty: qty, image: c };
-      axios.post(`http://localhost:5000/orderItem`, order);
+      const order = { title, price, qty, image, userId };
+      await axios.post(`http://localhost:5000/orderItem`, order);
     } else {
-      result.data.map((orderItem) => {
-        if (a === orderItem.title) {
+      result.data.forEach((orderItem) => {
+        if (title === orderItem.title) {
           orderItem.qty += 1;
-          const order = {
-            title: a,
-            price: b,
+          const updatedOrder = {
+            title,
+            price,
             qty: orderItem.qty,
-            image: c,
+            image,
+            userId,
           };
-          axios.put(`http://localhost:5000/orderItem/${orderItem.id}`, order);
+          axios.put(`http://localhost:5000/orderItem/${orderItem.id}`, updatedOrder);
           isExisting = true;
         }
       });
-      if (isExisting === false) {
-        const order = {
-          title: a,
-          price: b,
-          qty: qty,
-          image: c,
+
+      if (!isExisting) {
+        const newOrder = {
+          title,
+          price,
+          qty,
+          image,
+          userId,
         };
-        axios.post(`http://localhost:5000/orderItem`, order);
+        await axios.post(`http://localhost:5000/orderItem`, newOrder);
       }
     }
   };
+
   return (
     <div className={`card p-0 border-0 ${style.pbkg}`} key={product.id}>
       <div className={`position-relative`}>
         <button
-          className={`p-2 btn-close position-absolute ${localStorage.getItem('username') == 'rewaa' ? '' : 'd-none'}`}
+          className={`p-2 btn-close position-absolute ${localStorage.getItem('username') === 'rewaa' ? '' : 'd-none'}`}
           onClick={(e) => {
             deleteProduct(product.id);
             e.stopPropagation();
