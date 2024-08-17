@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import style from "../Styles/Signin.module.css";
 import market from "../Images/market.png"
+import { fetchCartItems } from "./Shared/CartCount";
 
 const Profile = () => {
   const productsUrl = "http://localhost:5000/orderItem";
@@ -18,6 +19,7 @@ const Profile = () => {
 
   useEffect(() => {
     loadItems();
+    fetchCartItems();
   }, []);
 
   const loadItems = async () => {
@@ -31,6 +33,7 @@ const Profile = () => {
         totalPrice += item.qty * Number(item.price);
       });
       setTotal(totalPrice.toFixed(2));
+      fetchCartItems();
     } catch (error) {
       console.error("Error fetching items:", error);
     }
@@ -44,6 +47,7 @@ const Profile = () => {
       try {
         await axios.delete(`http://localhost:5000/orderItem/${id}`);
         loadItems();
+        fetchCartItems();
       } catch (error) {
         console.error("Error deleting item:", error);
       }
@@ -112,6 +116,7 @@ const Profile = () => {
         return;
       }
     }
+    
     const order = { title, price, qty: newQty, image };
     try {
       await axios.put(`http://localhost:5000/orderItem/${id}`, order);
@@ -131,7 +136,7 @@ const Profile = () => {
             <h3 className="mb-5">You Cart Is Currently Empty.</h3>
           </div>
           ) : (
-            <table className="table" style={{ margin: "15px" }}>
+            <table className="table mt-4" style={{ margin: "15px" }}>
               <thead className="table-light">
                 <tr>
                   <th className="text-center">Book</th>
@@ -218,12 +223,12 @@ const Profile = () => {
               <hr />
 
               <div className="col-md-12">
-                <label htmlFor="userName" className="form-label">
+                <p  className="text mb-1">
                   User Name
-                </label>
+                </p>
                 <input
                   type="text"
-                  className="form-control"
+                  className="form-control mb-2"
                   id="userName"
                   name="userName"
                   value={formData.userName}
@@ -231,12 +236,12 @@ const Profile = () => {
                 />
               </div>
               <div className="col-md-12">
-                <label htmlFor="inputEmail4" className="form-label">
+                <p className="text mb-1">
                   Email
-                </label>
+                </p>
                 <input
                   type="email"
-                  className="form-control"
+                  className="form-control mb-2"
                   id="inputEmail4"
                   name="email"
                   value={formData.email}
@@ -244,38 +249,31 @@ const Profile = () => {
                 />
               </div>
               <div className="col-12">
-                <label htmlFor="inputAddress" className="form-label">
+                <p  className="text mb-1">
                   Address
-                </label>
+                </p>
                 <input
                   type="text"
-                  className="form-control"
-                  id="inputAddress"
+                  className="form-control mb-2"
                   name="address"
                   placeholder="1234 Main St"
                   value={formData.address}
                   onChange={handleInputChange}
                 />
               </div>
-              <div className="col-md-12 position-relative">
-                <label htmlFor="cardNumber" className="form-label">
+              <div className="col-md-12 position-relative ">
+                <p className="text mb-1">
                   Card Number
-                </label>
-                <div className="input-group has-validation">
+                </p>
                   <input
                     type="text"
-                    className="form-control"
-                    id="cardNumber"
+                    className="form-control mb-2"
                     name="cardNumber"
                     aria-describedby="validationTooltipUsernamePrepend"
                     required
                     value={formData.cardNumber}
                     onChange={handleInputChange}
                   />
-                  <div className="invalid-tooltip">
-                    Please enter a valid card number.
-                  </div>
-                </div>
               </div>
               <div className="col-12">
                 <div className="d-flex flex-row">
@@ -283,7 +281,7 @@ const Profile = () => {
                     <div className="d-flex flex-column">
                       <p className="text mb-1">Expiry</p>
                       <input
-                        className="form-control"
+                        className="form-control "
                         type="text"
                         name="expiry"
                         placeholder="MM/YYYY"
@@ -330,5 +328,3 @@ const Profile = () => {
 };
 
 export default Profile;
-
-    
