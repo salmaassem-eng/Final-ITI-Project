@@ -38,7 +38,9 @@ export default function Home() {
             </br> than just a place to buy books—it's a community hub for book lovers, readers, <br>
             </br> and lifelong learners.
           </p>
+          <div>
           <Link className={style.link3} to="/Shop">Shop Now</Link>
+          </div>
         </div>
       </div>
       <div className={`container m-auto p-5 mb-5`}>
