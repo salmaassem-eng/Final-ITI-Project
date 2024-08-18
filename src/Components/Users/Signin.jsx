@@ -1,70 +1,113 @@
-import React from "react";
-import { Link, useNavigate } from "react-router-dom";
-import { useState } from "react";
+import React, { useState } from "react";
+import { useNavigate, Link } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
-import "../../Styles/";
+import "react-toastify/dist/ReactToastify.css";
+import "../../Styles"; // Update path as necessary
+
 const Signin = () => {
-  const [id, idchange] = useState("");
-  const [name, namechange] = useState("");
-  const [password, passwordchange] = useState("");
-  const [email, emailchange] = useState("");
-  const [phone, phonechange] = useState("");
-  const [country, countrychange] = useState("india");
-  const [address, addresschange] = useState("");
-  const [gender, genderchange] = useState("female");
+  const [id, setId] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const [email, setEmail] = useState("");
+
 
   const navigate = useNavigate();
 
-  const IsValidate = () => {
-    let isproceed = true;
-    let errormessage = "Please enter the value in ";
-    if (id === null || id === "") {
-      isproceed = false;
-      errormessage += " Username";
-    }
-    if (name === null || name === "") {
-      isproceed = false;
-      errormessage += " Fullname";
-    }
-    if (password === null || password === "") {
-      isproceed = false;
-      errormessage += " Password";
+  const isValidate = () => {
+    let isProceed = true;
+    let errorMessage = "Please enter the value in ";
+
+    if (!id) {
+      isProceed = false;
+      errorMessage += " Username";
     }
 
+    if (!password) {
+      isProceed = false;
+      errorMessage += " Password";
+    }
 
-    if (!isproceed) {
-      toast.warning(errormessage);
-    } 
-    
-    return isproceed;
+    if (password !== confirmPassword) {
+      isProceed = false;
+      errorMessage += " Confirm Password";
+    }
+
+    if (!isProceed) {
+      toast.warning(errorMessage);
+    }
+
+    return isProceed;
   };
 
-  const handlesubmit = (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    let regobj = {
-      id,
-      name,
-      password,
-      email,
-      phone,
-      country,
-      address,
-      gender,
-    };
-    if (IsValidate()) {
-      //console.log(regobj);
+    if (isValidate()) {
+      const regObj = {
+        id,
+        password,
+        email,
+      };
+
       fetch("http://localhost:5000/User", {
         method: "POST",
-        headers: { "content-type": "application/json" },
-        body: JSON.stringify(regobj),
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(regObj),
       })
         .then((res) => {
           toast.success("Registered successfully.");
           navigate("/Login");
         })
         .catch((err) => {
-          toast.error("Failed :" + err.message);
+          toast.error("Failed: " + err.message);
         });
     }
   };
-}
+
+  return (
+    <div className="container">
+      <div className="center">
+        <h2>Register</h2>
+        <form onSubmit={handleSubmit}>
+          <input
+            type="text"
+            placeholder="Username"
+            value={id}
+            onChange={(e) => setId(e.target.value)}
+            required
+            minLength="3"
+          />
+          <input
+            type="email"
+            placeholder="Email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            required
+          />
+          <input
+            type="password"
+            placeholder="Password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            required
+            minLength="6"
+          />
+          <input
+            type="password"
+            placeholder="Confirm Password"
+            value={confirmPassword}
+            onChange={(e) => setConfirmPassword(e.target.value)}
+            required
+            minLength="6"
+          />
+          <div className="button-container">
+            <button type="submit">Register</button>
+          </div>
+        </form>
+        <ToastContainer />
+        <p>Already a member? <Link to="/Login">Login</Link></p>
+      </div>
+    </div>
+  );
+};
+
+export default Signin;

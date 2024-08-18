@@ -22,7 +22,7 @@ import ScrollToTop from './Components/ScrollToTop.jsx';
 
 const App = () => {
   const [isLogin, setIsLogin] = useState(false);
-  const hideNavAndFooter = window.location.pathname === '/Login' || window.location.pathname === '/signin';
+  const hideNavAndFooter = window.location.pathname === '/Login' || window.location.pathname === '/Signin';
 
   return (
     <Router>
@@ -34,7 +34,7 @@ const App = () => {
             <Route path={path} element={<Home />} key={index} />
           ))}
           <Route path="/Login" element={<Login setIsLogin={setIsLogin} />} />
-          <Route path="/signin" element={<Signin />} />
+          <Route path="/Signin" element={<Signin />} />
           <Route path="/cart" element={<Profile />} />
           <Route path="shop" element={<Shop />} />
           <Route path="shop/:id" element={<Details />} />
