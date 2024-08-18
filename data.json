@@ -13,7 +13,7 @@
     },
     {
       "id": "37",
-      "title": " The Box in the Woods",
+      "title": " The Box in the Woodss",
       "description": "There is a stack of photos on their lap, one for every day of their life, and now they must choose the pictures that capture their most treasured memories, which will be placed in a beautiful lantern. Once completed, it will be set spinning, and their cherished moments will flash before their eyes, guiding them to another world.",
       "price": 54,
       "discountPercentage": 12.96,
@@ -225,10 +225,174 @@
       "stock": "31",
       "thumbnail": "https://www.energyfit.com.mk/wp-content/plugins/ap_background/images/default/default_large.png",
       "category": "31"
+<<<<<<< HEAD
+=======
+    },
+    {
+      "id": "3l61mol",
+      "title": "12",
+      "price": "122",
+      "discountPercentage": "121212",
+      "description": "21212",
+      "stock": "212",
+      "thumbnail": "https://www.energyfit.com.mk/wp-content/plugins/ap_background/images/default/default_large.png",
+      "category": "2"
+    },
+    {
+      "id": "blucw28",
+      "title": "2",
+      "price": "12",
+      "discountPercentage": "21",
+      "description": "23",
+      "stock": "21",
+      "thumbnail": "https://www.energyfit.com.mk/wp-content/plugins/ap_background/images/default/default_large.png",
+      "category": "2"
+    },
+    {
+      "id": "9uy0kts",
+      "title": "21",
+      "price": "12",
+      "discountPercentage": "21",
+      "description": "qs",
+      "stock": "21",
+      "thumbnail": "https://www.energyfit.com.mk/wp-content/plugins/ap_background/images/default/default_large.png",
+      "category": "s"
+    },
+    {
+      "id": "jc35f48",
+      "title": "2w1",
+      "price": "21",
+      "discountPercentage": "12",
+      "description": "2112",
+      "stock": "121",
+      "thumbnail": "12",
+      "category": "21"
+    },
+    {
+      "id": "547tcy6",
+      "title": "1",
+      "price": "12",
+      "discountPercentage": "12",
+      "description": "2",
+      "stock": "121",
+      "thumbnail": "12",
+      "category": "1"
+    },
+    {
+      "id": "8rm0xvp",
+      "title": "1",
+      "price": "1",
+      "discountPercentage": "2",
+      "description": "1",
+      "stock": "12",
+      "thumbnail": "12",
+      "category": "12"
+    },
+    {
+      "id": "c6ajunn",
+      "title": "1",
+      "price": "1",
+      "discountPercentage": "1",
+      "description": "1",
+      "stock": "1",
+      "thumbnail": "https://www.energyfit.com.mk/wp-content/plugins/ap_background/images/default/default_large.png",
+      "category": "w"
+    },
+    {
+      "id": "6uuxork",
+      "title": "q",
+      "price": "1",
+      "discountPercentage": "1",
+      "description": "1",
+      "stock": "1",
+      "thumbnail": "1",
+      "category": "11"
+    },
+    {
+      "id": "4oyvmxk",
+      "title": "213",
+      "price": "12",
+      "discountPercentage": "21",
+      "description": "11",
+      "stock": "11212",
+      "thumbnail": "https://www.energyfit.com.mk/wp-content/plugins/ap_background/images/default/default_large.png",
+      "category": "1"
+    },
+    {
+      "id": "qrtldyv",
+      "title": "1",
+      "price": "1",
+      "discountPercentage": "1",
+      "description": "1",
+      "stock": "1",
+      "thumbnail": "https://www.energyfit.com.mk/wp-content/plugins/ap_background/images/default/default_large.png",
+      "category": "1"
+    },
+    {
+      "id": "yj6p05j",
+      "title": "1",
+      "price": "1",
+      "discountPercentage": "12",
+      "description": "2",
+      "stock": "12",
+      "thumbnail": "https://www.energyfit.com.mk/wp-content/plugins/ap_background/images/default/default_large.png",
+      "category": "1"
+    },
+    {
+      "id": "t4nawlx",
+      "title": "1",
+      "price": "1",
+      "discountPercentage": "1",
+      "description": "1",
+      "stock": "1",
+      "thumbnail": "https://www.energyfit.com.mk/wp-content/plugins/ap_background/images/default/default_large.png",
+      "category": "1"
+    },
+    {
+      "id": "s2df5hr",
+      "title": "1",
+      "price": "1",
+      "discountPercentage": "1",
+      "description": "1",
+      "stock": "1",
+      "thumbnail": "https://www.energyfit.com.mk/wp-content/plugins/ap_background/images/default/default_large.png",
+      "category": "1"
+    },
+    {
+      "id": "pgiqh2d",
+      "title": "1",
+      "price": "2",
+      "discountPercentage": "11",
+      "description": "21",
+      "stock": "2",
+      "thumbnail": "https://www.energyfit.com.mk/wp-content/plugins/ap_background/images/default/default_large.png",
+      "category": "12"
+    },
+    {
+      "id": "l4940bf",
+      "title": "1",
+      "price": "1",
+      "discountPercentage": "1",
+      "description": "1",
+      "stock": "1",
+      "thumbnail": "https://www.energyfit.com.mk/wp-content/plugins/ap_background/images/default/default_large.png",
+      "category": "1"
+    },
+    {
+      "id": "hbkjjmm",
+      "title": "2",
+      "price": "2",
+      "discountPercentage": "2",
+      "description": "2",
+      "stock": "2",
+      "thumbnail": "https://www.energyfit.com.mk/wp-content/plugins/ap_background/images/default/default_large.png",
+      "category": "2"
+>>>>>>> 9feae20fb41072b995cbf117a00506481c8ee9fa
     }
   ],
   "orderItem": [
     {
+<<<<<<< HEAD
       "id": "8479",
       "title": "King of Pride (Kings of Sin #2) Ana Huang",
       "price": 65.55,
@@ -238,16 +402,27 @@
     {
       "id": "9b0f",
       "title": " The Box in the Woods",
+=======
+      "id": "98f5",
+      "title": "qw1",
+      "price": "1",
+      "qty": 1,
+      "image": "https://www.energyfit.com.mk/wp-content/plugins/ap_background/images/default/default_large.png"
+    },
+    {
+      "id": "2de3",
+      "title": " The Box in the Woodss",
+>>>>>>> 9feae20fb41072b995cbf117a00506481c8ee9fa
       "price": 54,
-      "qty": 2,
+      "qty": 1,
       "image": "https://bookworlduae.com/cdn/shop/files/CopyofBookworldMockup_4_b94c1f06-03df-4cf6-860b-e33830dbe236.png?v=1723632980&width=713"
     },
     {
-      "id": "2bf1",
-      "title": "Once Upon A Broken Heart w",
-      "price": 48.5,
+      "id": "c250",
+      "title": " The Lantern of Lost Memories",
+      "price": 34,
       "qty": 1,
-      "image": "https://bookworlduae.com/cdn/shop/files/image_590e1248-fb4c-414c-a1b9-f3c8c3b41524.jpg?v=1688598704&width=713"
+      "image": "https://bookworlduae.com/cdn/shop/files/IMG-0742.jpg?v=1723547578&width=713"
     }
   ],
   "User": [

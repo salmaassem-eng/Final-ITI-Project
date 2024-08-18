@@ -34,14 +34,14 @@ function EditProducts() {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setPrdct((prev) => ({
+    setPrdct((prev) => ({ 
       ...prev,
       [name]: value,
     }));
   };
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
+    e.preventDefault(); //cancel refresh of form 
     try {
       await axios.patch(`http://localhost:5000/products/${prdct.id}`, prdct);
       setSuccess(true);

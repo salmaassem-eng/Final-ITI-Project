@@ -1,11 +1,15 @@
 import React, { useEffect, useRef, useState, useContext } from "react";
 import ProductsContext from "../../ContextAPIs/ProductsContext";
 import { Alert } from "@mui/material";
+import { useNavigate } from "react-router-dom";
+
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../../Styles/AddProduct.css";
 
 function AddProducts() {
   const inputRef = useRef(null);
+  const navigator = useNavigate();
+
   const [product, setProduct] = useState({
     id: Math.random().toString(36).substring(2, 9),
     title: "",
@@ -20,6 +24,8 @@ function AddProducts() {
 
   const { addProduct } = useContext(ProductsContext);
   const [alertMessage, setAlertMessage] = useState("");
+  const [ setSuccess] = useState(false);
+
 
   useEffect(() => {
     inputRef.current?.focus();
@@ -36,7 +42,13 @@ function AddProducts() {
     setAlertMessage("Product added successfully!");
     e.preventDefault();
     addProduct(product);
-   
+    setSuccess(true);
+    setTimeout(() => {
+      setSuccess(false);
+      navigator("/shop");
+    }, 2000);
+
+    
     setProduct({
       id: Math.random().toString(36).substring(2, 9),
       title: "",
@@ -56,16 +68,7 @@ function AddProducts() {
         <div className="col-12 col-md-8 col-lg-6">
           <div className="p-4 shadow-lg rounded-5">
             <h1 className="text-center">Add Product</h1>
-            {alertMessage && (
-              <Alert
-                variant="filled"
-                severity="success"
-                onClose={() => setAlertMessage("")}
-                style={{ marginBottom: "1rem" }}
-              >
-                {alertMessage}
-              </Alert>
-            )}
+           
             <form onSubmit={handleSubmit}>
               <div className="mb-3">
                 <label htmlFor="title" className="form-label">
@@ -185,6 +188,16 @@ function AddProducts() {
                 Add
               </button>
             </form>
+            {alertMessage && (
+              <Alert
+                variant="filled"
+                severity="success"
+                onClose={() => setAlertMessage("")}
+                style={{ marginBottom: "1rem" }}
+              >
+                {alertMessage}
+              </Alert>
+            )}
           </div>
         </div>
       </div>
