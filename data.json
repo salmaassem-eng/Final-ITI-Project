@@ -2,14 +2,29 @@
   "products": [
     {
       "id": "35",
+<<<<<<< HEAD
       "title": " The Lantern of Lost Memories ",
+=======
+      "title": " The Lantern of Lost Memories",
+>>>>>>> main
       "description": "There is a stack of photos on their lap, one for every day of their life, and now they must choose the pictures that capture their most treasured memories, which will be placed in a beautiful lantern. Once completed, it will be set spinning, and their cherished moments will flash before their eyes, guiding them to another world.",
       "price": 34,
       "discountPercentage": 12.96,
       "rating": 4.7,
       "stock": 68,
-      "category": " fiction",
+      "category": "fiction",
       "thumbnail": "https://bookworlduae.com/cdn/shop/files/IMG-0742.jpg?v=1723547578&width=713"
+    },
+    {
+      "id": "37",
+      "title": " The Box in the Woods",
+      "description": "There is a stack of photos on their lap, one for every day of their life, and now they must choose the pictures that capture their most treasured memories, which will be placed in a beautiful lantern. Once completed, it will be set spinning, and their cherished moments will flash before their eyes, guiding them to another world.",
+      "price": 54,
+      "discountPercentage": 12.96,
+      "rating": 4.7,
+      "stock": 68,
+      "category": "History",
+      "thumbnail": "https://bookworlduae.com/cdn/shop/files/CopyofBookworldMockup_4_b94c1f06-03df-4cf6-860b-e33830dbe236.png?v=1723632980&width=713"
     },
     {
       "id": "39",
@@ -21,28 +36,6 @@
       "stock": 94,
       "category": "fiction",
       "thumbnail": "https://bookworlduae.com/cdn/shop/files/image_590e1248-fb4c-414c-a1b9-f3c8c3b41524.jpg?v=1688598704&width=713"
-    },
-    {
-      "id": "48",
-      "title": "Lady Tan's Circle Of Women by Lisa See",
-      "description": "The latest historical novel from New York Times bestselling author Lisa See, inspired by the true story of a woman physician from 15th-century China. perfect for fans of Sees classic Snow Flower and the Secret Fan and The Island of Sea Women.",
-      "price": 88,
-      "discountPercentage": 12.96,
-      "rating": 4,
-      "stock": 94,
-      "category": "history fiction",
-      "thumbnail": "https://bookworlduae.com/cdn/shop/files/IMG-1610.jpg?v=1706202918&width=713"
-    },
-    {
-      "id": "49",
-      "title": "Birthday Girl by Penelope Douglas",
-      "description": "True love comes from the most forbidden places in this TikTok smash hit from New York Times bestselling author Penelope Douglas, now with bonus material!",
-      "price": 88.23,
-      "discountPercentage": 12.96,
-      "rating": 4.1,
-      "stock": 94,
-      "category": "romance",
-      "thumbnail": "https://bookworlduae.com/cdn/shop/files/image_8afc897b-d2f7-413d-955b-2cb544877e40.png?v=1686137612&width=713"
     },
     {
       "id": "50",
@@ -90,7 +83,7 @@
     },
     {
       "id": "42",
-      "title": "The Brothers Hawthorne by Jennifer Lynn Barnes",
+      "title": "The Brothers Hawthorne",
       "description": "Grayson Hawthorne was raised as the heir apparent to his billionaire grandfather, taught from the cradle to put family first. So when Grayson's half-sisters find themselves in trouble, he's determined to care of the problem - efficiently, effectively, mercilessly. And without getting emotionally involved.",
       "price": 68,
       "discountPercentage": 12.96,
@@ -112,7 +105,7 @@
     },
     {
       "id": "44",
-      "title": "The Housmaid is Watching by Frieda McFadden78",
+      "title": "The Housmaid is Watching",
       "description": "I used to clean other people's houses―now, I can't believe this home is actually mine. The charming kitchen, the quiet cul-de-sac, the huge yard where my kids can play. My husband and I saved for years to give our children the life they deserve.",
       "price": "81",
       "discountPercentage": "13.96",
@@ -134,7 +127,7 @@
     },
     {
       "id": "46",
-      "title": "The Girls Who Disappeared by Claire Douglas",
+      "title": "The Girls Who Disappeared",
       "description": "Twenty years ago: One rainy night, Olivia Rutherford is driving three friends home when a figure in the road causes her to swerve and crash. Regaining consciousness, she finds herself alone in the car - her friends have vanished.",
       "price": 54.94,
       "discountPercentage": 12.96,
@@ -156,7 +149,7 @@
     },
     {
       "id": "48",
-      "title": "Hollow Heathens: Book of Blackwell by Nicole Fiorina",
+      "title": "Hollow Heathens: Book of Blackwell",
       "description": "From Susan Dennard, the New York Times bestselling author of the Witchlands series, comes a haunting and high-octane contemporary fantasy about the magic it takes to face your fears in a nightmare-filled forest and the mettle required to face the secrets hiding in the dark corners of your own family.",
       "price": 55.99,
       "discountPercentage": 12.96,
@@ -167,7 +160,7 @@
     },
     {
       "id": "49",
-      "title": "A Court This Cruel and Lovely by Stacia Stark",
+      "title": "A Court This Cruel and Lovely",
       "description": "Just hours after humans are born, the gods take what little power we have. In return, they protect our borders from the vicious, merciless fae. The humans who manage to keep their power are known as the corrupt. And they are put to death.",
       "price": 90.9,
       "discountPercentage": 12.96,
@@ -178,7 +171,7 @@
     },
     {
       "id": "490",
-      "title": "The Mask of Mirrors (Rook and Rose #1) by M. A. Carrick",
+      "title": "The Mask of Mirrors (Rook and Rose #1)",
       "description": "Darkly magical and beautifully imagined, The Mask of Mirrors is the unmissable start to the Rook & Rose trilogy, a rich and dazzling fantasy adventure in which a con artist, a vigilante, and a crime lord must unite to save their city.",
       "price": 50.9,
       "discountPercentage": 12.96,
@@ -226,6 +219,16 @@
       "stock": "3",
       "thumbnail": "https://www.energyfit.com.mk/wp-content/plugins/ap_background/images/default/default_large.png",
       "category": "213"
+    },
+    {
+      "id": "w7l0455",
+      "title": "rewasaaaa",
+      "price": "33",
+      "discountPercentage": "13",
+      "description": "31",
+      "stock": "31",
+      "thumbnail": "https://www.energyfit.com.mk/wp-content/plugins/ap_background/images/default/default_large.png",
+      "category": "31"
     },
     {
       "id": "3l61mol",
@@ -276,9 +279,52 @@
       "stock": "11",
       "thumbnail": "https://www.energyfit.com.mk/wp-content/plugins/ap_background/images/default/default_large.png",
       "category": "1"
+    },
+    {
+      "id": "756d",
+      "title": "12",
+      "price": "12",
+      "qty": 1,
+      "image": "2"
+    },
+    {
+      "id": "1f80",
+      "title": "232",
+      "price": "123",
+      "qty": 1,
+      "image": "https://www.energyfit.com.mk/wp-content/plugins/ap_background/images/default/default_large.png"
     }
   ],
-  "orderItem": [],
+  "orderItem": [
+    {
+      "id": "666e",
+      "title": "Birthday Girl by Penelope Douglas",
+      "price": 88.23,
+      "qty": 1,
+      "image": "https://bookworlduae.com/cdn/shop/files/image_8afc897b-d2f7-413d-955b-2cb544877e40.png?v=1686137612&width=713"
+    },
+    {
+      "id": "8479",
+      "title": "King of Pride (Kings of Sin #2) Ana Huang",
+      "price": 65.55,
+      "qty": 1,
+      "image": "https://bookworlduae.com/cdn/shop/files/CopyofPRE-ORDER-2023-11-09T043042.597.png?v=1699533057&width=713"
+    },
+    {
+      "id": "9b0f",
+      "title": " The Box in the Woods",
+      "price": 54,
+      "qty": 2,
+      "image": "https://bookworlduae.com/cdn/shop/files/CopyofBookworldMockup_4_b94c1f06-03df-4cf6-860b-e33830dbe236.png?v=1723632980&width=713"
+    },
+    {
+      "id": "2bf1",
+      "title": "Once Upon A Broken Heart w",
+      "price": 48.5,
+      "qty": 1,
+      "image": "https://bookworlduae.com/cdn/shop/files/image_590e1248-fb4c-414c-a1b9-f3c8c3b41524.jpg?v=1688598704&width=713"
+    }
+  ],
   "User": [
     {
       "id": "rewaa",
