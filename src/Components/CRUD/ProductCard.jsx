@@ -33,10 +33,8 @@ export default function ProductCard({
       setTimeout(() => {
         setAlertMessage("");
         setAlertType("");
-      }, 1000);
+      }, 1500);
     } catch (error) {
-      console.error("Error adding item to cart:", error);
-      // Show error alert
       setAlertMessage("Failed to add item to cart. Please try again.");
       setAlertType("error");
 
@@ -44,7 +42,7 @@ export default function ProductCard({
       setTimeout(() => {
         setAlertMessage("");
         setAlertType("");
-      }, 1000);
+      }, 1500);
     }
   };
 
@@ -85,6 +83,9 @@ export default function ProductCard({
             {product.discountPercentage > 0 && (
               <span className={style.discount}>$ {product.price}</span>
             )}
+          </p>
+          <p className={`card-text text-dark fw-bold`}>
+            {product.category}
           </p>
           {localStorage.getItem('username') === 'rewaa' && (
             <Link to={`/edit/${product.id}`} className={`btn btn-dark px-5 ${style.pbtn}`}>
