@@ -69,13 +69,13 @@ export default function ProductCard({
           <Link to={`/shop/${product.id}`}>
             <img
               src={product.thumbnail}
-              className={`card-img-top object-fit-cover`}
+              className={"card-img-top object-fit-cover"}
               alt="Product-img"
               height="300"
             />
           </Link>
         </div>
-        <div className={`card-body text-center`}>
+        <div className={"card-body text-center"}>
           <h5 className={`card-title ${style.head}`}>{product.title}</h5>
           <p className={`card-text text-dark fw-bold`}>
             ${(
@@ -83,7 +83,7 @@ export default function ProductCard({
               (product.price * product.discountPercentage) / 100
             ).toFixed(2)}
             {product.discountPercentage > 0 && (
-              <span className={style.discount}> ${product.price}</span>
+              <span className={style.discount}>$ {product.price}</span>
             )}
           </p>
           {localStorage.getItem('username') === 'rewaa' && (

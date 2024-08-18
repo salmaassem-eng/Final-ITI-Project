@@ -1,18 +1,44 @@
 import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
-import styles from "../../Styles/Signin.module.css"; // Ensure this matches your actual path
+import main from "../../Styles/Signin.module.css";
 import image from "../../Images/WhatsApp Image 2023-08-17 at 1.03.18 AM.jpeg";
-
 const Login = ({ setIsLogin }) => {
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
+  const [username, usernameupdate] = useState("");
+  const [password, passwordupdate] = useState("");
 
-  const navigate = useNavigate();
-
+  const usenavigate = useNavigate();
+  
   useEffect(() => {
     localStorage.clear();
   }, []);
+
+  const ProceedLogin = (e) => {
+    e.preventDefault();
+    if (validate()) {
+      fetch("http://localhost:5000/User/" + username)
+        .then((res) => {
+          return res.json();
+        })
+        .then((resp) => {
+          if (Object.keys(resp).length === 0) {
+            toast.error("Please Enter valid username");
+          } else {
+            if (resp.password === password) {
+              toast.success("Success");
+              localStorage.setItem("username", username);
+              setIsLogin(true);
+              usenavigate("/Home");
+            } else {
+              toast.error("Please Enter valid credentials");
+            }
+          }
+        })
+        .catch((err) => {
+          toast.error("Login Failed due to :" + err.message);
+        });
+    }
+  };
 
   const validate = () => {
     let result = true;
@@ -26,66 +52,58 @@ const Login = ({ setIsLogin }) => {
     }
     return result;
   };
-
-  const handleLogin = (e) => {
-    e.preventDefault();
-    if (validate()) {
-      fetch("http://localhost:5000/User/" + username)
-        .then((res) => res.json())
-        .then((resp) => {
-          if (Object.keys(resp).length === 0) {
-            toast.error("Please Enter valid username");
-          } else if (resp.password === password) {
-            toast.success("Success");
-            localStorage.setItem("username", username);
-            setIsLogin(true);
-            navigate("/Home");
-          } else {
-            toast.error("Please Enter valid credentials");
-          }
-        })
-        .catch((err) => {
-          toast.error("Login Failed due to :" + err.message);
-        });
-    }
-  };
-
   return (
-    <section className={styles.section}>
-      <div className={styles.signin}>
-        <div className={styles.content}>
-          <h2>Sign in</h2>
-          <form className={styles.form} onSubmit={handleLogin}>
-            <div className={styles.inputBox}>
-              <input
-                type="text"
-                value={username}
-                onChange={(e) => setUsername(e.target.value)}
-                required
-              />
-              <i>Username</i>
+    <div className="row">
+      <div className={main.flexy}>
+   
+        <form onSubmit={ProceedLogin}>
+          <div className={main.card}>
+            <h1 style={{ color: "#ae7d34" }}> Log in</h1>
+
+            <div className="card-body">
+              <div className="form-group">
+                <label>
+                  User Name <span className="errmsg text-danger">*</span>
+                </label>
+                <ToastContainer />
+                <input
+                  value={username}
+                  onChange={(e) => usernameupdate(e.target.value)}
+                  className="form-control"
+                ></input>
+              </div>
+              <div className="form-group">
+                <label>
+                  Password <span className="errmsg text-danger">*</span>
+                </label>
+                <input
+                  type="password"
+                  value={password}
+                  onChange={(e) => passwordupdate(e.target.value)}
+                  className="form-control"
+                ></input>
+              </div>
             </div>
-            <div className={styles.inputBox}>
-              <input
-                type="password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                required
-              />
-              <i>Password</i>
+            <div className="card-footer m-2">
+              <button
+                type="submit"
+                className="btn"
+                style={{ backgroundColor: "#354c5f", color: "white" }}
+              >
+                Login
+              </button>
+              <Link
+                className="btn ms-2"
+                to={"/Signin"}
+                style={{ backgroundColor: "#ae7d34", color: "white" }}
+              >
+                New User
+              </Link>
             </div>
-            <div className={styles.links}>
-              <Link to="/ForgotPassword">Forgot Password?</Link>
-              <Link to="/Signin">New User?</Link>
-            </div>
-            <div className={styles.inputBox}>
-              <input type="submit" value="Login" />
-            </div>
-          </form>
-          <ToastContainer />
-        </div>
+          </div>
+        </form>
       </div>
-    </section>
+    </div>
   );
 };
 
