@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import "../../Styles"; // Update path as necessary
+import "../../Styles/loginPage.css"; 
 
 const Signin = () => {
   const [id, setId] = useState("");
@@ -63,8 +63,11 @@ const Signin = () => {
     }
   };
 
+
   return (
-    <div className="container">
+    <div className="parent">
+      <div className="top"></div>
+      <div className="bottom"></div>
       <div className="center">
         <h2>Register</h2>
         <form onSubmit={handleSubmit}>
