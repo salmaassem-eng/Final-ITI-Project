@@ -86,7 +86,7 @@ export default function ProductCard({
             )}
           </p>
           {localStorage.getItem('username') === 'rewaa' && (
-            <Link to={`/edit/${product.id}} className={btn btn-dark px-5 ${style.pbtn}`}>
+            <Link to={`/edit/${product.id}`} className={`btn btn-dark px-5 ${style.pbtn}`}>
               Edit
             </Link>
           )}

@@ -278,24 +278,7 @@
       "category": "1"
     }
   ],
-  "orderItem": [
-    {
-      "title": "Once Upon A Broken Heart w",
-      "price": 48.5,
-      "qty": 8,
-      "image": "https://bookworlduae.com/cdn/shop/files/image_590e1248-fb4c-414c-a1b9-f3c8c3b41524.jpg?v=1688598704&width=713",
-      "userId": null,
-      "id": "0557"
-    },
-    {
-      "id": "98f8",
-      "title": " The Lantern of Lost Memories by Sanaka Hiiragi",
-      "price": 34,
-      "qty": 1,
-      "image": "https://bookworlduae.com/cdn/shop/files/IMG-0742.jpg?v=1723547578&width=713",
-      "userId": null
-    }
-  ],
+  "orderItem": [],
   "User": [
     {
       "id": "rewaa",
