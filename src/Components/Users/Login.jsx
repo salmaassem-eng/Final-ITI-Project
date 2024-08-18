@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
-import main from "../../Styles/loginPage.css";
+import  "../../Styles/loginPage.css";
 
 const Login = ({ setIsLogin }) => {
   const [username, usernameupdate] = useState("");
   const [password, passwordupdate] = useState("");
 
   const usenavigate = useNavigate();
-  
+
   useEffect(() => {
     localStorage.clear();
   }, []);
@@ -16,8 +16,11 @@ const Login = ({ setIsLogin }) => {
   const ProceedLogin = (e) => {
     e.preventDefault();
     if (validate()) {
-      fetch("http://localhost:5000/User/" + username)
+      fetch(`http://localhost:5000/User/${username}`)
         .then((res) => {
+          if (!res.ok) {
+            throw new Error("Network response was not ok " + res.statusText);
+          }
           return res.json();
         })
         .then((resp) => {
@@ -52,39 +55,27 @@ const Login = ({ setIsLogin }) => {
     }
     return result;
   };
+
   return (
-    <div className="row">
-      <div className={main.flexy}>
-
+    <div className="parent" onClick={() => {}}>
+      <div className="top"></div>
+      <div className="bottom"></div>
+      <div className="center">
+        <h2>Please Sign In</h2>
         <form onSubmit={ProceedLogin}>
-          <div className={main.card}>
-            <h1 style={{ color: "#ae7d34" }}> Log in</h1>
-
-            <div className="card-body">
-              <div className="form-group">
-                <label>
-                  User Name <span className="errmsg text-danger">*</span>
-                </label>
-                <ToastContainer />
-                <input
-                  value={username}
-                  onChange={(e) => usernameupdate(e.target.value)}
-                  className="form-control"
-                ></input>
-              </div>
-              <div className="form-group">
-                <label>
-                  Password <span className="errmsg text-danger">*</span>
-                </label>
-                <input
-                  type="password"
-                  value={password}
-                  onChange={(e) => passwordupdate(e.target.value)}
-                  className="form-control"
-                ></input>
-              </div>
-            </div>
-            <div className="card-footer m-2">
+          <input
+            type="text"
+            placeholder="email"
+            value={username}
+            onChange={(e) => usernameupdate(e.target.value)}
+          />
+          <input
+            type="password"
+            placeholder="password"
+            value={password}
+            onChange={(e) => passwordupdate(e.target.value)}
+          />
+          <div className="card-footer m-2">
               <button
                 type="submit"
                 className="btn"
@@ -100,8 +91,8 @@ const Login = ({ setIsLogin }) => {
                 New User
               </Link>
             </div>
-          </div>
         </form>
+        <ToastContainer />
       </div>
     </div>
   );
