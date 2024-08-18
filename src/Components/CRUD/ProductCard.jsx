@@ -26,25 +26,25 @@ export default function ProductCard({
       }
 
       // Show success alert
-      setAlertMessage(`Item "${title}" added to cart.`);
+      setAlertMessage(`Product added successfully`);
       setAlertType("success");
 
-      // Hide alert after 3 seconds
+      // Hide alert after 1.5 seconds
       setTimeout(() => {
         setAlertMessage("");
         setAlertType("");
-      }, 3000);
+      }, 1000);
     } catch (error) {
       console.error("Error adding item to cart:", error);
       // Show error alert
       setAlertMessage("Failed to add item to cart. Please try again.");
       setAlertType("error");
 
-      // Hide alert after 3 seconds
+      // Hide alert after 1.5 seconds
       setTimeout(() => {
         setAlertMessage("");
         setAlertType("");
-      }, 3000);
+      }, 1000);
     }
   };
 
@@ -101,7 +101,6 @@ export default function ProductCard({
           </button>
         </div>
       </div>
-      {/* Alert message below the card */}
       {alertMessage && (
         <div className={`${style.alertMessage} ${style[`alert${alertType.charAt(0).toUpperCase() + alertType.slice(1)}`]}`} role="alert">
           {alertMessage}
