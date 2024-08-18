@@ -225,8 +225,6 @@
       "stock": "31",
       "thumbnail": "https://www.energyfit.com.mk/wp-content/plugins/ap_background/images/default/default_large.png",
       "category": "31"
-<<<<<<< HEAD
-=======
     },
     {
       "id": "3l61mol",
@@ -387,12 +385,10 @@
       "stock": "2",
       "thumbnail": "https://www.energyfit.com.mk/wp-content/plugins/ap_background/images/default/default_large.png",
       "category": "2"
->>>>>>> 9feae20fb41072b995cbf117a00506481c8ee9fa
     }
   ],
   "orderItem": [
     {
-<<<<<<< HEAD
       "id": "8479",
       "title": "King of Pride (Kings of Sin #2) Ana Huang",
       "price": 65.55,
@@ -402,7 +398,6 @@
     {
       "id": "9b0f",
       "title": " The Box in the Woods",
-=======
       "id": "98f5",
       "title": "qw1",
       "price": "1",
@@ -412,7 +407,6 @@
     {
       "id": "2de3",
       "title": " The Box in the Woodss",
->>>>>>> 9feae20fb41072b995cbf117a00506481c8ee9fa
       "price": 54,
       "qty": 1,
       "image": "https://bookworlduae.com/cdn/shop/files/CopyofBookworldMockup_4_b94c1f06-03df-4cf6-860b-e33830dbe236.png?v=1723632980&width=713"
