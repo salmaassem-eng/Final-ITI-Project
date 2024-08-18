@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
-import main from "../../Styles/Signin.module.css";
-import image from "../../Images/WhatsApp Image 2023-08-17 at 1.03.18 AM.jpeg";
+import main from "../../Styles/loginPage.css";
+
 const Login = ({ setIsLogin }) => {
   const [username, usernameupdate] = useState("");
   const [password, passwordupdate] = useState("");
@@ -55,7 +55,7 @@ const Login = ({ setIsLogin }) => {
   return (
     <div className="row">
       <div className={main.flexy}>
-   
+
         <form onSubmit={ProceedLogin}>
           <div className={main.card}>
             <h1 style={{ color: "#ae7d34" }}> Log in</h1>
