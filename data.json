@@ -52,7 +52,7 @@
       "discountPercentage": 12.96,
       "rating": 4.23,
       "stock": 94,
-      "category": "romance",
+      "category": "romance1",
       "thumbnail": "https://bookworlduae.com/cdn/shop/files/CopyofPRE-ORDER-2023-11-09T043042.597.png?v=1699533057&width=713"
     },
     {
@@ -228,6 +228,16 @@
       "category": "213"
     },
     {
+      "id": "w7l0455",
+      "title": "rewasaaaa",
+      "price": "33",
+      "discountPercentage": "13",
+      "description": "31",
+      "stock": "31",
+      "thumbnail": "https://www.energyfit.com.mk/wp-content/plugins/ap_background/images/default/default_large.png",
+      "category": "31"
+    },
+    {
       "id": "3l61mol",
       "title": "12",
       "price": "122",
@@ -276,6 +286,20 @@
       "stock": "11",
       "thumbnail": "https://www.energyfit.com.mk/wp-content/plugins/ap_background/images/default/default_large.png",
       "category": "1"
+    },
+    {
+      "id": "756d",
+      "title": "12",
+      "price": "12",
+      "qty": 1,
+      "image": "2"
+    },
+    {
+      "id": "1f80",
+      "title": "232",
+      "price": "123",
+      "qty": 1,
+      "image": "https://www.energyfit.com.mk/wp-content/plugins/ap_background/images/default/default_large.png"
     }
   ],
   "orderItem": [],
