@@ -4,7 +4,7 @@
       "id": "35",
       "title": " The Lantern of Lost Memories",
       "description": "There is a stack of photos on their lap, one for every day of their life, and now they must choose the pictures that capture their most treasured memories, which will be placed in a beautiful lantern. Once completed, it will be set spinning, and their cherished moments will flash before their eyes, guiding them to another world.",
-      "price": 34.00,
+      "price": 34,
       "discountPercentage": 12.96,
       "rating": 4.7,
       "stock": 68,
@@ -305,6 +305,20 @@
       "price": 65.55,
       "qty": 1,
       "image": "https://bookworlduae.com/cdn/shop/files/CopyofPRE-ORDER-2023-11-09T043042.597.png?v=1699533057&width=713"
+    },
+    {
+      "id": "9b0f",
+      "title": " The Box in the Woods",
+      "price": 54,
+      "qty": 2,
+      "image": "https://bookworlduae.com/cdn/shop/files/CopyofBookworldMockup_4_b94c1f06-03df-4cf6-860b-e33830dbe236.png?v=1723632980&width=713"
+    },
+    {
+      "id": "2bf1",
+      "title": "Once Upon A Broken Heart w",
+      "price": 48.5,
+      "qty": 1,
+      "image": "https://bookworlduae.com/cdn/shop/files/image_590e1248-fb4c-414c-a1b9-f3c8c3b41524.jpg?v=1688598704&width=713"
     }
   ],
   "User": [
