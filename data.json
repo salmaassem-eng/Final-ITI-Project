@@ -52,7 +52,7 @@
       "discountPercentage": 12.96,
       "rating": 4.5,
       "stock": 94,
-      "category": "romance",
+      "category": "crime",
       "thumbnail": "https://bookworlduae.com/cdn/shop/files/image_9d6faa8f-04d2-47c4-b531-f387bcc62c6c.jpg?v=1687896241&width=713"
     },
     {
@@ -225,80 +225,9 @@
       "stock": "31",
       "thumbnail": "https://www.energyfit.com.mk/wp-content/plugins/ap_background/images/default/default_large.png",
       "category": "31"
-    },
-    {
-      "id": "3l61mol",
-      "title": "12",
-      "price": "122",
-      "discountPercentage": "121212",
-      "description": "21212",
-      "stock": "212",
-      "thumbnail": "https://www.energyfit.com.mk/wp-content/plugins/ap_background/images/default/default_large.png",
-      "category": "2"
-    },
-    {
-      "id": "blucw28",
-      "title": "2",
-      "price": "12",
-      "discountPercentage": "21",
-      "description": "23",
-      "stock": "21",
-      "thumbnail": "https://www.energyfit.com.mk/wp-content/plugins/ap_background/images/default/default_large.png",
-      "category": "2"
-    },
-    {
-      "id": "9uy0kts",
-      "title": "21",
-      "price": "12",
-      "discountPercentage": "21",
-      "description": "qs",
-      "stock": "21",
-      "thumbnail": "https://www.energyfit.com.mk/wp-content/plugins/ap_background/images/default/default_large.png",
-      "category": "s"
-    },
-    {
-      "id": "u38pazy",
-      "title": "w12",
-      "price": "12",
-      "discountPercentage": "21",
-      "description": "12",
-      "stock": "21",
-      "thumbnail": "https://www.energyfit.com.mk/wp-content/plugins/ap_background/images/default/default_large.png",
-      "category": "12"
-    },
-    {
-      "id": "0l4vv76",
-      "title": "qw1",
-      "price": "1",
-      "discountPercentage": "11",
-      "description": "1111",
-      "stock": "11",
-      "thumbnail": "https://www.energyfit.com.mk/wp-content/plugins/ap_background/images/default/default_large.png",
-      "category": "1"
-    },
-    {
-      "id": "756d",
-      "title": "12",
-      "price": "12",
-      "qty": 1,
-      "image": "2"
-    },
-    {
-      "id": "1f80",
-      "title": "232",
-      "price": "123",
-      "qty": 1,
-      "image": "https://www.energyfit.com.mk/wp-content/plugins/ap_background/images/default/default_large.png"
     }
   ],
   "orderItem": [
-    {
-      "id": "666e",
-      "title": "Birthday Girl by Penelope Douglas",
-      "price": 88.23,
-      "qty": 1,
-      "image": "https://bookworlduae.com/cdn/shop/files/image_8afc897b-d2f7-413d-955b-2cb544877e40.png?v=1686137612&width=713"
-    },
     {
       "id": "8479",
       "title": "King of Pride (Kings of Sin #2) Ana Huang",
