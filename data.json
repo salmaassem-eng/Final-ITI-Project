@@ -302,7 +302,15 @@
       "image": "https://www.energyfit.com.mk/wp-content/plugins/ap_background/images/default/default_large.png"
     }
   ],
-  "orderItem": [],
+  "orderItem": [
+    {
+      "id": "666e",
+      "title": "Birthday Girl by Penelope Douglas",
+      "price": 88.23,
+      "qty": 1,
+      "image": "https://bookworlduae.com/cdn/shop/files/image_8afc897b-d2f7-413d-955b-2cb544877e40.png?v=1686137612&width=713"
+    }
+  ],
   "User": [
     {
       "id": "rewaa",
