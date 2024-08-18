@@ -3,6 +3,10 @@ import { Link } from "react-router-dom";
 import style from "../Styles/home.module.css";
 import main from "../Styles/shop.module.css";
 import image2 from "../Images/shelf2.png";
+import quality from "../Images/quality.png";
+import lover from "../Images/book-lover.png";
+import coll from "../Images/coll.png";
+import oth from "../Images/oth.png";
 import ProductCard from "../Components/CRUD/ProductCard";
 import PostsContext from "../ContextAPIs/ProductsContext";
 
@@ -10,52 +14,80 @@ export default function Home() {
 
   const { products, getProducts, deleteProduct } = useContext(PostsContext);
 
+  const topProducts = products?.slice(0, 3);
+
   return (
     <div className={style.bkg}>
-      <div className={`card text-center ${style.imgcard}`}>
-        <div className={`card-body ${style.parentt}`}>
-          <h1 className={`card-title title ${style.title}`}>
+      <div className={`text-center ${style.imgcard}`}>
+        <div className={`${style.parentt}`}>
+          <h1 className={`title ${style.title}`}>
             welcome to our BookShop
           </h1>
-          <button className={style.button} >
-            <Link className={style.link} to="/Shop">Shop Now</Link>
-          </button>
+          <p className={`${style.p}`}>Your one-stop destination for quality products</p>
         </div>
       </div>
       <div className={style.about}>
-        <img src={image2} alt="A decorative shelf with books" class='col-md-7'/>
+        <img src={image2} alt="A decorative shelf with books" class='col-md-7' />
         <div className={style.text} class='col-md-5 contianer'>
           <h3 className={style.h3text}>
-            We build the best Furniture for your comfort and
-            choice
+            Who Are We?
           </h3>
           <p className={style.textp}>
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-            <br /> A officia itaque corrupti quidem inventore ex corporis natus{" "}
-            <br /> distinctio. Perspiciatis maxime nam, reprehenderit odit qui
-            magni
-            <br />
-            eaque nemo sit distinctio! Accusamus!
+            At BookHup, we believe that every book is a gateway to a new adventure,<br>
+            </br> a different perspective, and a world of imagination. our bookstore is more <br>
+            </br> than just a place to buy books—it's a community hub for book lovers, readers, <br>
+            </br> and lifelong learners.
           </p>
-          <button className={style.button2} >
-            <Link className={style.link3} to="/Shop">Shop Now</Link>
-          </button>
+          <Link className={style.link3} to="/Shop">Shop Now</Link>
         </div>
       </div>
-      <div className={`container m-auto mt-5 p-5`}>
-        <h1 className={`text-center mb-5`}>Our Products</h1>
+      <div className={`container m-auto p-5 mb-5`}>
+        <div className={`${style.prdct}`}>
+          <h1 className={`text-center mb-5`}>Our Products</h1>
+          <Link className={`${style.link2}`} to="/Shop">Show More</Link>
+        </div>
         <div className={main.cardContainer}>
-          {products?.map((prodcutItem) => {
-            return (
-              // ProductCard
-              <ProductCard
-                getProducts={getProducts}
-                deleteProduct={deleteProduct}
-                key={prodcutItem.id}
-                product={prodcutItem}
-              />
-            );
-          })}
+          {topProducts?.map((prodcutItem) => (
+            <ProductCard
+              getProducts={getProducts}
+              deleteProduct={deleteProduct}
+              key={prodcutItem.id}
+              product={prodcutItem}
+            />
+          ))}
+        </div>
+      </div>
+      <div>
+        <h1 className={`text-center mb-3`}>Why Choose Us?</h1>
+        <div className={`card-deck container m-auto p-5 mb-5 ${style.cardds}`}>
+          <div className={`card ${style.cardcont}`}>
+            <div class="card-body text-center">
+              <img src={coll} alt="icons" />
+              <h5 class="card-title mt-3">A Curated Collection for Every Reader</h5>
+              <p class="card-text">we take pride in offering a thoughtfully curated selection of books that cater to a wide range of tastes and interests. a fan of classic literature, modern bestsellers, or niche genres.</p>
+            </div>
+          </div>
+          <div className={`card ${style.cardcont}`}>
+            <div class="card-body text-center">
+            <img src={lover} alt="icons" />
+              <h5 class="card-title mt-3">A Community of Book Lovers</h5>
+              <p class="card-text">we take pride in offering a thoughtfully curated selection of books that cater to a wide range of tastes and interests. a fan of classic literature, modern bestsellers, or niche genres.</p>
+            </div>
+          </div>
+          <div className={`card ${style.cardcont}`}>
+            <div class="card-body text-center">
+              <img src={quality} alt="icons" />
+              <h5 class="card-title mt-3">A Commitment to Quality</h5>
+              <p class="card-text">From the quality of the books we stock to the level of service we provide, we are dedicated to ensuring that every visit to our store is a pleasant and enriching experience.</p>
+            </div>
+          </div>
+          <div className={`card ${style.cardcont}`}>
+            <div class="card-body text-center">
+            <img src={oth} alt="icons" />
+              <h5 class="card-title mt-3">Supporting Local Authors</h5>
+              <p class="card-text">Explore our dedicated section for books written by authors from our community, and discover new voices that might become your new favorites.</p>
+            </div>
+          </div>
         </div>
       </div>
     </div>
