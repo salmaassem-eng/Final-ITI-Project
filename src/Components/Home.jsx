@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import style from "../Styles/home.module.css";
 import main from "../Styles/shop.module.css";
+import header from "../Images/book-mockup2.png"
 import image2 from "../Images/shelf2.png";
 import quality from "../Images/quality.png";
 import lover from "../Images/book-lover.png";
@@ -18,12 +19,15 @@ export default function Home() {
 
   return (
     <div className={style.bkg}>
-      <div className={`text-center ${style.imgcard}`}>
-        <div className={`${style.parentt}`}>
-          <h1 className={`title ${style.title}`}>
+      <div className={`container ${style.imgcard}`}>
+        <div className={`${style.parentt} col-md-5`}>
+          <h1 className={`${style.title}`}>
             welcome to our BookShop
           </h1>
           <p className={`${style.p}`}>Your one-stop destination for quality products</p>
+        </div>
+        <div className={`col-md-7 ${style.dimgg}`}>
+          <img src={header} className={`${style.imgg}`} alt="books" />
         </div>
       </div>
       <div className={style.about}>
@@ -33,13 +37,13 @@ export default function Home() {
             Who Are We?
           </h3>
           <p className={style.textp}>
-            At BookHup, we believe that every book is a gateway to a new adventure,<br>
-            </br> a different perspective, and a world of imagination. our bookstore is more <br>
-            </br> than just a place to buy books—it's a community hub for book lovers, readers, <br>
-            </br> and lifelong learners.
+            At BookHup, we believe that every book is a gateway to a new adventure,
+            a different perspective, and a world of imagination. our bookstore is more 
+            than just a place to buy books—it's a community hub for book lovers, readers,
+            and lifelong learners.
           </p>
-          <div>
-          <Link className={style.link3} to="/Shop">Shop Now</Link>
+          <div className=" text-center">
+            <Link className={style.link3} to="/Shop">Shop Now</Link>
           </div>
         </div>
       </div>
@@ -59,34 +63,34 @@ export default function Home() {
           ))}
         </div>
       </div>
-      <div>
-        <h1 className={`text-center mb-3`}>Why Choose Us?</h1>
+        <div className={`${style.whychooseus}`}>
+        <h1 className={`text-center  m-3 p-5`}>Why Choose Us?</h1>
         <div className={`card-deck container m-auto p-5 mb-5 ${style.cardds}`}>
           <div className={`card ${style.cardcont}`}>
             <div class="card-body text-center">
               <img src={coll} alt="icons" />
-              <h5 class="card-title mt-3">A Curated Collection for Every Reader</h5>
+              <h5 class={`card-title mt-3 ${style.cardh}`}>A Curated Collection for Every Reader</h5>
               <p class="card-text">we take pride in offering a thoughtfully curated selection of books that cater to a wide range of tastes and interests. a fan of classic literature, modern bestsellers, or niche genres.</p>
             </div>
           </div>
           <div className={`card ${style.cardcont}`}>
             <div class="card-body text-center">
-            <img src={lover} alt="icons" />
-              <h5 class="card-title mt-3">A Community of Book Lovers</h5>
+              <img src={lover} alt="icons" />
+              <h5 class={`card-title mt-3 ${style.cardh}`}>A Community of Book Lovers</h5>
               <p class="card-text">we take pride in offering a thoughtfully curated selection of books that cater to a wide range of tastes and interests. a fan of classic literature, modern bestsellers, or niche genres.</p>
             </div>
           </div>
           <div className={`card ${style.cardcont}`}>
             <div class="card-body text-center">
               <img src={quality} alt="icons" />
-              <h5 class="card-title mt-3">A Commitment to Quality</h5>
+              <h5 class={`card-title mt-3 ${style.cardh}`}>A Commitment to Quality</h5>
               <p class="card-text">From the quality of the books we stock to the level of service we provide, we are dedicated to ensuring that every visit to our store is a pleasant and enriching experience.</p>
             </div>
           </div>
           <div className={`card ${style.cardcont}`}>
             <div class="card-body text-center">
-            <img src={oth} alt="icons" />
-              <h5 class="card-title mt-3">Supporting Local Authors</h5>
+              <img src={oth} alt="icons" />
+              <h5 class={`card-title mt-3 ${style.cardh}`}>Supporting Local Authors</h5>
               <p class="card-text">Explore our dedicated section for books written by authors from our community, and discover new voices that might become your new favorites.</p>
             </div>
           </div>
@@ -95,3 +99,13 @@ export default function Home() {
     </div>
   );
 }
+
+
+{/* <div className={`text-center ${style.imgcard}`}>
+        <div className={`${style.parentt}`}>
+          <h1 className={`title ${style.title}`}>
+            welcome to our BookShop
+          </h1>
+          <p className={`${style.p}`}>Your one-stop destination for quality products</p>
+        </div>
+      </div> */}

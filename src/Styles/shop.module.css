@@ -11,7 +11,9 @@
   gap: 80px;
 }
 .head{
-  color: #1a110bd4;
+color: #1f2478;
+font-size: 1.2rem;
+font-weight: bold;
 }
 .ay {
   overflow: hidden;
@@ -24,14 +26,14 @@
   box-shadow: 0 16px 32px rgba(0, 0, 0, 0.3); 
 }
 .pbtn{
-  background-color: #72655c;
-  border-radius: 6px;
+  background-color:  #d18ef4;
+border-radius: 3px;
   border: 0;
 }
 .pbtn:hover{
-  background-color: transparent;
-  border: 1px solid #72655c;
-  color: #72655c;
+  background-color:#1f2478;;
+  
+  color: #ffffff;
 
 }
 .discount {
@@ -50,16 +52,14 @@
   display: inline-block;
   border: 1px solid #1a110bd4;
   border-radius: 20px;
-  width: 40%;
+  width: 50%;
   margin-right: 230px;
   box-shadow: 0 16px 32px rgba(0, 0, 0, 0.3);
 }
 .sform:focus {
   outline: none;
   background-color: transparent;
-  border: 3px solid #1a110bd4;;
   box-shadow: 0 0 5px #1a110bd4;
-  color: #1a110bd4;
 }
 .sform2{
   display: inline-block;

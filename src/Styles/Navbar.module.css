@@ -1,27 +1,44 @@
 .link {
   text-decoration: none;
   list-style-type: none;
-  color: white;
+  color: #222671;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 1.2rem;
+  transition: color 0.3s ease, transform 0.3s ease;
 }
+
 .link:hover {
-  color: 
-  #1a110b;
-  /* text-decoration: underline; */
+  color: #d18ef4;
+  transform: scale(1.1);
 }
 
-::selection{
-  color: 
-  #803D3B;
-  
-
+.logo {
+  transition: transform 0.3s ease, color 0.3s ease;
 }
 
-.navbartoggler{
+.logo:hover {
+  transform: scale(1.05);
+  color: #1a110b;
+}
+
+.navbartoggler {
   background-color: whitesmoke !important;
+  transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
-li{
+.navbartoggler:hover {
+  transform: scale(1.1);
+  background-color: #e0e0e0 !important;
+}
+
+li {
   list-style: none;
+  transition: transform 0.3s ease;
+}
+
+li:hover {
+  transform: scale(1.05);
 }
 
 .cartItemCount {
@@ -34,9 +51,20 @@ li{
   top: 0;
   right: 0;
   transform: translate(50%, -50%);
+  transition: transform 0.3s ease;
 }
 
+.cartItemCount:hover {
+  transform: translate(50%, -50%) scale(1.1);
+}
 
-/* body{ */
- /* font-family: Courier, monospace; */
-/* } */
+nav {
+  transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Small shadow */
+}
+
+nav:hover {
+  background-color: #f0f0f0;
+  transform: scale(1.01);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow on hover */
+}

@@ -213,7 +213,7 @@ const Profile = () => {
         >
           <form className="row g-3 needs-validation" noValidate onSubmit={handleCheckout}>
             <div className={style.card}>
-              <h1 style={{ color: "#1A110B", fontSize: "35px" }}>
+              <h1 style={{ color: "#1f2478", fontSize: "35px" }}>
                 Customer Data
               </h1>
               <hr />
