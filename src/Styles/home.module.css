@@ -153,4 +153,11 @@
     width: 90%;
     margin-bottom: 30px;
   }
+  .imgcard {
+    flex-direction: column-reverse;
+    margin-left: 0;
+    align-items: center;
+    text-align: center;
+    height: auto;
+  }
 }
