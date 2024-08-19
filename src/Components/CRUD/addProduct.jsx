@@ -3,8 +3,12 @@ import ProductsContext from "../../ContextAPIs/ProductsContext";
 import { Alert } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 
+
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../../Styles/AddProduct.css";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css'; 
+
 
 function AddProducts() {
   const inputRef = useRef(null);
@@ -24,7 +28,7 @@ function AddProducts() {
 
   const { addProduct } = useContext(ProductsContext);
   const [alertMessage, setAlertMessage] = useState("");
-  const [ setSuccess] = useState(false);
+  const [ sucess,setSuccess] = useState(false);
 
 
   useEffect(() => {
@@ -40,6 +44,16 @@ function AddProducts() {
 
   const handleSubmit = (e) => { 
     setAlertMessage("Product added successfully!");
+    toast.success('🦄 Wow so easy!', {
+      position: "bottom-center",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "colored",
+      });
     e.preventDefault();
     addProduct(product);
     setSuccess(true);

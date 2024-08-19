@@ -36,7 +36,7 @@ export const ProductsContextProvider = (props) => {
     axios.post(`http://localhost:5000/products`, product)
       .then(() => {
         getProducts();
-
+       
       })
       .catch((err) => console.log(err));
   };
