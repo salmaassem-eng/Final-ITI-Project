@@ -1,19 +1,21 @@
 import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
-import  "../../Styles/loginPage.css";
+import { GoogleLogin } from "@react-oauth/google";
+import "react-toastify/dist/ReactToastify.css";
+import "../../Styles/loginPage.css";
 
 const Login = ({ setIsLogin }) => {
-  const [username, usernameupdate] = useState("");
-  const [password, passwordupdate] = useState("");
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
 
-  const usenavigate = useNavigate();
+  const navigate = useNavigate();
 
   useEffect(() => {
     localStorage.clear();
   }, []);
 
-  const ProceedLogin = (e) => {
+  const proceedLogin = (e) => {
     e.preventDefault();
     if (validate()) {
       fetch(`http://localhost:5000/User/${username}`)
@@ -31,7 +33,7 @@ const Login = ({ setIsLogin }) => {
               toast.success("Success");
               localStorage.setItem("username", username);
               setIsLogin(true);
-              usenavigate("/Home");
+              navigate("/Home");
             } else {
               toast.error("Please Enter valid credentials");
             }
@@ -56,41 +58,54 @@ const Login = ({ setIsLogin }) => {
     return result;
   };
 
+  const handleGoogleSuccess = (response) => {
+    console.log("Google response", response);
+    // Implement the logic to handle Google login
+  };
+
+  const handleFacebookSuccess = (response) => {
+    console.log("Facebook response", response);
+    // Implement the logic to handle Facebook login
+  };
+
   return (
-    <div className="parent" onClick={() => {}}>
-      <div className="top"></div>
-      <div className="bottom"></div>
-      <div className="center">
-        <h2>Please Sign In</h2>
-        <form onSubmit={ProceedLogin}>
-          <input
-            type="text"
-            placeholder="email"
-            value={username}
-            onChange={(e) => usernameupdate(e.target.value)}
-          />
-          <input
-            type="password"
-            placeholder="password"
-            value={password}
-            onChange={(e) => passwordupdate(e.target.value)}
-          />
-          <div className="card-footer m-2">
-              <button
-                type="submit"
-                className="btn"
-                style={{ backgroundColor: "#354c5f", color: "white" }}
-              >
-                Login
-              </button>
-              <Link
-                className="btn ms-2"
-                to={"/Signin"}
-                style={{ backgroundColor: "#ae7d34", color: "white" }}
-              >
-                New User
-              </Link>
-            </div>
+    <div className="login-container">
+      <div className="login-form">
+        <h2>Sign In</h2>
+        <form onSubmit={proceedLogin}>
+          <div className="form-group">
+            <input
+              type="text"
+              placeholder="Username"
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
+              required
+            />
+          </div>
+          <div className="form-group">
+            <input
+              type="password"
+              placeholder="Password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
+            />
+          </div>
+          <button type="submit" className="submit-button">
+            Login
+          </button>
+          <p>or</p>
+          <div className="social-login-buttons">
+            <GoogleLogin
+              onSuccess={handleGoogleSuccess}
+              onFailure={(error) => toast.error("Google login failed: " + error.message)}
+              buttonText="Login with Google"
+            />
+            {/* Add Facebook login button if you have it */}
+          </div>
+          <p>
+            New user? <Link to="/Signin" className="link">Sign Up</Link>
+          </p>
         </form>
         <ToastContainer />
       </div>

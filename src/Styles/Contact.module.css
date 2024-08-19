@@ -32,7 +32,7 @@
   height: 320px;
   margin: 20px;
   background-color: white;
-  color: black;
+
   border-radius: 15px;
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
   transition: transform .3s, box-shadow 1s;
@@ -53,7 +53,7 @@
   overflow: hidden;
   margin-bottom: 20px;
   border: 3px solid #eaeaea;
-  padding-right: px; 
+
 }
 .teamImg img {
   width: 100%;
@@ -62,7 +62,7 @@
 
 .content {
   text-align: center;
-  color: #72655c;
+  color:#1f2478;
 }
 
 .social {
@@ -71,7 +71,7 @@
 }
 
 .social a {
-  color: #a0937d;
+  color:#1f2478;
   margin: 0 10px;
   font-size: 22px;
   text-decoration: none;
@@ -79,7 +79,7 @@
 }
 
 .social a:hover {
-  color: #a0937d26; /* Example: LinkedIn blue on hover */
+  color:#d18ef4; /* Example: LinkedIn blue on hover */
 }
 
 h4 {
@@ -90,7 +90,7 @@ h4 {
 
 h5 {
   font-size: 1em;
-  color: #666;
+  color:#1f2478;
 }
 
 .header{padding-top: 20px;
@@ -99,6 +99,9 @@ h5 {
   justify-content: center;
   /* background-color: aquamarine; */
   align-items: center;
+}
+card .kolo{
+  background-color:#f3f3f3 ;
 }
 @keyframes fadeInSlideUp {
   from {
@@ -112,7 +115,12 @@ h5 {
 }
 
 h1  {
- color: #403934;
+  color: #1f2478;
+  font-weight: 700;
+
+
+  line-height: 55px;
+  letter-spacing: -0.65px;
   animation: fadeInSlideUp 1s ease-out;
 }
 /* ****************about website************** */
@@ -133,3 +141,8 @@ h1  {
 .cardZoomAnimation {
   animation: zoomIn 1s ease-out;
 }
+
+.kolo {
+  background-color: #9f2929; /* Change this to your desired background color */
+}
+

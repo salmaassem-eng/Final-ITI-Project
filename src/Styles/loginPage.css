@@ -1,107 +1,149 @@
-@import url("https://fonts.googleapis.com/css?family=Raleway:400,700");
-
-*,
-*:before,
-*:after {
-    box-sizing: border-box;
+/* register.css */
+.signin-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: linear-gradient(to right, #f8f9fa, #e9ecef);
 }
 
-body {
-    min-height: 100vh;
-    font-family: "Raleway", sans-serif;
-    }
-
-.parent {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-
-    &:hover,
-    &:active {
-        .top,
-        .bottom {
-        &:before,
-        &:after {
-            margin-left: 200px;
-            transform-origin: -200px 50%;
-            transition-delay: 0s;
-        }
-        }
-
-        .center {
-        opacity: 1;
-        transition-delay: 0.2s;
-        }
-    }
+.signin-form {
+  background: white;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 400px;
 }
 
-.top,
-.bottom {
-    &:before,
-    &:after {
-        content: "";
-        display: block;
-        position: absolute;
-        width: 200vmax;
-        height: 200vmax;
-        top: 50%;
-        left: 50%;
-        margin-top: -100vmax;
-        transform-origin: 0 50%;
-        transition: all 0.5s cubic-bezier(0.445, 0.05, 0, 1);
-        z-index: 10;
-        opacity: 0.65;
-        transition-delay: 0.2s;
-    }
+.signin-form h2 {
+  margin-bottom: 1.5rem;
+  font-family: 'Lexend Deca', sans-serif;
+  text-align: center;
+  color: #1f2478;
 }
 
-.top {
-    &:before {
-        transform: rotate(45deg);
-        background: #d6bd98;
-    }
-    &:after {
-        transform: rotate(135deg);
-        background: #ecaf81;
-    }
+.form-group {
+  margin-bottom: 1rem;
 }
 
-.bottom {
-    &:before {
-        transform: rotate(-45deg);
-        background: #dfd3c3;
-    }
-    &:after {
-        transform: rotate(-135deg);
-        background: #bc9f8b;
-    }
+.form-group input {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #ced4da;
+  border-radius: 4px;
+  font-size: 1rem;
 }
 
-.center {
-    position: absolute;
-    width: 400px;
-    height: 400px;
-    top: 50%;
-    left: 50%;
-    margin-left: -200px;
-    margin-top: -200px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 30px;
-    opacity: 0;
-    transition: all 0.5s cubic-bezier(0.445, 0.05, 0, 1);
-    transition-delay: 0s;
-    color: #333;
-
-    input {
-        width: 100%;
-        padding: 15px;
-        margin: 5px;
-        border-radius: 1px;
-        border: 1px solid #ccc;
-        font-family: inherit;
+.submit-button {
+  width: 100%;
+  padding: 0.75rem;
+  border: none;
+  border-radius: 4px;
+  background-color: #d18ef4;
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 }
+
+.submit-button:hover {
+  background-color: #d08ef4c7;
+}
+
+p {
+  text-align: center;
+  margin-top: 1rem;
+}
+
+.link {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.link:hover {
+  text-decoration: underline;
+}
+
+
+
+
+
+
+
+.form-group.error input {
+  border: 1px solid red;
+}
+
+.error-message {
+  color: red;
+  font-size: 0.875rem;
+  margin-top: 5px;
+}
+
+
+
+/* loginPage.css */
+
+/* loginPage.css */
+
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: linear-gradient(to right, #f8f9fa, #e9ecef);
+  
+}
+
+.login-form {
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 2rem;
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+}
+
+.login-form h2 {
+  margin-bottom: 1.5rem;
+  color: #333;
+  color: #1f2478;
+}
+
+.form-group {
+  margin-bottom: 1rem;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+
+
+p {
+  margin-top: 1rem;
+  color: #666;
+}
+
+.link {
+  color: #2575fc;
+  text-decoration: none;
+}
+
+.link:hover {
+  text-decoration: underline;
+}
+
+.social-login-buttons {
+  margin: 1rem 0;
+}
+
+.social-login-buttons > * {
+  margin: 0.5rem;
 }

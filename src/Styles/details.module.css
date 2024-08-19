@@ -1,56 +1,152 @@
-* {
-    box-sizing: border-box;
+/* Global Font Family */
+body {
+    font-family: 'Poppins', sans-serif;
 }
 
-:root {
-    --yellow: #c7ab62;
+/* Container for the product details */
+.detailsContainer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    padding: 2rem;
+    background-color: #f1f3f4;
+    margin: 4rem auto;
+    border-radius: 16px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+    max-width: 1200px;
+    opacity: 0;
+    animation: fadeIn 1s forwards;
 }
 
-.discountPercentage {
-    color: var(--yellow);
-    margin-bottom: 0;
-    font-size: 15px;
+/* Image container with zoom effect */
+.imageContainer {
+    position: relative;
+    overflow: hidden;
+}
+
+.productImage {
+    width: 100%;
+    border-radius: 16px;
+    object-fit: cover;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+    transition: transform 0.4s ease;
+}
+
+.productImage:hover {
+    transform: scale(1.1);
+}
+
+/* Product details */
+.details {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex: 1;
+}
+
+/* Title styling */
+.productTitle {
+    font-size: 2.4rem;
+    font-weight: 600;
+    color: #1f2478;;
+    margin-bottom: 1.5rem;
+    transition: color 0.3s ease;
+}
+
+.productTitle:hover {
+    color: #007bff2f;
+}
+
+/* Discount and price styling */
+.priceSection {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1.5rem;
 }
 
 .price {
-    color: var(--yellow);
-    font-size: 20px;
+    font-size: 2rem;
+    color: #28a745;
     font-weight: 600;
+    margin-right: 1rem;
+    transition: color 0.3s ease;
 }
 
-.discount {
-    font-weight: normal;
-    color: #777;
+.discountedPrice {
+    font-size: 1.4rem;
     text-decoration: line-through;
-    margin-left: 10px;
+    color: #dc3545;
 }
 
-.imgs {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    overflow: hidden;
+/* Discount badge */
+.discountBadge {
+    background-color: #ff6f61;
+    color: white;
+    font-weight: 600;
+    padding: 0.5rem 1rem;
+    border-radius: 12px;
+    margin-bottom: 1.5rem;
+    display: inline-block;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
 }
 
-.imgs > a {
-    max-width: 100%;
-    border-radius: 5px;
-    overflow: hidden;
+.discountBadge:hover {
+    transform: scale(1.1);
 }
 
-.box {
-    flex: 6;
-    max-width: 50%;
-    overflow: hidden;
+/* Description styling */
+.description {
+    font-size: 1.1rem;
+    color: #555;
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
 }
 
-.box:last-of-type {
-    flex: 7;
+/* Stock info styling */
+.stock {
+    font-weight: 600;
+    color: #28a745;
+    margin-bottom: 1.5rem;
+    transition: color 0.3s ease;
 }
 
-.box img {
-    object-fit: contain;
-    min-width: 100%;
-    height: 100%;
+.outOfStock {
+    color: #dc3545;
+}
+
+/* Category styling */
+.category {
+    font-size: 1.1rem;
+    color: #6c757d;
+    margin-bottom: 1.5rem;
+}
+
+/* Button to improve CTA */
+.button {
+    display: inline-block;
+    background-color: #d18ef4;
+    color: white;
+    padding: 0.75rem 1.5rem;
+    font-size: 1.1rem;
+    text-align: center;
+    cursor: pointer;
+    border: 0;
+    text-decoration: none;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.button:hover {
+    background-color: #0057b363;
+    transform: scale(1.05);
+}
+
+/* Animation for fade-in effect */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
 }

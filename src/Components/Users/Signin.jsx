@@ -2,38 +2,71 @@ import React, { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import "../../Styles/loginPage.css"; 
+import "../../Styles/loginPage.css";
 
 const Signin = () => {
-  const [id, setId] = useState("");
+  const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [email, setEmail] = useState("");
-
+  const [errors, setErrors] = useState({
+    username: "",
+    password: "",
+    confirmPassword: "",
+    email: "",
+  });
 
   const navigate = useNavigate();
 
   const isValidate = () => {
     let isProceed = true;
-    let errorMessage = "Please enter the value in ";
+    let newErrors = {
+      username: "",
+      password: "",
+      confirmPassword: "",
+      email: "",
+    };
 
-    if (!id) {
+    // Validate Username
+    if (!username) {
       isProceed = false;
-      errorMessage += " Username";
+      newErrors.username = "Username is required";
+    } else if (username.length < 3) {
+      isProceed = false;
+      newErrors.username = "Username must be at least 3 characters";
     }
 
+    // Validate Email
+    if (!email) {
+      isProceed = false;
+      newErrors.email = "Email is required";
+    } else if (!/\S+@\S+\.\S+/.test(email)) {
+      isProceed = false;
+      newErrors.email = "Email must be a valid email address";
+    }
+
+    // Validate Password
     if (!password) {
       isProceed = false;
-      errorMessage += " Password";
+      newErrors.password = "Password is required";
+    } else if (password.length < 8) {
+      isProceed = false;
+      newErrors.password = "Password must be at least 8 characters";
+    } else if (!/[A-Z]/.test(password) || !/[a-z]/.test(password) || !/[0-9]/.test(password)) {
+      isProceed = false;
+      newErrors.password = "Password must include uppercase, lowercase, and a number";
     }
 
+    // Validate Confirm Password
     if (password !== confirmPassword) {
       isProceed = false;
-      errorMessage += " Confirm Password";
+      newErrors.confirmPassword = "Confirm Password does not match Password";
     }
 
+    setErrors(newErrors);
+
     if (!isProceed) {
-      toast.warning(errorMessage);
+      toast.warning("Please correct the errors and try again.");
     }
 
     return isProceed;
@@ -43,7 +76,7 @@ const Signin = () => {
     e.preventDefault();
     if (isValidate()) {
       const regObj = {
-        id,
+        username,
         password,
         email,
       };
@@ -54,6 +87,12 @@ const Signin = () => {
         body: JSON.stringify(regObj),
       })
         .then((res) => {
+          if (!res.ok) {
+            throw new Error("Network response was not ok " + res.statusText);
+          }
+          return res.json();
+        })
+        .then(() => {
           toast.success("Registered successfully.");
           navigate("/Login");
         })
@@ -63,51 +102,57 @@ const Signin = () => {
     }
   };
 
-
   return (
-    <div className="parent">
-      <div className="top"></div>
-      <div className="bottom"></div>
-      <div className="center">
-        <h2>Register</h2>
+    <div className="signin-container">
+      <div className="signin-form">
+        <h2>Create an Account</h2>
         <form onSubmit={handleSubmit}>
-          <input
-            type="text"
-            placeholder="Username"
-            value={id}
-            onChange={(e) => setId(e.target.value)}
-            required
-            minLength="3"
-          />
-          <input
-            type="email"
-            placeholder="Email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-          />
-          <input
-            type="password"
-            placeholder="Password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-            minLength="6"
-          />
-          <input
-            type="password"
-            placeholder="Confirm Password"
-            value={confirmPassword}
-            onChange={(e) => setConfirmPassword(e.target.value)}
-            required
-            minLength="6"
-          />
-          <div className="button-container">
-            <button type="submit">Register</button>
+          <div className={`form-group ${errors.username ? 'error' : ''}`}>
+            <input
+              type="text"
+              placeholder="Username"
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
+              required
+            />
+            {errors.username && <span className="error-message">{errors.username}</span>}
           </div>
+          <div className={`form-group ${errors.email ? 'error' : ''}`}>
+            <input
+              type="email"
+              placeholder="Email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+            />
+            {errors.email && <span className="error-message">{errors.email}</span>}
+          </div>
+          <div className={`form-group ${errors.password ? 'error' : ''}`}>
+            <input
+              type="password"
+              placeholder="Password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
+            />
+            {errors.password && <span className="error-message">{errors.password}</span>}
+          </div>
+          <div className={`form-group ${errors.confirmPassword ? 'error' : ''}`}>
+            <input
+              type="password"
+              placeholder="Confirm Password"
+              value={confirmPassword}
+              onChange={(e) => setConfirmPassword(e.target.value)}
+              required
+            />
+            {errors.confirmPassword && <span className="error-message">{errors.confirmPassword}</span>}
+          </div>
+          <button type="submit" className="submit-button">Register</button>
         </form>
+        <p>
+          Already a member? <Link to="/Login" className="link">Login</Link>
+        </p>
         <ToastContainer />
-        <p>Already a member? <Link to="/Login">Login</Link></p>
       </div>
     </div>
   );
