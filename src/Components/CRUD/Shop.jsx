@@ -19,8 +19,6 @@ function Shop() {
     const matchesCategory = selectedCategory === "" || product.category === selectedCategory;
     return matchesSearchTerm && matchesCategory;
   });
-
-
   return (
     <div className={` ${style.templateContainer} py-5`}>
       <div className="container m-auto mt-5 p-5">
