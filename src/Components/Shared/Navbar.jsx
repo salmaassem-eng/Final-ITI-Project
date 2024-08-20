@@ -66,7 +66,7 @@ export default function Navbar({ isLogin, setIsLogin }) {
           <span className="navbar-toggler-icon "></span>
         </button>
         <div className="collapse navbar-collapse " id="navbarSupportedContent">
-          <ul className="navbar-nav m-auto gap-5 me-6  ">
+          <ul className="navbar-nav m-auto gap-5 me-6 text-center ">
             <li className="nav-item">
               <Link
                 className={`${style.link} text-decoration-none`}

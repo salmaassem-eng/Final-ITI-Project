@@ -22,7 +22,7 @@ function AddProducts() {
     description: "",
     stock: "",
     thumbnail:
-      "https://www.energyfit.com.mk/wp-content/plugins/ap_background/images/default/default_large.png",
+      "https://bookworlduae.com/cdn/shop/files/image_150a4245-3d0a-4d54-82e4-42be85df7332.jpg?v=1687797780&width=713",
     category: "",
   });
 
