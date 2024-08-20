@@ -1,51 +1,30 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import style from "../../Styles/shop.module.css";
+import ProductsContext from "../../ContextAPIs/ProductsContext";
 
 
 export default function ProductCard({
   product,
   deleteProduct,
+ 
 }) {
   const [alertMessage, setAlertMessage] = useState("");
-  const [alertType, setAlertType] = useState(""); // 'success' or 'error'
+  const [alertType, setAlertType] = useState(""); 
 
-  const addItem = async (title, price, image) => {
-    try {
-      const result = await axios.get("http://localhost:5000/orderItem");
-      const existingItem = result.data.find(item => item.title === title);
-      
-      if (existingItem) {
-        // Update quantity of the existing item
-        existingItem.qty += 1;
-        await axios.put(`http://localhost:5000/orderItem/${existingItem.id}`, existingItem);
-      } else {
-        // Add a new item to the cart
-        const order = { title, price, qty: 1, image };
-        await axios.post("http://localhost:5000/orderItem", order);
-      }
-
-      // Show success alert
+  let {addItem}= useContext(ProductsContext)
+  const addItemToCart = async (title, price, image) => {
+    await addItem(title,price,image)
       setAlertMessage(`Product added successfully`);
       setAlertType("success");
 
-      // Hide alert after 1.5 seconds
       setTimeout(() => {
         setAlertMessage("");
         setAlertType("");
       }, 1500);
-    } catch (error) {
-      setAlertMessage("Failed to add item to cart. Please try again.");
-      setAlertType("error");
-
-      // Hide alert after 1.5 seconds
-      setTimeout(() => {
-        setAlertMessage("");
-        setAlertType("");
-      }, 1500);
-    }
-  };
+    } 
+  
 
   const handleDelete = (e) => {
     e.stopPropagation();
@@ -96,7 +75,7 @@ export default function ProductCard({
           <button
             className={`btn btn-dark w-50 mx-auto ms-1 ${style.pbtn}`}
             onClick={() =>
-              addItem(product.title, product.price, product.thumbnail)
+              addItemToCart(product.title, product.price, product.thumbnail)
             }
           >
             Add To Cart

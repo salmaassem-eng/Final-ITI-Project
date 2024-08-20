@@ -1,8 +1,9 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import axios from "axios";
 import style from "../Styles/Signin.module.css";
 import market from "../Images/market.png"
 import { fetchCartItems } from "./Shared/CartCount";
+import ProductsContext from "../ContextAPIs/ProductsContext";
 
 const Profile = () => {
   // const productsUrl = "http://localhost:5000/orderItem";
@@ -37,6 +38,8 @@ const Profile = () => {
     }
   };
 
+  let{ fetchCartItems } = useContext(ProductsContext)
+
   const deleteOrder = async (id) => {
     let isDelete = window.confirm(
       "Are you sure? This item will be removed from your order!"
@@ -49,6 +52,7 @@ const Profile = () => {
       } catch (error) {
         console.error("Error deleting item:", error);
       }
+      await fetchCartItems()
     }
   };
 

@@ -4,8 +4,10 @@ import { useNavigate } from "react-router-dom";
 
 const ProductsContext = createContext();
 
+
 export const ProductsContextProvider = (props) => {
   const [products, setProducts] = useState([]);
+  const [numOfitems, setNumOfitems] = useState(0);
   const { children } = props;
   const navigate = useNavigate();
   
@@ -40,6 +42,15 @@ export const ProductsContextProvider = (props) => {
       })
       .catch((err) => console.log(err));
   };
+  const editProduct = (id,product) => {
+    axios.patch(`http://localhost:5000/products/${id}`, product)
+      .then(() => {
+        getProducts();
+      })
+      .catch((err) => console.log(err));
+  };
+
+  
 
   const getUserSpecificOrders = () => {
     // Fetch orders specific to the logged-in user
@@ -47,6 +58,36 @@ export const ProductsContextProvider = (props) => {
       .then(res => res.data)
       .catch(err => console.log(err));
   };
+
+   const fetchCartItems = async () => {
+    try {
+      const response = await axios.get(`http://localhost:5000/orderItem`);
+      console.log(response.data.length);
+      setNumOfitems(response.data.length)
+      return response.data;
+    } catch (error) {
+      console.error('Error fetching cart items:', error);
+      return [];
+    }
+   }
+   const addItem = async (title, price, image) => {
+    
+    const result = await axios.get("http://localhost:5000/orderItem");
+    const existingItem = result.data.find(item => item.title === title);
+    
+    if (existingItem) {
+      // Update quantity of the existing item
+      existingItem.qty += 1;
+      await axios.put(`http://localhost:5000/orderItem/${existingItem.id}`, existingItem);
+    } else {
+      // Add a new item to the cart
+      const order = { title, price, qty: 1, image };
+      await axios.post("http://localhost:5000/orderItem", order);
+      
+    }
+    await fetchCartItems()
+}
+
 
   useEffect(() => {
     getProducts();
@@ -62,6 +103,8 @@ export const ProductsContextProvider = (props) => {
         deleteProduct,
         addProduct,
         getUserSpecificOrders, // Provide this function to other components
+        editProduct,
+        addItem,numOfitems,setNumOfitems,fetchCartItems
       }}
     >
       {children}
