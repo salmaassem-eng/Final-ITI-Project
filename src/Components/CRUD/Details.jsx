@@ -1,49 +1,94 @@
 import React, { useEffect, useState } from "react";
 import style from "../../Styles/details.module.css";
-import "../../Styles/detailActive.module.css";
-import {  useParams } from "react-router-dom";
-// import ProductContext from "../../ContextAPIs/ProductsContext";
+import { useParams } from "react-router-dom";
 import axios from "axios";
 
+
 function Details() {
-  let [products, setProducts] = useState([]);
-  const id = useParams().id;
-  let getProductById = () => {
-    axios
-      .get(`http://localhost:5000/products/${id} `)
-      .then((res) => setProducts(res.data))
-      .catch((err) => console.log(err));
+  let [product, setProduct] = useState({});
+  const { id } = useParams();
+  const [alertMessage, setAlertMessage] = useState("");
+  const [alertType, setAlertType] = useState(""); // 'success' or 'error'
+
+  const addItem = async (title, price, image) => {
+    try {
+      const result = await axios.get("http://localhost:5000/orderItem");
+      const existingItem = result.data.find(item => item.title === title);
+      
+      if (existingItem) {
+        // Update quantity of the existing item
+        existingItem.qty += 1;
+        await axios.put(`http://localhost:5000/orderItem/${existingItem.id}`, existingItem);
+      } else {
+        // Add a new item to the cart
+        const order = { title, price, qty: 1, image };
+        await axios.post("http://localhost:5000/orderItem", order);
+      }
+
+      // Show success alert
+      setAlertMessage(`Product added successfully`);
+      setAlertType("success");
+
+      // Hide alert after 1.5 seconds
+      setTimeout(() => {
+        setAlertMessage("");
+        setAlertType("");
+      }, 1500);
+    } catch (error) {
+      setAlertMessage("Failed to add item to cart. Please try again.");
+      setAlertType("error");
+
+      // Hide alert after 1.5 seconds
+      setTimeout(() => {
+        setAlertMessage("");
+        setAlertType("");
+      }, 1500);
+    }
   };
   useEffect(() => {
-    getProductById();
-  }, []);
+    axios
+      .get(`http://localhost:5000/products/${id}`)
+      .then((res) => setProduct(res.data))
+      .catch((err) => console.log(err));
+  }, [id]);
+
   return (
-    <div className=" d-flex gap-3 my-4 mx-3">
-      <div className={style.box}>
-        <img src={products.thumbnail} alt="Product-img" />
+    <div className={style.detailsContainer}>
+      <div className={style.imageContainer}>
+        <img src={product.thumbnail} alt="Product" className={style.productImage} />
       </div>
-      <div className={style.box}>
-        <span> / {products.title}</span>
-        <h2 className=" my-4">{products.title}</h2>
-        {products.discountPercentage > 0 ? (
-          <p className={style.discountPercentage}>
-            Discount:({products.discountPercentage}%)
+      <div className={style.details}>
+        <h2 className={style.productTitle}>{product.title}</h2>
+        {product.discountPercentage > 0 && (
+          <span className={style.discountBadge}>
+            {product.discountPercentage}% Off
+          </span>
+        )}
+        <div className={style.priceSection}>
+          <p className={style.price}>
+            ${(
+              product.price -
+              (product.price * product.discountPercentage) / 100
+            ).toFixed(2)}
           </p>
-        ) : null}
-        <p className={style.price}>
-          $
-          {(
-            products.price -
-            (products.price * products.discountPercentage) / 100
-          ).toFixed(2)}
-          {products.discountPercentage > 0 ? (
-            <span className={style.discount}> ${products.price}</span>
-          ) : null}
-        </p>
-        <p className=" text-black-50 fw-semibold">{products.description}</p>
+          {product.discountPercentage > 0 && (
+            <span className={style.discountedPrice}>${product.price}</span>
+          )}
+        </div>
+        <p className={style.description}>{product.description}</p>
         <hr />
-        <h5>Stock: {products.stock > 0 ? products.stock : "Out Of Stock"}</h5>
-        <p>Category: {products.category}</p>
+        <p className={`${style.stock} ${product.stock === 0 ? style.outOfStock : ""}`}>
+          {product.stock > 0 ? `In Stock: ${product.stock}` : "Out Of Stock"}
+        </p>
+        <p className={style.category}>Category: {product.category}</p>
+        <button
+            className={`${style.button}`}
+            onClick={() =>
+              addItem(product.title, product.price, product.thumbnail)
+            }
+          >
+            Add To Cart
+          </button>
       </div>
     </div>
   );

@@ -27,7 +27,8 @@ export default function Navbar({ isLogin, setIsLogin }) {
     <nav
       className="navbar navbar-expand-lg sticky-top top-0 w-100"
       style={{
-        background:"#887564ee",
+        color:"blue",
+        background:"#ffffff",
       }}
     >
       <div className="container-fluid">
@@ -39,17 +40,20 @@ export default function Navbar({ isLogin, setIsLogin }) {
             width="60px"
           />
         </Link>
-        <span className="text-light">
-          <span
-            style={{
-              fontWeight: "bold",
-              letterSpacing: "1px",
-              fontSize: "22px",
-            }}
-          >
-            BookHub
-          </span>
-        </span>
+      <span className="text-light">
+  <span
+    style={{
+      fontWeight: "bold",
+      letterSpacing: "1px",
+      fontSize: "1.8rem",
+      color: "rgb(31,36,120)", /* Primary color */
+      textShadow: "2px 2px 4px rgba(0, 0, 0, 0.2)", /* Subtle shadow */
+    }}
+   
+  >
+    BookHub
+  </span>
+</span>
         <button
           className={`${style.navbartoggler} navbar-toggler`}
           type="button"

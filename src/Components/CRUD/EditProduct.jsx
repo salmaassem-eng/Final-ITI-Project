@@ -34,14 +34,14 @@ function EditProducts() {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setPrdct((prev) => ({
+    setPrdct((prev) => ({ 
       ...prev,
       [name]: value,
     }));
   };
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
+    e.preventDefault(); //cancel refresh of form 
     try {
       await axios.patch(`http://localhost:5000/products/${prdct.id}`, prdct);
       setSuccess(true);
@@ -168,16 +168,24 @@ function EditProducts() {
                 />
               </div>
               <button
-                type="submit"
-                className="btn w-100"
-                style={{
-                  backgroundColor: "#B59B82",
-                  borderColor: "#8B7866",
-                  color: "white",
-                }}
-              >
-                Edit
-              </button>
+  type="submit"
+  className="btn w-100"
+  style={{
+    backgroundColor: "#d18ef4",
+    color: "white",
+    transition: "background-color 0.3s ease, transform 0.3s ease",
+  }}
+  onMouseEnter={(e) => {
+    e.currentTarget.style.backgroundColor = "#b06bd4";
+    e.currentTarget.style.transform = "scale(1.05)";
+  }}
+  onMouseLeave={(e) => {
+    e.currentTarget.style.backgroundColor = "#d18ef4";
+    e.currentTarget.style.transform = "scale(1)";
+  }}
+>
+  Edit
+</button>
             </form>
             {success && (
               <Alert severity="success" className="mt-3">

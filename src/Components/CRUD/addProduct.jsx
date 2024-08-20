@@ -1,11 +1,19 @@
 import React, { useEffect, useRef, useState, useContext } from "react";
 import ProductsContext from "../../ContextAPIs/ProductsContext";
 import { Alert } from "@mui/material";
+import { useNavigate } from "react-router-dom";
+
+
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../../Styles/AddProduct.css";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css'; 
+
 
 function AddProducts() {
   const inputRef = useRef(null);
+  const navigator = useNavigate();
+
   const [product, setProduct] = useState({
     id: Math.random().toString(36).substring(2, 9),
     title: "",
@@ -20,6 +28,8 @@ function AddProducts() {
 
   const { addProduct } = useContext(ProductsContext);
   const [alertMessage, setAlertMessage] = useState("");
+  const [ sucess,setSuccess] = useState(false);
+
 
   useEffect(() => {
     inputRef.current?.focus();
@@ -34,9 +44,25 @@ function AddProducts() {
 
   const handleSubmit = (e) => { 
     setAlertMessage("Product added successfully!");
+    toast.success('🦄 Wow so easy!', {
+      position: "bottom-center",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "colored",
+      });
     e.preventDefault();
     addProduct(product);
-   
+    setSuccess(true);
+    setTimeout(() => {
+      setSuccess(false);
+      navigator("/shop");
+    }, 2000);
+
+    
     setProduct({
       id: Math.random().toString(36).substring(2, 9),
       title: "",
@@ -56,16 +82,7 @@ function AddProducts() {
         <div className="col-12 col-md-8 col-lg-6">
           <div className="p-4 shadow-lg rounded-5">
             <h1 className="text-center">Add Product</h1>
-            {alertMessage && (
-              <Alert
-                variant="filled"
-                severity="success"
-                onClose={() => setAlertMessage("")}
-                style={{ marginBottom: "1rem" }}
-              >
-                {alertMessage}
-              </Alert>
-            )}
+           
             <form onSubmit={handleSubmit}>
               <div className="mb-3">
                 <label htmlFor="title" className="form-label">
@@ -174,17 +191,35 @@ function AddProducts() {
                 />
               </div>
               <button
-                type="submit"
-                className="btn w-100"
-                style={{
-                  backgroundColor: "#B59B82",
-                  borderColor: "#8B7866",
-                  color: "white",
-                }}
-              >
-                Add
-              </button>
+  type="submit"
+  className="btn w-100"
+  style={{
+    backgroundColor: "#d18ef4",
+    color: "white",
+    transition: "background-color 0.3s ease, transform 0.3s ease",
+  }}
+  onMouseEnter={(e) => {
+    e.currentTarget.style.backgroundColor = "#b06bd4";
+    e.currentTarget.style.transform = "scale(1.05)";
+  }}
+  onMouseLeave={(e) => {
+    e.currentTarget.style.backgroundColor = "#d18ef4";
+    e.currentTarget.style.transform = "scale(1)";
+  }}
+>
+  Add
+</button>
             </form>
+            {alertMessage && (
+              <Alert
+                variant="filled"
+                severity="success"
+                onClose={() => setAlertMessage("")}
+                style={{ marginBottom: "1rem" }}
+              >
+                {alertMessage}
+              </Alert>
+            )}
           </div>
         </div>
       </div>
