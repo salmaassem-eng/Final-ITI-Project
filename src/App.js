@@ -21,7 +21,7 @@ import Notfound from "./Components/NotFound";
 import ScrollToTop from './Components/ScrollToTop.jsx';
 
 const App = () => {
-  const [isLogin, setIsLogin] = useState(false);
+  const [isLogin, setIsLogin] = useState(localStorage.getItem("userid"));;
   const hideNavAndFooter = window.location.pathname === '/Login' || window.location.pathname === '/Signin';
 
   return (

@@ -7,7 +7,7 @@ const ProductsContext = createContext();
 export const ProductsContextProvider = (props) => {
   const [products, setProducts] = useState([]);
   const { children } = props;
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
   
   const userId = localStorage.getItem('userId'); // Retrieve userId from localStorage
 
@@ -43,7 +43,7 @@ export const ProductsContextProvider = (props) => {
 
   const getUserSpecificOrders = () => {
     // Fetch orders specific to the logged-in user
-    return axios.get(`http://localhost:5000/orderItem?userId=${userId}`)
+    return axios.get(`http://localhost:5000/orderItem?id=${userId}`)
       .then(res => res.data)
       .catch(err => console.log(err));
   };

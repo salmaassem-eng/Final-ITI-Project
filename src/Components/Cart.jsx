@@ -8,6 +8,7 @@ const Profile = () => {
   // const productsUrl = "http://localhost:5000/orderItem";
   const [items, setItems] = useState([]);
   const [total, setTotal] = useState(0);
+  const [itemCount, setItemCount] = useState(0); // New state for item count
   const [formData, setFormData] = useState({
     userName: '',
     email: '',
@@ -28,10 +29,13 @@ const Profile = () => {
       setItems(result);
 
       let totalPrice = 0;
+      let totalItems = 0; // count items
       result.forEach((item) => {
         totalPrice += item.qty * Number(item.price);
+        totalItems += item.qty; // count 
       });
       setTotal(totalPrice.toFixed(2));
+      setItemCount(totalItems); 
     } catch (error) {
       console.error("Error fetching items:", error);
     }

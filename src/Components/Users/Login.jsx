@@ -8,7 +8,7 @@ const Login = ({ setIsLogin }) => {
   const [password, passwordupdate] = useState("");
 
   const usenavigate = useNavigate();
-
+  
   useEffect(() => {
     localStorage.clear();
   }, []);
@@ -16,11 +16,8 @@ const Login = ({ setIsLogin }) => {
   const ProceedLogin = (e) => {
     e.preventDefault();
     if (validate()) {
-      fetch(`http://localhost:5000/User/${username}`)
+      fetch("http://localhost:5000/User/" + username)
         .then((res) => {
-          if (!res.ok) {
-            throw new Error("Network response was not ok " + res.statusText);
-          }
           return res.json();
         })
         .then((resp) => {
@@ -49,7 +46,7 @@ const Login = ({ setIsLogin }) => {
       result = false;
       toast.warning("Please Enter Username");
     }
-    if (password === "" || password === null) {
+    if (password === "" ||  password === null) {
       result = false;
       toast.warning("Please Enter Password");
     }
