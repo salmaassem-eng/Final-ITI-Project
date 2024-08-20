@@ -5,14 +5,14 @@ import "react-toastify/dist/ReactToastify.css";
 import "../../Styles/loginPage.css";
 
 const Signin = () => {
-  const [username, setUsername] = useState("");
+  const [id, setId] = useState("");
   const [password, setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
   const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
+  const [address, setAddress] = useState("");
   const [errors, setErrors] = useState({
-    username: "",
+    id: "",
     password: "",
-    confirmPassword: "",
     email: "",
   });
 
@@ -21,19 +21,15 @@ const Signin = () => {
   const isValidate = () => {
     let isProceed = true;
     let newErrors = {
-      username: "",
+      id: "",
       password: "",
-      confirmPassword: "",
       email: "",
     };
 
-    // Validate Username
-    if (!username) {
+    // Validate ID
+    if (!id) {
       isProceed = false;
-      newErrors.username = "Username is required";
-    } else if (username.length < 3) {
-      isProceed = false;
-      newErrors.username = "Username must be at least 3 characters";
+      newErrors.id = "ID is required";
     }
 
     // Validate Email
@@ -52,15 +48,6 @@ const Signin = () => {
     } else if (password.length < 8) {
       isProceed = false;
       newErrors.password = "Password must be at least 8 characters";
-    } else if (!/[A-Z]/.test(password) || !/[a-z]/.test(password) || !/[0-9]/.test(password)) {
-      isProceed = false;
-      newErrors.password = "Password must include uppercase, lowercase, and a number";
-    }
-
-    // Validate Confirm Password
-    if (password !== confirmPassword) {
-      isProceed = false;
-      newErrors.confirmPassword = "Confirm Password does not match Password";
     }
 
     setErrors(newErrors);
@@ -76,28 +63,24 @@ const Signin = () => {
     e.preventDefault();
     if (isValidate()) {
       const regObj = {
-        username,
+        id,
         password,
         email,
+        phone,
+        address,
       };
 
       fetch("http://localhost:5000/User", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: { "content-type": "application/json" },
         body: JSON.stringify(regObj),
       })
         .then((res) => {
-          if (!res.ok) {
-            throw new Error("Network response was not ok " + res.statusText);
-          }
-          return res.json();
-        })
-        .then(() => {
           toast.success("Registered successfully.");
           navigate("/Login");
         })
         .catch((err) => {
-          toast.error("Failed: " + err.message);
+          toast.error("Failed :" + err.message);
         });
     }
   };
@@ -107,15 +90,15 @@ const Signin = () => {
       <div className="signin-form">
         <h2>Create an Account</h2>
         <form onSubmit={handleSubmit}>
-          <div className={`form-group ${errors.username ? 'error' : ''}`}>
+          <div className={`form-group ${errors.id ? 'error' : ''}`}>
             <input
               type="text"
-              placeholder="Username"
-              value={username}
-              onChange={(e) => setUsername(e.target.value)}
+              placeholder="Name"
+              value={id}
+              onChange={(e) => setId(e.target.value)}
               required
             />
-            {errors.username && <span className="error-message">{errors.username}</span>}
+            {errors.id && <span className="error-message">{errors.id}</span>}
           </div>
           <div className={`form-group ${errors.email ? 'error' : ''}`}>
             <input
@@ -137,16 +120,15 @@ const Signin = () => {
             />
             {errors.password && <span className="error-message">{errors.password}</span>}
           </div>
-          <div className={`form-group ${errors.confirmPassword ? 'error' : ''}`}>
+          <div className="form-group">
             <input
-              type="password"
-              placeholder="Confirm Password"
-              value={confirmPassword}
-              onChange={(e) => setConfirmPassword(e.target.value)}
-              required
+              type="text"
+              placeholder="Phone"
+              value={phone}
+              onChange={(e) => setPhone(e.target.value)}
             />
-            {errors.confirmPassword && <span className="error-message">{errors.confirmPassword}</span>}
           </div>
+
           <button type="submit" className="submit-button">Register</button>
         </form>
         <p>
