@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/Final_ITI_Project/static/css/main.4fa967d4.css",
-    "main.js": "/Final_ITI_Project/static/js/main.bf09e2a7.js",
+    "main.css": "/Final_ITI_Project/static/css/main.7865b435.css",
+    "main.js": "/Final_ITI_Project/static/js/main.0882c31b.js",
     "static/js/787.b3d32539.chunk.js": "/Final_ITI_Project/static/js/787.b3d32539.chunk.js",
     "static/media/shelf2.png": "/Final_ITI_Project/static/media/shelf2.817c9d5ed238f3638ce8.png",
     "static/media/fa-solid-900.ttf": "/Final_ITI_Project/static/media/fa-solid-900.07ed6d5fa32c1d54af0f.ttf",
@@ -21,12 +21,12 @@
     "static/media/fa-v4compatibility.ttf": "/Final_ITI_Project/static/media/fa-v4compatibility.0f6cb412603527bda691.ttf",
     "static/media/fa-v4compatibility.woff2": "/Final_ITI_Project/static/media/fa-v4compatibility.6cfec8414be20e2c3426.woff2",
     "index.html": "/Final_ITI_Project/index.html",
-    "main.4fa967d4.css.map": "/Final_ITI_Project/static/css/main.4fa967d4.css.map",
-    "main.bf09e2a7.js.map": "/Final_ITI_Project/static/js/main.bf09e2a7.js.map",
+    "main.7865b435.css.map": "/Final_ITI_Project/static/css/main.7865b435.css.map",
+    "main.0882c31b.js.map": "/Final_ITI_Project/static/js/main.0882c31b.js.map",
     "787.b3d32539.chunk.js.map": "/Final_ITI_Project/static/js/787.b3d32539.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.4fa967d4.css",
-    "static/js/main.bf09e2a7.js"
+    "static/css/main.7865b435.css",
+    "static/js/main.0882c31b.js"
   ]
 }

@@ -112,7 +112,7 @@
     },
     {
       "id": "45",
-      "title": "Win Lose Kill Die by Cynthia",
+      "title": "rewaa Lose Kill Die by Cynthia",
       "description": "views and counting... From the author of Last One To Die. The students at Morton Academy are high-achievers, selected based .on academic excellence. So when a series of murders target the. school's brightest and best, the pressure is on. Someone is determined .to stop at nothing to clear their path to the top. But who??",
       "price": 80.9,
       "discountPercentage": 12.96,
@@ -164,37 +164,6 @@
       "stock": 94,
       "category": "fantasy",
       "thumbnail": "https://bookworlduae.com/cdn/shop/files/CopyofBookworldMockup-2024-06-28T210547.849.png?v=1719594369&width=713"
-    },
-    {
-      "id": "490",
-      "title": "The Mask of Mirrors ",
-      "description": "Darkly magical and beautifully imagined, The Mask of Mirrors is the unmissable start to the Rook & Rose trilogy, a rich and dazzling fantasy adventure in which a con artist, a vigilante, and a crime lord must unite to save their city.",
-      "price": 50.9,
-      "discountPercentage": 12.96,
-      "rating": 4.69,
-      "stock": 94,
-      "category": "fantasy",
-      "thumbnail": "https://bookworlduae.com/cdn/shop/files/IMG-3260_6d6dbe2c-4de8-42c6-ac25-604aba7609d5.jpg?v=1708644062&width=713"
-    },
-    {
-      "id": "pab4cby",
-      "title": "3",
-      "price": "13",
-      "discountPercentage": "3",
-      "description": "3",
-      "stock": "13",
-      "thumbnail": "https://bookworlduae.com/cdn/shop/files/image_150a4245-3d0a-4d54-82e4-42be85df7332.jpg?v=1687797780&width=713",
-      "category": "3"
-    },
-    {
-      "id": "djudf3z",
-      "title": "2",
-      "price": "2",
-      "discountPercentage": "2",
-      "description": "22",
-      "stock": "2",
-      "thumbnail": "https://bookworlduae.com/cdn/shop/files/image_150a4245-3d0a-4d54-82e4-42be85df7332.jpg?v=1687797780&width=713",
-      "category": "2"
     }
   ],
   "orderItem": [],
@@ -281,24 +250,17 @@
       "email": "khokha@gmail.com"
     },
     {
-      "id": "927a",
-      "username": "ana",
-      "password": "ana12345678R",
-      "email": "ana@gmail.com"
-    },
-    {
-      "id": "",
-      "username": "rrrr",
-      "password": "123456789wW",
-      "email": "rrrr@gmail.com",
-      "phone": "",
+      "id": "Rewaagaber",
+      "password": "123456789Rr@",
+      "email": "Rewaagaber@gmail.com",
+      "phone": "010589255267",
       "address": ""
     },
     {
-      "id": "sama",
-      "password": "Sama123456789",
-      "email": "sama@gmail.com",
-      "phone": "Sama123456789",
+      "id": "rewaaarafa",
+      "password": "123456789Qq@",
+      "email": "rewaaarafa@gmail.com",
+      "phone": "01052858538",
       "address": ""
     }
   ]
