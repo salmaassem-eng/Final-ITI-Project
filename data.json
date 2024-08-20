@@ -112,7 +112,7 @@
     },
     {
       "id": "45",
-      "title": "Win Lose Kill Die by Cynthia Murphy",
+      "title": "Win Lose Kill Die by Cynthia",
       "description": "views and counting... From the author of Last One To Die. The students at Morton Academy are high-achievers, selected based .on academic excellence. So when a series of murders target the. school's brightest and best, the pressure is on. Someone is determined .to stop at nothing to clear their path to the top. But who??",
       "price": 80.9,
       "discountPercentage": 12.96,
@@ -167,7 +167,7 @@
     },
     {
       "id": "490",
-      "title": "The Mask of Mirrors (Rook and Rose #1)",
+      "title": "The Mask of Mirrors ",
       "description": "Darkly magical and beautifully imagined, The Mask of Mirrors is the unmissable start to the Rook & Rose trilogy, a rich and dazzling fantasy adventure in which a con artist, a vigilante, and a crime lord must unite to save their city.",
       "price": 50.9,
       "discountPercentage": 12.96,
@@ -266,9 +266,9 @@
       "email": "123@gmail.com"
     },
     {
-      "id": "rola",
-      "password": "123456789",
-      "email": "rola@gmail.com"
+      "id": "rewaa",
+      "password": "123456789Rr",
+      "email": "rewaa@gmail.com"
     },
     {
       "id": "rolaa",
@@ -281,34 +281,25 @@
       "email": "khokha@gmail.com"
     },
     {
-      "id": "31c5",
-      "username": "re",
-      "password": "12",
-      "email": "wee@gmail.com"
+      "id": "927a",
+      "username": "ana",
+      "password": "ana12345678R",
+      "email": "ana@gmail.com"
     },
     {
-      "id": "5e46",
-      "username": "rola",
-      "password": "123456789Rr",
-      "email": "ro@gmail.com"
+      "id": "",
+      "username": "rrrr",
+      "password": "123456789wW",
+      "email": "rrrr@gmail.com",
+      "phone": "",
+      "address": ""
     },
     {
-      "id": "4461",
-      "username": "rewaa",
-      "password": "123",
-      "email": "ww@gmail.com"
-    },
-    {
-      "id": "52fd",
-      "username": "rewaa",
-      "password": "123456789rrR",
-      "email": "re@gmail.com"
-    },
-    {
-      "id": "fc0d",
-      "username": "rewaa",
-      "password": "123456789Rr",
-      "email": "rewaa@gmail.com"
+      "id": "sama",
+      "password": "Sama123456789",
+      "email": "sama@gmail.com",
+      "phone": "Sama123456789",
+      "address": ""
     }
   ]
 }

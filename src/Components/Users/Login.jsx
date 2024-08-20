@@ -18,13 +18,10 @@ const Login = ({ setIsLogin }) => {
   const proceedLogin = (e) => {
     e.preventDefault();
     if (validate()) {
-      fetch(`http://localhost:5000/User/${username}`)
-        .then((res) => {
-          if (!res.ok) {
-            throw new Error("Network response was not ok " + res.statusText);
-          }
-          return res.json();
-        })
+      fetch("http://localhost:5000/User/" + username)
+      .then((res) => {
+        return res.json();
+      })
         .then((resp) => {
           if (Object.keys(resp).length === 0) {
             toast.error("Please Enter valid username");
