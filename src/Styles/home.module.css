@@ -1,4 +1,4 @@
-.bkg{
+.bkg {
   align-self: center;
   padding: auto;
   margin: auto;
@@ -20,13 +20,25 @@
 .title {
   font-weight: bold;
   font-size: 60px;
-  color: white;
+  color:  #1f2478;
+  line-height: 1.5;
 }
 
 .p {
   margin-top: 20px;
   font-size: 20px;
+  color:#72655c;
+  text-align: left;
+  
 }
+.dimgg{
+  flex: 60%;
+}
+.imgg{
+  width:100%;
+  height: 85vh;
+}
+
 .about {
   display: flex;
   align-items: center;
@@ -59,8 +71,8 @@
   margin-top: 20px;
   padding: 13px 17px;
   border: 0;
-  background-color:#72655c;
-  border-radius: 6px;
+  background-color:#d18ef4;
+ 
   font-size: 20px;
   font-weight: bold;
   transition: all 0.5s;
@@ -91,9 +103,13 @@
   flex-direction: column;
   flex-wrap: wrap;
 }
-.h3text{
-  margin-top: 90px;
-  font-size: 30px;
+
+.h3text {
+
+  font-size: 2.5rem;
+  color: #1f2478;
+  font-weight: 600;
+  text-align: center;
 }
 
 .textp {
@@ -105,7 +121,7 @@
 .whychooseus{
   background-color: #f3f3f3 ;
 }
-.cardds{
+.cardds {
   display: flex;
   justify-content: space-around;
   color: #1f2478;
@@ -113,7 +129,7 @@
 .cardh{
   font-weight: bold;
 }
-.cardcont{
+.cardcont {
   width: 22%;
   border-radius: 10px;
   color:#1f2478;
@@ -156,34 +172,16 @@
     width: 90%;
     margin-bottom: 30px;
   }
+  .imgcard {
+    flex-direction: column-reverse;
+    margin-left: 0;
+    align-items: center;
+    text-align: center;
+    height: auto;
+  }
 }
 
 
-
-
-/* .link2 {
-  text-decoration: none;
-  color: aliceblue;
+p{
+  font-family: Open Sans;
 }
-
-.link2:hover {
-  color: black;
-  border: 2px solid black;
-}
-
-
-.slider {
-  width: 50%;
-  height: 500px;
-  margin-left: 23%;
-  margin-bottom: 40px;
-
-}
-
-.images {
-  width: 40%;
-  height: 400px;
-  margin-left: 25%;
-  margin-bottom: 50px
-}
- */

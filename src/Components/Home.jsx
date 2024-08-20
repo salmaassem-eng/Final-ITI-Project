@@ -42,8 +42,8 @@ export default function Home() {
             than just a place to buy books—it's a community hub for book lovers, readers,
             and lifelong learners.
           </p>
-          <div>
-          <Link className={style.link3} to="/Shop">Shop Now</Link>
+          <div className=" text-center">
+            <Link className={style.link3} to="/Shop">Shop Now</Link>
           </div>
         </div>
       </div>
@@ -75,8 +75,8 @@ export default function Home() {
           </div>
           <div className={`card ${style.cardcont}`}>
             <div class="card-body text-center">
-            <img src={lover} alt="icons" />
-              <h5 class="card-title mt-3">A Community of Book Lovers</h5>
+              <img src={lover} alt="icons" />
+              <h5 class={`card-title mt-3 ${style.cardh}`}>A Community of Book Lovers</h5>
               <p class="card-text">we take pride in offering a thoughtfully curated selection of books that cater to a wide range of tastes and interests. a fan of classic literature, modern bestsellers, or niche genres.</p>
             </div>
           </div>
@@ -89,8 +89,8 @@ export default function Home() {
           </div>
           <div className={`card ${style.cardcont}`}>
             <div class="card-body text-center">
-            <img src={oth} alt="icons" />
-              <h5 class="card-title mt-3">Supporting Local Authors</h5>
+              <img src={oth} alt="icons" />
+              <h5 class={`card-title mt-3 ${style.cardh}`}>Supporting Local Authors</h5>
               <p class="card-text">Explore our dedicated section for books written by authors from our community, and discover new voices that might become your new favorites.</p>
             </div>
           </div>
