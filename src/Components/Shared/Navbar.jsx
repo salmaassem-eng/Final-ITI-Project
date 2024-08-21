@@ -71,7 +71,7 @@ export default function Navbar({ isLogin, setIsLogin }) {
           <span className="navbar-toggler-icon "></span>
         </button>
         <div className="collapse navbar-collapse  " id="navbarSupportedContent">
-          <ul className="navbar-nav mx-auto gap-5 me-6 text-center  ">
+          <ul className="navbar-nav mx-auto gap-4 gap-lg-5 me-6 text-center  ">
             <li className="nav-item">
               <Link
                 className={`${style.link} text-decoration-none`}
@@ -114,7 +114,7 @@ export default function Navbar({ isLogin, setIsLogin }) {
           {localStorage.getItem("username") ? (
             <>
              <div className={`${style.roro}  d-flex  align-items-center`}>
-             <li className="nav-item me-3 ms-5  text-center" style={{ position: 'relative' }}>
+             <li className="nav-item me-lg-3 ms-lg-5 mt-2 mt-lg-0  text-center" style={{ position: 'relative' }}>
               <Link to="/cart" className={`${style.link} text-decoration-none`}>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -131,7 +131,7 @@ export default function Navbar({ isLogin, setIsLogin }) {
                 )}
               </Link>
               </li>
-              <div className={`d-flex  position-relative align-items-center ${style.toggleExpand}`} onClick={()=>setIsToggle(!isToggle)}>
+              <div className={`d-flex mt-2 mt-lg-0 mb-2 mb-lg-0 position-relative align-items-center ${style.toggleExpand}`} onClick={()=>setIsToggle(!isToggle)}>
               <div className="icon rounded-pill bg-main d-flex justify-content-center me-2 align-items-center"
                       style={{ width: "28px", height: "28px" }}
                     >
