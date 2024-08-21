@@ -21,10 +21,10 @@ export default function Home() {
     <div className={style.bkg}>
       <div className={`container ${style.imgcard}`}>
         <div className={`${style.parentt} col-md-5`}>
-          <h1 className={`${style.title}`}>
+          <h1 className={`${style.title} text-uppercase`}>
             welcome to our BookShop
           </h1>
-          <p className={`${style.p}`}>Your one-stop destination for quality products</p>
+          <p className={`${style.par}`}>Your one-stop destination for quality products</p>
         </div>
         <div className={`col-md-7 ${style.dimgg}`}>
           <img src={header} className={`${style.imgg}`} alt="books" />
@@ -99,13 +99,3 @@ export default function Home() {
     </div>
   );
 }
-
-
-{/* <div className={`text-center ${style.imgcard}`}>
-        <div className={`${style.parentt}`}>
-          <h1 className={`title ${style.title}`}>
-            welcome to our BookShop
-          </h1>
-          <p className={`${style.p}`}>Your one-stop destination for quality products</p>
-        </div>
-      </div> */}

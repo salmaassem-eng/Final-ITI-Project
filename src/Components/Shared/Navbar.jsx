@@ -2,17 +2,21 @@ import React , {useState,useEffect, useContext}from "react";
 import { Link } from "react-router-dom";
 import style from "../../Styles/Navbar.module.css";
 import books from "../../Images/books.png";
+import logo from '../../Images/logo3.png'
 
 import ProductsContext from "../../ContextAPIs/ProductsContext";
 
 
 export default function Navbar({ isLogin, setIsLogin }) {
+
   const handleSignOut = () => {
     localStorage.removeItem("username");
     setIsLogin(false);
   };
 
   let {numOfitems,setNumOfitems,fetchCartItems} = useContext(ProductsContext)
+
+  
   useEffect(() => {
     const getCartItems = async () => {
       const items = await fetchCartItems();
@@ -20,39 +24,40 @@ export default function Navbar({ isLogin, setIsLogin }) {
     };
     getCartItems();
   }, []);
+  
+  const [scrolledDown,setScrolledDown] = useState(false)
+  const [isToggle,setIsToggle] = useState(false)
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 0) {
+        setScrolledDown(true);
+      } else {
+        setScrolledDown(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
 
   return (
     
     <nav
-      className="navbar navbar-expand-lg sticky-top top-0 w-100"
-      style={{
-        color:"blue",
-        background:"#ffffff",
-      }}
+      className={`navbar navbar-expand-lg sticky-top top-0 w-100 ${scrolledDown?style.scrolled:style.notScrolled}`}
+     
     >
-      <div className="container-fluid">
+      <div className={`container-fluid px-5 `}>
         <Link className="navbar-brand" to="/Home">
           <img 
-            src={books}
+            src={logo}
             alt=""
-            height="60px"
-            width="60px"
+            width="150px"
           />
         </Link>
       <span className="text-light">
-  <span
-    style={{
-      fontWeight: "bold",
-      letterSpacing: "1px",
-      fontSize: "1.8rem",
-      color: "rgb(31,36,120)", /* Primary color */
-      textShadow: "2px 2px 4px rgba(0, 0, 0, 0.2)", /* Subtle shadow */
-    }}
-   
-  >
-    BookHub
-  </span>
 </span>
         <button
           className={`${style.navbartoggler} navbar-toggler`}
@@ -65,8 +70,8 @@ export default function Navbar({ isLogin, setIsLogin }) {
         >
           <span className="navbar-toggler-icon "></span>
         </button>
-        <div className="collapse navbar-collapse center " id="navbarSupportedContent">
-          <ul className="navbar-nav m-auto gap-5 me-6 text-center  ">
+        <div className="collapse navbar-collapse  " id="navbarSupportedContent">
+          <ul className="navbar-nav mx-auto gap-5 me-6 text-center  ">
             <li className="nav-item">
               <Link
                 className={`${style.link} text-decoration-none`}
@@ -96,36 +101,6 @@ export default function Navbar({ isLogin, setIsLogin }) {
               ""
             )}
             
-            {!isLogin ? (
-              <>
-                <li className="nav-item">
-                  <Link
-                    to="/Login"
-                    className={`${style.link} text-decoration-none`}
-                  >
-                    Sign In
-                  </Link>
-                </li>
-                <li className="nav-item">
-                  <Link
-                    to="/Signin"
-                    className={`${style.link} text-decoration-none`}
-                  >
-                    Sign Up
-                  </Link>
-                </li>
-              </>
-            ) : (
-              <li className="nav-item">
-                <Link
-                  onClick={handleSignOut}
-                  to="/Home"
-                  className={`${style.link} text-decoration-none`}
-                >
-                  Sign Out
-                </Link>
-              </li>
-            )}
             <li className="nav-item">
               <Link
                 to="/contactus"
@@ -137,7 +112,9 @@ export default function Navbar({ isLogin, setIsLogin }) {
   
           </ul>
           {localStorage.getItem("username") ? (
-              <li className="nav-item me-5 ms-5" style={{ position: 'relative' }}>
+            <>
+             <div className={`${style.roro}  d-flex  align-items-center`}>
+             <li className="nav-item me-3 ms-5  text-center" style={{ position: 'relative' }}>
               <Link to="/cart" className={`${style.link} text-decoration-none`}>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -153,9 +130,50 @@ export default function Navbar({ isLogin, setIsLogin }) {
                   <span className={style.cartItemCount}>{numOfitems}</span>
                 )}
               </Link>
-            </li>
+              </li>
+              <div className={`d-flex  position-relative align-items-center ${style.toggleExpand}`} onClick={()=>setIsToggle(!isToggle)}>
+              <div className="icon rounded-pill bg-main d-flex justify-content-center me-2 align-items-center"
+                      style={{ width: "28px", height: "28px" }}
+                    >
+                      <i className="fa-solid fa-user text-white"></i>
+              </div>
+              <div className="name  d-flex align-items-center">
+                <span className="me-2 fs-5">{localStorage.getItem("username")}</span>
+              </div>
+              <div className={`${style.box} position-absolute ${isToggle?"" : 'd-none'}  rounded-2 top-100 mt-2 end-0 px-2 py-2`} >
+              <li className="nav-item py-1">
+                <Link
+                  onClick={handleSignOut}
+                  to="/Home"
+                  className={`${style.link} text-decoration-none fs-6`}
+                >
+                  Sign Out
+                </Link>
+              </li>
+              </div>
+              </div>
+             </div>
+            </>
+
             ) : (
-              ""
+              <>
+                  <li className="nav-item">
+                    <Link
+                      to="/Login"
+                      className={`${style.link} text-decoration-none me-3`}
+                    >
+                      Sign In
+                    </Link>
+                  </li>
+                  <li className="nav-item">
+                    <Link
+                      to="/Signin"
+                      className={`${style.link} text-decoration-none`}
+                    >
+                      Register
+                    </Link>
+                  </li>
+                </>
             )}
         </div>
       </div>

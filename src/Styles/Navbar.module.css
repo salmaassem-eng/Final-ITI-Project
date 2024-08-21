@@ -13,14 +13,7 @@
   transform: scale(1.1);
 }
 
-.logo {
-  transition: transform 0.3s ease, color 0.3s ease;
-}
 
-.logo:hover {
-  transform: scale(1.05);
-  color: #1a110b;
-}
 
 .navbartoggler {
   background-color: whitesmoke !important;
@@ -38,12 +31,17 @@ li {
 }
 
 li:hover {
-  transform: scale(1.05);
+  transform: scale(1.02);
 }
 
 .cartItemCount {
-  background-color: whitesmoke;
-  color: #1a110b;
+  background-color: #222671;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
   border-radius: 50%;
   padding: 0.2rem 0.5rem;
   font-size: 0.8rem;
@@ -58,13 +56,38 @@ li:hover {
   transform: translate(50%, -50%) scale(1.1);
 }
 
-nav {
-  transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Small shadow */
+nav{
+  background-color: white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Small shadow */
+}
+.notScrolled {
+  transition: 0.3s;
+  padding: 14px 0;
+}
+.scrolled{
+  transition: 0.3s;
+  padding: 5px 0;
+}
+.logoName{
+  font-weight: 600;
+  letter-spacing: 1px;
+  font-size: 20px;
+  color: #222671;
+
+}
+.box{
+  background-color: white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Small shadow */
+  width: 180px;
+
 }
 
-nav:hover {
-  background-color: #f0f0f0;
-  transform: scale(1.01);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow on hover */
+.toggleExpand{
+  cursor: pointer;
+}
+
+@media(max-width: 992px) {
+  .roro{
+    flex-direction: column !important; 
+  }
 }
