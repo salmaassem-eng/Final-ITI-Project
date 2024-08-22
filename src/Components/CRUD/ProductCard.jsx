@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import style from "../../Styles/shop.module.css";
 import ProductsContext from "../../ContextAPIs/ProductsContext";
 import { toast, ToastContainer } from "react-toastify";
@@ -10,8 +10,14 @@ export default function ProductCard({
  
 }) {
 
+  let navigator = useNavigate()
+
   let {addItem}= useContext(ProductsContext)
   const addItemToCart = async (title, price, image) => {
+    if(!localStorage.getItem("username")){
+      navigator('/login')
+      return
+    }
     await addItem(title,price,image)
     toast.success("Product Added Successfully To Your Cart", {
       position: "top-right",

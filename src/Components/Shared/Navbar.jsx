@@ -157,7 +157,8 @@ export default function Navbar({ isLogin, setIsLogin }) {
 
             ) : (
               <>
-                  <li className="nav-item">
+                <div className="text-center">
+                <li className="nav-item my-3">
                     <Link
                       to="/Login"
                       className={`${style.link} text-decoration-none me-3`}
@@ -165,7 +166,7 @@ export default function Navbar({ isLogin, setIsLogin }) {
                       Sign In
                     </Link>
                   </li>
-                  <li className="nav-item">
+                  <li className="nav-item mb-2">
                     <Link
                       to="/Signin"
                       className={`${style.link} text-decoration-none`}
@@ -173,6 +174,7 @@ export default function Navbar({ isLogin, setIsLogin }) {
                       Register
                     </Link>
                   </li>
+                </div>
                 </>
             )}
         </div>
