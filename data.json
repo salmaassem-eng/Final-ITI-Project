@@ -218,16 +218,10 @@
   ],
   "orderItem": [
     {
-
-      "id": "501f",
-      "title": "Once Upon A Broken Heart w",
-      "price": 48.5,
-      "qty": 4,
-
       "id": "6bc0",
       "title": " The Box in the Woodss",
       "price": 54,
-      "qty": 9,
+      "qty": 11,
       "image": "https://bookworlduae.com/cdn/shop/files/CopyofBookworldMockup_4_b94c1f06-03df-4cf6-860b-e33830dbe236.png?v=1723632980&width=713"
     },
     {
@@ -241,8 +235,7 @@
       "id": "db2b",
       "title": "Once Upon A Broken Heart w",
       "price": 48.5,
-      "qty": 3,
-
+      "qty": 4,
       "image": "https://bookworlduae.com/cdn/shop/files/image_590e1248-fb4c-414c-a1b9-f3c8c3b41524.jpg?v=1688598704&width=713"
     },
     {
