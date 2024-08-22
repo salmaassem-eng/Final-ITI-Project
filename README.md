@@ -25,13 +25,11 @@ The platform includes a wide array of features:
 - **Registration System**: Includes registration, secure login, password updates, and password reset functionality.
 
 ## Setup
-Follow the steps below to run the project:
+follow the following steps to run the project.
 
-1. Install Node.js from [Node.js](https://nodejs.org/en)
-2. Clone this repo on your local machine.
-3. Run these commands in the project directory:
-
-   ```bash
-   npm install
-   npm run json-server
-   npm start
+- Install Node.js from [Node.js](https://nodejs.org/en)
+- Clone this repo on your local machine.
+- Run these commands on the project directory respectively
+  - npm install
+  - npm run json-server
+  - npm start
