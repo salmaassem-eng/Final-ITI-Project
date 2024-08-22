@@ -40,13 +40,14 @@ function EditProducts() {
       [name]: value,
     }));
   };
-
+  
   const handleSubmit = async (e) => {
-    e.preventDefault(); //cancel refresh of form 
+    e.preventDefault();
+
     try {
       await axios.patch(`http://localhost:5000/products/${prdct.id}`, prdct);
       toast.success("Product Edited Successfully", {
-        position: "top-right",
+        position: "bottom-right",
         theme: "light",
         autoClose: 3000,
       });
