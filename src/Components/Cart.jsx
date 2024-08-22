@@ -128,7 +128,7 @@ const Profile = () => {
   };
   return (
     <div className="container">
-      <div className="row">
+      <div className="row ">
         <div className="col-8">
           {items.length === 0 ? (
             <div className="text-center">
@@ -155,7 +155,7 @@ const Profile = () => {
                     <td className="text-center">{item.title}</td>
                     <td className="text-center">
                       <button
-                        className={style.incbutton}
+                        className={`${style.incbutton} rounded-2`}
                         onClick={() =>
                           incDec(
                             item.qty,
@@ -176,7 +176,7 @@ const Profile = () => {
                         readOnly
                       />
                       <button
-                        className={style.incbutton}
+                        className={`${style.incbutton} rounded-2`}
                         onClick={() =>
                           incDec(
                             item.qty,

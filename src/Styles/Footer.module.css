@@ -10,6 +10,7 @@
 }
 ul{
 	list-style: none;
+  padding-left: 0 !important ;
 }
 .footer{
 	background-color: black;
@@ -75,7 +76,7 @@ ul{
 /*responsive*/
 @media(max-width: 767px){
   .footercol{
-    width: 50%;
+    width: 48%;
     margin-bottom: 30px;
 }
 }

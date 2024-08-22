@@ -52,7 +52,7 @@ export default function Home() {
           <h1 className={`text-center mb-5`}>Our Products</h1>
           <Link className={`${style.link2}`} to="/Shop">Show More</Link>
         </div>
-        <div className={main.cardContainer}>
+        <div className="row g-4 justify-content-between">
           {topProducts?.map((prodcutItem) => (
             <ProductCard
               getProducts={getProducts}

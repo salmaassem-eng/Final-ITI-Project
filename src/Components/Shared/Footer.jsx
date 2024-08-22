@@ -15,6 +15,7 @@ function Footer  ({ isLogin, setIsLogin }) {
       <footer className={styles.footer}>
       <div className={`${styles.container} me-5`}>
         <div className={styles.row}>
+          
           <div className={styles.footercol}>
             <h4>company</h4>
             <ul className={styles.ul}>
