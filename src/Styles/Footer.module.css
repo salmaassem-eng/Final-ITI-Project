@@ -79,10 +79,9 @@ ul{
     width: 48%;
     margin-bottom: 30px;
 }
-}
-@media(max-width: 574px){
-  .footercol{
-    width: 100%;
+.footercol:nth-child(3){
+  width: 100%;
+  margin-bottom: 30px;
 }
 }
 
