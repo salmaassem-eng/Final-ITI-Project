@@ -2,7 +2,8 @@ import React, { useContext, useEffect, useState } from "react";
 import axios from "axios";
 import style from "../Styles/Signin.module.css";
 import market from "../Images/market.png"
-import { fetchCartItems } from "./Shared/CartCount";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import ProductsContext from "../ContextAPIs/ProductsContext";
 
 const Profile = () => {
@@ -88,8 +89,12 @@ const Profile = () => {
           expiry: '',
           cvv: ''
         });
-
-        alert("Your order has been processed successfully! It will be for you in a week!");
+        toast.success("Your order has been processed successfully!", {
+          position: "top-right",
+          theme: "light",
+          autoClose: 3000,
+        });
+        // alert("Your order has been processed successfully! It will be for you in a week!");
       } catch (error) {
         console.error("Error during checkout:", error);
       }
@@ -128,6 +133,7 @@ const Profile = () => {
   };
   return (
     <div className="container">
+      <ToastContainer/>
       <div className="row ">
         <div className="col-8">
           {items.length === 0 ? (

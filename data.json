@@ -15,7 +15,7 @@
       "id": "37",
       "title": " The Box in the Woodss",
       "description": "There is a stack of photos on their lap, one for every day of their life, and now they must choose the pictures that capture their most treasured memories, which will be placed in a beautiful lantern. Once completed, it will be set spinning, and their cherished moments will flash before their eyes, guiding them to another world.",
-      "price": 54,
+      "price": "55",
       "discountPercentage": 12.96,
       "rating": 4.7,
       "stock": "63",
@@ -166,15 +166,7 @@
       "thumbnail": "https://bookworlduae.com/cdn/shop/files/CopyofBookworldMockup-2024-06-28T210547.849.png?v=1719594369&width=713"
     }
   ],
-  "orderItem": [
-    {
-      "id": "3e9d",
-      "title": " The Box in the Woodss",
-      "price": 54,
-      "qty": 4,
-      "image": "https://bookworlduae.com/cdn/shop/files/CopyofBookworldMockup_4_b94c1f06-03df-4cf6-860b-e33830dbe236.png?v=1723632980&width=713"
-    }
-  ],
+  "orderItem": [],
   "User": [
     {
       "id": "rewaa",
