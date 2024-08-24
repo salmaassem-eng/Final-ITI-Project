@@ -7,8 +7,6 @@
 .imgcard {
   display: flex;
   justify-content: space-between;
-  /* margin-left: 150px; */
-  height: 100vh;
   overflow: hidden;
 }
 
@@ -21,14 +19,15 @@
   font-weight: bold;
   font-size: 60px;
   color:  #1f2478;
-  line-height: 1.5;
+  line-height: 1.3;
 }
 
-.p {
-  margin-top: 20px;
-  font-size: 20px;
-  color:#72655c;
+.par {
+
+  font-size: 18px;
+  color:rgb(148, 147, 147);
   text-align: left;
+
   
 }
 .dimgg{
@@ -37,6 +36,7 @@
 .imgg{
   width:100%;
   height: 85vh;
+  object-fit: cover;
 }
 
 .about {
@@ -174,7 +174,6 @@
   }
   .imgcard {
     flex-direction: column-reverse;
-    margin-left: 0;
     align-items: center;
     text-align: center;
     height: auto;

@@ -21,10 +21,10 @@ export default function Home() {
     <div className={style.bkg}>
       <div className={`container ${style.imgcard}`}>
         <div className={`${style.parentt} col-md-5`}>
-          <h1 className={`${style.title}`}>
+          <h1 className={`${style.title} text-uppercase`}>
             welcome to our BookShop
           </h1>
-          <p className={`${style.p}`}>Your one-stop destination for quality products</p>
+          <p className={`${style.par}`}>Your one-stop destination for quality products</p>
         </div>
         <div className={`col-md-7 ${style.dimgg}`}>
           <img src={header} className={`${style.imgg}`} alt="books" />
@@ -52,7 +52,7 @@ export default function Home() {
           <h1 className={`text-center mb-5`}>Our Products</h1>
           <Link className={`${style.link2}`} to="/Shop">Show More</Link>
         </div>
-        <div className={main.cardContainer}>
+        <div className="row g-4 justify-content-between">
           {topProducts?.map((prodcutItem) => (
             <ProductCard
               getProducts={getProducts}
@@ -63,32 +63,32 @@ export default function Home() {
           ))}
         </div>
       </div>
-        <div className={`${style.whychooseus}`}>
-        <h1 className={`text-center  m-3 p-5`}>Why Choose Us?</h1>
-        <div className={`card-deck container m-auto p-5 mb-5 ${style.cardds}`}>
+        <div className={`${style.whychooseus} py-5`}>
+        <h1 className={`text-center mb-2`}>Why Choose Us?</h1>
+        <div className={`card-deck container m-auto p-5 ${style.cardds}`}>
           <div className={`card ${style.cardcont}`}>
-            <div class="card-body text-center">
+            <div class="card-body py-4 text-center">
               <img src={coll} alt="icons" />
               <h5 class={`card-title mt-3 ${style.cardh}`}>A Curated Collection for Every Reader</h5>
               <p class="card-text">we take pride in offering a thoughtfully curated selection of books that cater to a wide range of tastes and interests. a fan of classic literature, modern bestsellers, or niche genres.</p>
             </div>
           </div>
           <div className={`card ${style.cardcont}`}>
-            <div class="card-body text-center">
+            <div class="card-body py-4 text-center">
               <img src={lover} alt="icons" />
               <h5 class={`card-title mt-3 ${style.cardh}`}>A Community of Book Lovers</h5>
               <p class="card-text">we take pride in offering a thoughtfully curated selection of books that cater to a wide range of tastes and interests. a fan of classic literature, modern bestsellers, or niche genres.</p>
             </div>
           </div>
           <div className={`card ${style.cardcont}`}>
-            <div class="card-body text-center">
+            <div class="card-body py-4 text-center">
               <img src={quality} alt="icons" />
               <h5 class={`card-title mt-3 ${style.cardh}`}>A Commitment to Quality</h5>
               <p class="card-text">From the quality of the books we stock to the level of service we provide, we are dedicated to ensuring that every visit to our store is a pleasant and enriching experience.</p>
             </div>
           </div>
           <div className={`card ${style.cardcont}`}>
-            <div class="card-body text-center">
+            <div class="card-body py-4 text-center">
               <img src={oth} alt="icons" />
               <h5 class={`card-title mt-3 ${style.cardh}`}>Supporting Local Authors</h5>
               <p class="card-text">Explore our dedicated section for books written by authors from our community, and discover new voices that might become your new favorites.</p>
@@ -99,13 +99,3 @@ export default function Home() {
     </div>
   );
 }
-
-
-{/* <div className={`text-center ${style.imgcard}`}>
-        <div className={`${style.parentt}`}>
-          <h1 className={`title ${style.title}`}>
-            welcome to our BookShop
-          </h1>
-          <p className={`${style.p}`}>Your one-stop destination for quality products</p>
-        </div>
-      </div> */}

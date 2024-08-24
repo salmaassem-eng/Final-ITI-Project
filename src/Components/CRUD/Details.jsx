@@ -1,27 +1,32 @@
 import React, { useContext, useEffect, useState } from "react";
 import style from "../../Styles/details.module.css";
-import { useParams } from "react-router-dom";
+import { useParams,useNavigate } from "react-router-dom";
 import axios from "axios";
 import ProductsContext from "../../ContextAPIs/ProductsContext";
-
+import { toast, ToastContainer } from "react-toastify";
 function Details() {
   let [product, setProduct] = useState({});
   const { id } = useParams();
-  const [alertMessage, setAlertMessage] = useState("");
-  const [alertType, setAlertType] = useState(""); // 'success' or 'error'
   let { addItem } = useContext(ProductsContext);
-  const addItemm = async (title, price, image) => {
-   await addItem(title,price,image)
-      // Show success alert
-      setAlertMessage(`Product added successfully`);
-      setAlertType("success");
+ 
 
-      // Hide alert after 1.5 seconds
-      setTimeout(() => {
-        setAlertMessage("");
-        setAlertType("");
-      }, 1500);
+  let navigator = useNavigate()
+
+  const addItemm = async (title, price, image) => {
+    if(!localStorage.getItem("username")){
+      navigator('/login')
+      return
+    }
+    await addItem(title,price,image)
+    toast.success("Product Added Successfully To Your Cart", {
+      position: "bottom-right",
+      theme: "light",
+      autoClose: 3000,
+      className: style.noShadowToast, // Apply the custom style
+    });
+
     } 
+  
   useEffect(() => {
     axios
       .get(`http://localhost:5000/products/${id}`)
@@ -31,6 +36,7 @@ function Details() {
 
   return (
     <div className={style.detailsContainer}>
+        <ToastContainer/>
       <div className={style.imageContainer}>
         <img
           src={product.thumbnail}

@@ -21,19 +21,22 @@ function Shop() {
   });
   return (
     <div className={` ${style.templateContainer} py-5`}>
-      <div className="container m-auto mt-5 p-5">
+      <div className="container m-auto  p-3">
         <div className={` mb-3 ${style.fform}`}>
-
-          <input
-            className={`form-control me-17 ${style.sform}`}
+        <div className="w-50 ps-3 rounded-2">
+          
+        <input
+            className={`form-control ${style.sform}`}
             id="searchInput"
             type="search"
             placeholder="Search here..."
             value={searchTerm}
             onChange={(event) => setSearchTerm(event.target.value)}
           />
+        </div>
 
-          <select
+         <div className="w-50 ps-3 rounded-2">
+         <select
             className={`form-select ${style.sform2}`}
             value={selectedCategory}
             onChange={(event) => setSelectedCategory(event.target.value)}
@@ -45,9 +48,10 @@ function Shop() {
               </option>
             ))}
           </select>
+         </div>
         </div>
 
-        <div className={`${style.cardContainer} py-5`}>
+        <div className={`row g-4 py-5`}>
           {filteredProducts.map((productItem) => (
             <ProductCard
               getProducts={getProducts}

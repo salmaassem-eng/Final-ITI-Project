@@ -2,6 +2,8 @@ import axios from "axios";
 import React, { useId, useState, useRef, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { Alert } from "@mui/material";
+import { ToastContainer, toast } from "react-toastify";
+
 
 function EditProducts() {
   const inputRef = useRef(null);
@@ -16,7 +18,6 @@ function EditProducts() {
       "https://www.energyfit.com.mk/wp-content/plugins/ap_background/images/default/default_large.png",
     category: "",
   });
-  const [success, setSuccess] = useState(false);
   const navigator = useNavigate();
   const { id } = useParams();
 
@@ -39,14 +40,18 @@ function EditProducts() {
       [name]: value,
     }));
   };
-
+  
   const handleSubmit = async (e) => {
-    e.preventDefault(); //cancel refresh of form 
+    e.preventDefault();
+
     try {
       await axios.patch(`http://localhost:5000/products/${prdct.id}`, prdct);
-      setSuccess(true);
+      toast.success("Product Edited Successfully", {
+        position: "bottom-right",
+        theme: "light",
+        autoClose: 3000,
+      });
       setTimeout(() => {
-        setSuccess(false);
         navigator("/shop");
       }, 2000);
     } catch (err) {
@@ -55,10 +60,12 @@ function EditProducts() {
   };
 
   return (
-    <div className="container p-3 p-md-5">
+    <section className="bg-gray">
+      <ToastContainer/>
+      <div className="container p-3 p-md-5">
       <div className="row justify-content-center">
         <div className="col-12 col-md-8 col-lg-6">
-          <div className="p-3 p-md-4 shadow-lg rounded-5">
+          <div className="p-3 p-md-4 shadow-sm bg-white rounded-5">
             <h1 className="text-center">Edit Product</h1>
             <form onSubmit={handleSubmit}>
               <div className="mb-3">
@@ -187,15 +194,12 @@ function EditProducts() {
   Edit
 </button>
             </form>
-            {success && (
-              <Alert severity="success" className="mt-3">
-                Product updated successfully!
-              </Alert>
-            )}
+
           </div>
         </div>
       </div>
     </div>
+    </section>
   );
 }
 

@@ -9,6 +9,8 @@ import norty from "../Images/norty.jpg";
 import khokha from "../Images/khokha.jpg";
 import aboutus from "../Images/aboutus.jpg";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import {
   faFacebook,
   faTwitter,
@@ -22,6 +24,7 @@ import CardMedia from "@mui/material/CardMedia";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import { Link } from "react-router-dom";
+
 export default function Contactus() {
   const [formData, setFormData] = useState({
     to_name: "Rewaa",
@@ -30,8 +33,6 @@ export default function Contactus() {
     message: "",
   });
   const [sending, setSending] = useState(false);
-  const [sent, setSent] = useState(false);
-  const [error, setError] = useState(null);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -50,21 +51,31 @@ export default function Contactus() {
       )
       .then((response) => {
         setSending(false);
-        setSent(true);
         setFormData({
           to_name: "Rewaa",
           from_name: "",
           email: "",
           message: "",
         });
+        toast.success("Your Message is sent successfully", {
+          position: "bottom-right",
+          theme: "light",
+          autoClose: 3000,
+        });
       })
       .catch((err) => {
         setSending(false);
-        setError(err.text);
+        toast.error("There was an error sending your message.", {
+          position: "bottom-right",
+          theme: "light",
+          autoClose: 3000,
+        });
       });
   };
+
   return (
     <>
+    <ToastContainer/>
       {" "}
       {/* header  */}
       <div className={styles.header}>
@@ -73,9 +84,9 @@ export default function Contactus() {
         </div>
       </div>
       {/* about us  */}
-      <div className={styles.aboutUs}>
+      <div className={`${styles.aboutUs} py-3 pb-5`}>
         <div className={styles.container}>
-          <div className={styles.card}>
+          <div className={`${styles.card} py-4`}>
             <div className={styles.content}>
               <div className={styles.teamImg}>
                 <img src={me} alt="Rewaa Gaber" />
@@ -103,7 +114,7 @@ export default function Contactus() {
               </div>
             </div>
           </div>
-          <div className={styles.card}>
+          <div className={`${styles.card} py-4`}>
             <div className={styles.content}>
               <div className={styles.teamImg}>
                 <img src={saloma} alt="Salma Assem" />
@@ -128,7 +139,7 @@ export default function Contactus() {
               </div>
             </div>
           </div>
-          <div className={styles.card}>
+          <div className={`${styles.card} py-4`}>
             <div className={styles.content}>
               <div className={styles.teamImg}>
                 <img src={norty} alt="Nour Noaman" />
@@ -153,7 +164,7 @@ export default function Contactus() {
               </div>
             </div>
           </div>
-          <div className={styles.card}>
+          <div className={`${styles.card} py-4`}>
             <div className={styles.content}>
               <div className={styles.teamImg}>
                 <img src={khokha} alt="Khoulod Khaled" />
@@ -249,8 +260,6 @@ export default function Contactus() {
           </h1>
           <div className="row justify-content-center ">
             <div className="col-md-9">
-              <div className="card">
-                <div className="card-body">
                   <form onSubmit={handleSubmit}>
                     <div className="mb-3">
                       <label htmlFor="from_name" className="form-label">
@@ -297,7 +306,7 @@ export default function Contactus() {
                     <div style={{ display: "flex", justifyContent: "center" }}>
                       <button
                         type="submit"
-                        className="btn w-75"
+                        className="btn d-block ms-auto"
                         style={{
                           backgroundColor: "#d18ef4",
                           color: "white",
@@ -308,17 +317,8 @@ export default function Contactus() {
                         {sending ? "Sending..." : "Send Message"}
                       </button>
                     </div>
-                    {sent && (
-                      <p className="text-success mt-3">
-                        Message sent successfully!
-                      </p>
-                    )}
-                    {error && (
-                      <p className="text-danger mt-3">Error: {error}</p>
-                    )}
+
                   </form>
-                </div>
-              </div>
             </div>
           </div>
         </div>{" "}

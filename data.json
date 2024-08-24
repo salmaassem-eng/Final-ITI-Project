@@ -164,19 +164,17 @@
       "stock": 94,
       "category": "fantasy",
       "thumbnail": "https://bookworlduae.com/cdn/shop/files/CopyofBookworldMockup-2024-06-28T210547.849.png?v=1719594369&width=713"
-    },
-    {
-      "id": "9ydgc9r",
-      "title": "salma",
-      "price": "1200",
-      "discountPercentage": "20",
-      "description": "mnmnmnmn",
-      "stock": "1",
-      "thumbnail": "https://bookworlduae.com/cdn/shop/files/image_150a4245-3d0a-4d54-82e4-42be85df7332.jpg?v=1687797780&width=713",
-      "category": "comedy"
     }
   ],
-  "orderItem": [],
+  "orderItem": [
+    {
+      "id": "3e9d",
+      "title": " The Box in the Woodss",
+      "price": 54,
+      "qty": 4,
+      "image": "https://bookworlduae.com/cdn/shop/files/CopyofBookworldMockup_4_b94c1f06-03df-4cf6-860b-e33830dbe236.png?v=1723632980&width=713"
+    }
+  ],
   "User": [
     {
       "id": "rewaa",
@@ -271,6 +269,13 @@
       "password": "123456789Qq@",
       "email": "rewaaarafa@gmail.com",
       "phone": "01052858538",
+      "address": ""
+    },
+    {
+      "id": "salmaa",
+      "password": "123456789Salma@",
+      "email": "salma@gmail.com",
+      "phone": "01010402866",
       "address": ""
     }
   ]
