@@ -9,6 +9,8 @@ import norty from "../Images/norty.jpg";
 import khokha from "../Images/khokha.jpg";
 import aboutus from "../Images/aboutus.jpg";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import {
   faFacebook,
   faTwitter,
@@ -22,16 +24,15 @@ import CardMedia from "@mui/material/CardMedia";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import { Link } from "react-router-dom";
+
 export default function Contactus() {
   const [formData, setFormData] = useState({
     to_name: "Rewaa",
     from_name: "",
-    email: "", 
+    email: "",
     message: "",
   });
   const [sending, setSending] = useState(false);
-  const [sent, setSent] = useState(false);
-  const [error, setError] = useState(null);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -50,21 +51,31 @@ export default function Contactus() {
       )
       .then((response) => {
         setSending(false);
-        setSent(true);
         setFormData({
           to_name: "Rewaa",
           from_name: "",
           email: "",
           message: "",
         });
+        toast.success("Your Message is sent successfully", {
+          position: "bottom-right",
+          theme: "light",
+          autoClose: 3000,
+        });
       })
       .catch((err) => {
         setSending(false);
-        setError(err.text);
+        toast.error("There was an error sending your message.", {
+          position: "bottom-right",
+          theme: "light",
+          autoClose: 3000,
+        });
       });
   };
+
   return (
     <>
+    <ToastContainer/>
       {" "}
       {/* header  */}
       <div className={styles.header}>
@@ -73,9 +84,9 @@ export default function Contactus() {
         </div>
       </div>
       {/* about us  */}
-      <div className={styles.aboutUs}>
+      <div className={`${styles.aboutUs} py-3 pb-5`}>
         <div className={styles.container}>
-          <div className={styles.card}>
+          <div className={`${styles.card} py-4`}>
             <div className={styles.content}>
               <div className={styles.teamImg}>
                 <img src={me} alt="Rewaa Gaber" />
@@ -91,7 +102,10 @@ export default function Contactus() {
                 <a href="https://x.com/?logout=1723917569208" target="_blank">
                   <FontAwesomeIcon icon={faTwitter} />
                 </a>
-                <a href="https://www.linkedin.com/in/rewaa-arafa-8134b0275/" target="_blank">
+                <a
+                  href="https://www.linkedin.com/in/rewaa-arafa-8134b0275/"
+                  target="_blank"
+                >
                   <FontAwesomeIcon icon={faLinkedin} />
                 </a>{" "}
                 <a href="https://github.com/RewaaGaber" target="_blank">
@@ -100,7 +114,7 @@ export default function Contactus() {
               </div>
             </div>
           </div>
-          <div className={styles.card}>
+          <div className={`${styles.card} py-4`}>
             <div className={styles.content}>
               <div className={styles.teamImg}>
                 <img src={saloma} alt="Salma Assem" />
@@ -125,7 +139,7 @@ export default function Contactus() {
               </div>
             </div>
           </div>
-          <div className={styles.card}>
+          <div className={`${styles.card} py-4`}>
             <div className={styles.content}>
               <div className={styles.teamImg}>
                 <img src={norty} alt="Nour Noaman" />
@@ -150,7 +164,7 @@ export default function Contactus() {
               </div>
             </div>
           </div>
-          <div className={styles.card}>
+          <div className={`${styles.card} py-4`}>
             <div className={styles.content}>
               <div className={styles.teamImg}>
                 <img src={khokha} alt="Khoulod Khaled" />
@@ -163,7 +177,7 @@ export default function Contactus() {
                 <a href="#" target="_blank">
                   <FontAwesomeIcon icon={faFacebook} />
                 </a>
-                <a href="#" target="_blank" >
+                <a href="#" target="_blank">
                   <FontAwesomeIcon icon={faTwitter} />
                 </a>
                 <a href="#" target="_blank">
@@ -178,67 +192,74 @@ export default function Contactus() {
         </div>
       </div>{" "}
       {/* about website */}
-      <div className={styles.header}>
-        <div className={styles.container}>
-          <h1>Explore Our Book Collection</h1>
-        </div>
-      </div>
-      <Card className="container" sx={{ maxWidth: 1000 }}>
-        <CardMedia
-          sx={{ height: 300 }}
-          image={aboutus}
-          title="green iguana"
-          className={styles.CardMedia}
-        />
-        <CardContent>
-          <Typography gutterBottom variant="h5" component="div">
-            BookHub
-          </Typography>
-          <Typography variant="body2" color="text.secondary">
-            Welcome to our website, your ultimate destination for discovering
-            and purchasing a diverse range of books. Whether you're an avid
-            reader seeking your next great adventure, a student in search of
-            academic texts, or someone looking for the perfect gift, we offer an
-            extensive collection that caters to all tastes and needs. From
-            bestsellers to hidden gems, our curated selection ensures you'll
-            find something that piques your interest. Enjoy a seamless shopping
-            experience with detailed book descriptions, user reviews, and easy
-            navigation, all designed to make your reading journey enjoyable and
-            rewarding.
-          </Typography>
-        </CardContent>
-        <CardActions>
-          
-        <Button
-  size="medium" 
-  sx={{
-    color: "white",
-    backgroundColor: "#74593b",
-    "&:hover": {
-      backgroundColor: "#a0937d",
-      transform: "scale(1.05)", 
-    },
-    transition: "background-color 0.3s ease, transform 0.3s ease",
-    padding: "10px 20px", 
-    fontWeight: "bold", 
-  }}
-  component={Link}
-  to="/Home"
->
-  Learn More
-</Button>
-        </CardActions>
-      </Card>
+      <div className="mb-5" style={{ backgroundColor: '#f3f3f3' , paddingBottom: '50px' }}>
+  <div className={` ${styles.header}`}>
+    <div className={styles.container}>
+      <h1>Explore Our Book Collection</h1>
+    </div>
+  </div>
+  <Card className={`container p-5 ${styles.kolo2}`} sx={{ maxWidth: 1000 }}>
+    <CardMedia
+      sx={{ height: 300 }}
+      image={aboutus}
+      title="green iguana"
+      className={styles.CardMedia}
+    />
+    <CardContent>
+      <Typography
+        gutterBottom
+        variant="h5"
+        component="div"
+        style={{ color: "#d18ef4", fontWeight: "bold" }}
+      >
+        BookHub
+      </Typography>
+
+      <Typography variant="body2" color="text.secondary">
+        Welcome to our website, your ultimate destination for discovering
+        and purchasing a diverse range of books. Whether you're an avid
+        reader seeking your next great adventure, a student in search of
+        academic texts, or someone looking for the perfect gift, we offer an
+        extensive collection that caters to all tastes and needs. From
+        bestsellers to hidden gems, our curated selection ensures you'll
+        find something that piques your interest. Enjoy a seamless shopping
+        experience with detailed book descriptions, user reviews, and easy
+        navigation, all designed to make your reading journey enjoyable and
+        rewarding.
+      </Typography>
+    </CardContent>
+    <CardActions>
+      <Button 
+        size="medium"
+        sx={{
+          color: "white",
+          backgroundColor: "#d18ef4",
+          "&:hover": {
+            backgroundColor: "#2d4dda4a;",
+            transform: "scale(1.05)",
+          },
+          transition: "background-color 0.3s ease, transform 0.3s ease",
+          padding: "10px 20px",
+          fontWeight: "bold",
+        }}
+        component={Link}
+        to="/Home"
+      >
+        Learn More
+      </Button>
+    </CardActions>
+  </Card>
+</div>
+
       {/* Contact Us */}
       {/* Contact Us */}
       <section>
-        
-        <div className=" p-5 container" style={{paddingTop: '20px'}}>
-          <h1 className="text-center mb-4  " style={{paddingTop: '50px'}}>Contact Us</h1>
+        <div className=" p-5 container" style={{ paddingTop: "20px" }}>
+          <h1 className="text-center mb-4  " style={{ paddingTop: "50px" }}>
+            Contact Us
+          </h1>
           <div className="row justify-content-center ">
             <div className="col-md-9">
-              <div className="card">
-                <div className="card-body">
                   <form onSubmit={handleSubmit}>
                     <div className="mb-3">
                       <label htmlFor="from_name" className="form-label">
@@ -282,29 +303,22 @@ export default function Contactus() {
                         required
                       ></textarea>
                     </div>
-                    <button
-                      type="submit"
-                      className="btn w-100"
-                      style={{
-                        backgroundColor: "#74593b",
-                        borderColor: "#8B7866",
-                        color: "white",
-                      }}
-                      disabled={sending}
-                    >
-                      {sending ? "Sending..." : "Send Message"}
-                    </button>
-                    {sent && (
-                      <p className="text-success mt-3">
-                        Message sent successfully!
-                      </p>
-                    )}
-                    {error && (
-                      <p className="text-danger mt-3">Error: {error}</p>
-                    )}
+                    <div style={{ display: "flex", justifyContent: "center" }}>
+                      <button
+                        type="submit"
+                        className="btn d-block ms-auto"
+                        style={{
+                          backgroundColor: "#d18ef4",
+                          color: "white",
+                          
+                        }}
+                        disabled={sending}
+                      >
+                        {sending ? "Sending..." : "Send Message"}
+                      </button>
+                    </div>
+
                   </form>
-                </div>
-              </div>
             </div>
           </div>
         </div>{" "}

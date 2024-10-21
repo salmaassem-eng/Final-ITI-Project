@@ -4,34 +4,30 @@
   padding: 0;
 }
 
-.cardContainer {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 350px));
-  grid-template-rows: minmax(350px, auto);
-  gap: 80px;
-}
+
 .head{
-  color: #1a110bd4;
+color: #1f2478;
+font-size: 1.2rem;
+font-weight: bold;
 }
 .ay {
   overflow: hidden;
-  border-radius: 20px;
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-  transition: all 1s;
+  transition: all 0.4s;
 }
 .ay:hover {
-  transform: scale(1.05); 
+  transform: scale(1.02); 
   box-shadow: 0 16px 32px rgba(0, 0, 0, 0.3); 
 }
 .pbtn{
-  background-color: #72655c;
-  border-radius: 6px;
+  background-color:  #d18ef4;
+border-radius: 3px;
   border: 0;
 }
 .pbtn:hover{
-  background-color: transparent;
-  border: 1px solid #72655c;
-  color: #72655c;
+  background-color:#1f2478;;
+  
+  color: #ffffff;
 
 }
 .discount {
@@ -46,45 +42,21 @@
 .fform{
   display: flex;
 }
-.sform{
-  display: inline-block;
-  border: 1px solid #1a110bd4;
-  border-radius: 20px;
-  width: 40%;
-  margin-right: 230px;
-  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.3);
-}
+
 .sform:focus {
   outline: none;
-  background-color: transparent;
-  border: 3px solid #1a110bd4;;
-  box-shadow: 0 0 5px #1a110bd4;
-  color: #1a110bd4;
+  
 }
-.sform2{
-  display: inline-block;
-  border: 1px solid #1a110bd4;
-  border-radius: 20px;
-  width: 40%;
-  margin-right: 11px;
-  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.3);
-}
+
 .sform2:focus {
   outline: none;
   background-color: transparent;
-  border: 3px solid #1a110bd4;;
-  box-shadow: 0 0 5px #1a110bd4;
   color: #1a110bd4;
 }
 
-.categorySelect{
-  display: inline-block;
-  border: 1px solid #1a110bd4;
-  border-radius: 20px;
-  width: 40%;
-}
+
 .closeButton {
-  top: 10px;
+  top: 0;
   right: 10px;
   background-color: transparent;
   border: 2px solid #bcbbbb;
@@ -116,15 +88,8 @@
   border-color: #f5c6cb;
 }
 
-@media(max-width: 768px) {
-  .fform{
-    flex-direction: column;
-  }
-  .sform{
-    width: 80%;
-    margin-bottom: 20px;
-  }
-  .sform2{
-    width: 80%;
-  }
+
+
+.noShadowToast{
+  box-shadow: none !important; /* Remove the shadow */
 }

@@ -10,9 +10,10 @@
 }
 ul{
 	list-style: none;
+  padding-left: 0 !important ;
 }
 .footer{
-	background-color: #1a110bd4;
+	background-color: black;
     padding: 35px 0;
 }
 .footercol{
@@ -33,7 +34,7 @@ ul{
 	position: absolute;
 	left:0;
 	bottom: -10px;
-	background-color: #803D3B;
+	background-color:#d18ef4;
 	height: 2px;
 	box-sizing: border-box;
 	width: 50px;
@@ -75,13 +76,12 @@ ul{
 /*responsive*/
 @media(max-width: 767px){
   .footercol{
-    width: 50%;
+    width: 48%;
     margin-bottom: 30px;
 }
-}
-@media(max-width: 574px){
-  .footercol{
-    width: 100%;
+.footercol:nth-child(3){
+  width: 100%;
+  margin-bottom: 30px;
 }
 }
 

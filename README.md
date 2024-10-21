@@ -1,86 +1,41 @@
-# Getting Started with Create React App
+# BookHub Website
 
--Sign up page and Log in page
-(log in system +Validation function +react-toast library +Json server)
--cart page( table Fetching data from json server)
--Furniture page with Search button
--CRUD operation(page details)
- pages for Adding and Updating Data using json file ,applying validations
-edit page
--context api
--Dark mode button and handling in Navbar
--page not found
--contact us page
--responsive full website
--Routing Was Used
+## About the Project
+This project is a comprehensive online bookstore designed to offer users an easy and enjoyable experience when browsing and purchasing books. The website includes features like user authentication, book browsing, a shopping cart, and an admin panel for managing the bookstore. The project was built with scalability and performance in mind, ensuring a fast and responsive user experience across all devices.
 
+## Technologies
+The following technologies were used in the development of this project:
 
+- **Frontend**: HTML5, CSS3, JavaScript, Bootstrap v5.3, React.js
+- **Backend**: JSON Server to simulate a REST API, providing all the project functionality.
+- **Version Control**: Git, GitHub
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Features
+The platform includes a wide array of features:
 
-## Available Scripts
+- **User Authentication**: Secure login and registration system.
+- **Book Browsing**: Browse books by categories with detailed book pages.
+- **Shopping Cart**: Add books to the cart, manage quantities, and proceed to checkout.
+- **Checkout**: Complete orders and confirm payment.
+- **Admin Panel**: Manage users, books, and reviews with an intuitive interface.
+- **Reviews & Ratings**: Customers can leave reviews and rate books.
+- **Responsive Design**: Fully responsive, ensuring an optimal user experience on all devices.
+- **Order Tracking**: Users can track their orders post-purchase.
+- **Category Management**: Books are categorized for easy browsing.
+- **Registration System**: Includes registration, secure login, password updates, and password reset functionality.
 
-In the project directory, you can run:
+## Setup
+follow the following steps to run the project.
 
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- Install Node.js from [Node.js](https://nodejs.org/en)
+- Clone this repo on your local machine.
+- Run these commands on the project directory respectively
+  - npm install
+  - npm run json-server
+  - npm start
+ 
+- ## Team who Contributed in the project :
+- [Rewaa Gaber](https://github.com/RewaaGaber)
+- [Salma Assem](https://github.com/salmaassem-eng)
+- [Nour Nouman](https://github.com/nour-noaman)
+- [Kholoud Khaled](https://github.com/khoulodk)

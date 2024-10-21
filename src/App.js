@@ -20,15 +20,20 @@ import Contactus from "./Components/Contactus.jsx";
 import Notfound from "./Components/NotFound";
 import ScrollToTop from './Components/ScrollToTop.jsx';
 
+<<<<<<< HEAD
 const App = () => {
   const [isLogin, setIsLogin] = useState(localStorage.getItem("userid"));;
   const hideNavAndFooter = window.location.pathname === '/Login' || window.location.pathname === '/Signin';
+=======
+function App () {
+  const [isLogin, setIsLogin] = useState(localStorage.getItem("username"));
+>>>>>>> main
 
   return (
     <Router>
       <ScrollToTop />
       <ProductsContextProvider>
-        {!hideNavAndFooter && <Navbar isLogin={isLogin} setIsLogin={setIsLogin} />}
+        { <Navbar isLogin={isLogin} setIsLogin={setIsLogin} />}
         <Routes>
           {["Home", "/"].map((path, index) => (
             <Route path={path} element={<Home />} key={index} />
@@ -43,7 +48,7 @@ const App = () => {
           <Route path="contactus" element={<Contactus />} />
           <Route path="*" element={<Notfound />} />
         </Routes>
-        {!hideNavAndFooter && <Footer />}
+        {<Footer />}
       </ProductsContextProvider>
     </Router>
   );

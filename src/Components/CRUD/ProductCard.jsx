@@ -1,50 +1,33 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useContext, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import style from "../../Styles/shop.module.css";
-import axios from "axios";
+import ProductsContext from "../../ContextAPIs/ProductsContext";
+import { toast, ToastContainer } from "react-toastify";
 
 export default function ProductCard({
   product,
   deleteProduct,
+ 
 }) {
-  const [alertMessage, setAlertMessage] = useState("");
-  const [alertType, setAlertType] = useState(""); // 'success' or 'error'
 
-  const addItem = async (title, price, image) => {
-    try {
-      const result = await axios.get("http://localhost:5000/orderItem");
-      const existingItem = result.data.find(item => item.title === title);
-      
-      if (existingItem) {
-        // Update quantity of the existing item
-        existingItem.qty += 1;
-        await axios.put(`http://localhost:5000/orderItem/${existingItem.id}`, existingItem);
-      } else {
-        // Add a new item to the cart
-        const order = { title, price, qty: 1, image };
-        await axios.post("http://localhost:5000/orderItem", order);
-      }
+  let navigator = useNavigate()
 
-      // Show success alert
-      setAlertMessage(`Product added successfully`);
-      setAlertType("success");
-
-      // Hide alert after 1.5 seconds
-      setTimeout(() => {
-        setAlertMessage("");
-        setAlertType("");
-      }, 1500);
-    } catch (error) {
-      setAlertMessage("Failed to add item to cart. Please try again.");
-      setAlertType("error");
-
-      // Hide alert after 1.5 seconds
-      setTimeout(() => {
-        setAlertMessage("");
-        setAlertType("");
-      }, 1500);
+  let {addItem}= useContext(ProductsContext)
+  const addItemToCart = async (title, price, image) => {
+    if(!localStorage.getItem("username")){
+      navigator('/login')
+      return
     }
-  };
+    await addItem(title,price,image)
+    toast.success("Product Added Successfully To Your Cart", {
+      position: "top-right",
+      theme: "light",
+      autoClose: 3000,
+      className: style.noShadowToast, // Apply the custom style
+    });
+
+    } 
+  
 
   const handleDelete = (e) => {
     e.stopPropagation();
@@ -55,8 +38,9 @@ export default function ProductCard({
   };
 
   return (
-    <div>
-      <div className={`card p-0 ${style.ay}`} key={product.id}>
+    <div className="col-md-4">
+      <ToastContainer/>
+      <div className={`card py-3 rounded-3 ${style.ay}`} key={product.id}>
         <div className="position-relative">
           {localStorage.getItem('username') === 'rewaa' && (
             <button
@@ -95,18 +79,14 @@ export default function ProductCard({
           <button
             className={`btn btn-dark w-50 mx-auto ms-1 ${style.pbtn}`}
             onClick={() =>
-              addItem(product.title, product.price, product.thumbnail)
+              addItemToCart(product.title, product.price, product.thumbnail)
             }
           >
             Add To Cart
           </button>
         </div>
       </div>
-      {alertMessage && (
-        <div className={`${style.alertMessage} ${style[`alert${alertType.charAt(0).toUpperCase() + alertType.slice(1)}`]}`} role="alert">
-          {alertMessage}
-        </div>
-      )}
+
     </div>
   );
 }

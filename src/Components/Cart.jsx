@@ -1,8 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import axios from "axios";
 import style from "../Styles/Signin.module.css";
 import market from "../Images/market.png"
-import { fetchCartItems } from "./Shared/CartCount";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import ProductsContext from "../ContextAPIs/ProductsContext";
 
 const Profile = () => {
   // const productsUrl = "http://localhost:5000/orderItem";
@@ -41,6 +43,8 @@ const Profile = () => {
     }
   };
 
+  let{ fetchCartItems } = useContext(ProductsContext)
+
   const deleteOrder = async (id) => {
     let isDelete = window.confirm(
       "Are you sure? This item will be removed from your order!"
@@ -53,6 +57,7 @@ const Profile = () => {
       } catch (error) {
         console.error("Error deleting item:", error);
       }
+      await fetchCartItems()
     }
   };
 
@@ -88,12 +93,21 @@ const Profile = () => {
           expiry: '',
           cvv: ''
         });
-
-        alert("Your order has been processed successfully! It will be for you in a week!");
+        toast.success("Your order has been processed successfully!", {
+          position: "top-right",
+          theme: "light",
+          autoClose: 3000,
+        });
+        // alert("Your order has been processed successfully! It will be for you in a week!");
       } catch (error) {
         console.error("Error during checkout:", error);
       }
     }
+    if (items.length > 0) {
+      // Save the current cart items to previousItems before clearing the cart
+      setPreviousItems([...items]);
+    }
+    setItems([]);  // Then clear the cart
   };
 
   const handleInputChange = (event) => {
@@ -126,14 +140,34 @@ const Profile = () => {
       console.error("Error updating item:", error);
     }
   };
+
+  // to show orders 
+  const [showModal, setShowModal] = useState(false);
+  const [previousItems, setPreviousItems] = useState([]); // State to store the previous cart items
+
+ 
+  const viewOrder = () => {
+    setShowModal(true); // Show the modal
+  };
+
+  const closeModal = () => {
+    setShowModal(false); // Close the modal
+  };
+
   return (
     <div className="container">
-      <div className="row">
+      <ToastContainer/>
+      <div className="row ">
         <div className="col-8">
           {items.length === 0 ? (
+            <div className=" text-center justify-content-center">
             <div className="text-center">
             <img src={market} className="mt-5" alt="market" style={{ width: '350px', height: 'auto' , backgroundcolor:"white" }} />
             <h3 className="mb-5">You Cart Is Currently Empty.</h3>
+          </div>
+          <button className="btn" style={{ backgroundColor: "beige" }} onClick={viewOrder}>
+            Review your order
+          </button>
           </div>
           ) : (
             <table className="table mt-4" style={{ margin: "15px" }}>
@@ -155,7 +189,7 @@ const Profile = () => {
                     <td className="text-center">{item.title}</td>
                     <td className="text-center">
                       <button
-                        className={style.incbutton}
+                        className={`${style.incbutton} rounded-2`}
                         onClick={() =>
                           incDec(
                             item.qty,
@@ -176,7 +210,7 @@ const Profile = () => {
                         readOnly
                       />
                       <button
-                        className={style.incbutton}
+                        className={`${style.incbutton} rounded-2`}
                         onClick={() =>
                           incDec(
                             item.qty,
@@ -205,7 +239,53 @@ const Profile = () => {
               </tbody>
             </table>
           )}
+
+      {showModal && (
+        <div className="modal fade show" style={{ display: "block", backgroundColor: "rgba(0, 0, 0, 0.5)" }}>
+          <div className="modal-dialog">
+            <div className="modal-content">
+              <div className="modal-header">
+                <h5 className="modal-title">Order Review</h5>
+              </div>
+              <div className="modal-body">
+              {previousItems.length > 0 ? (
+                <>
+              <table className="table mt-4 justify-content-center" >
+              <tbody>
+                {previousItems.map((item) => (
+                  <tr key={item.id}>
+                    <td className="text-center">
+                      <img src={item.image} className={style.imgtable} alt="" />
+                    </td>
+                    <td className="text-center">{item.title}</td> 
+                    <td className="text-center">
+                    <input
+                        type="text"
+                        className={style.qtybuton}
+                        value={item.qty}
+                        readOnly
+                      />
+                      </td>
+                      <td className="text-center">{item.price}</td>
+                      </tr>
+                ))}
+              </tbody>
+              
+            </table>
+            <h5 className="text-center">Pending ...</h5>
+            </>
+           
+              ):( <p>No items to review.</p>)}
+              </div>
+              <div className="modal-footer">
+                <button className="btn btn-secondary" onClick={closeModal}>Close</button>
+              </div>
+            </div>
+          </div>
         </div>
+      )}
+        </div>
+
         <div
           className="col-3"
           style={{
@@ -217,7 +297,7 @@ const Profile = () => {
         >
           <form className="row g-3 needs-validation" noValidate onSubmit={handleCheckout}>
             <div className={style.card}>
-              <h1 style={{ color: "#1A110B", fontSize: "35px" }}>
+              <h1 style={{ color: "#1f2478", fontSize: "35px" }}>
                 Customer Data
               </h1>
               <hr />
@@ -315,6 +395,7 @@ const Profile = () => {
                   type="submit"
                   className={style.checkout}
                   disabled={items.length === 0}
+                  
                 >
                   Checkout
                 </button>
@@ -322,6 +403,7 @@ const Profile = () => {
             </div>
           </form>
         </div>
+
       </div>
     </div>
   );
