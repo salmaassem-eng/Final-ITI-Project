@@ -99,6 +99,11 @@ const Profile = () => {
         console.error("Error during checkout:", error);
       }
     }
+    if (items.length > 0) {
+      // Save the current cart items to previousItems before clearing the cart
+      setPreviousItems([...items]);
+    }
+    setItems([]);  // Then clear the cart
   };
 
   const handleInputChange = (event) => {
@@ -131,15 +136,34 @@ const Profile = () => {
       console.error("Error updating item:", error);
     }
   };
+
+  // to show orders 
+  const [showModal, setShowModal] = useState(false);
+  const [previousItems, setPreviousItems] = useState([]); // State to store the previous cart items
+
+ 
+  const viewOrder = () => {
+    setShowModal(true); // Show the modal
+  };
+
+  const closeModal = () => {
+    setShowModal(false); // Close the modal
+  };
+
   return (
     <div className="container">
       <ToastContainer/>
       <div className="row ">
         <div className="col-8">
           {items.length === 0 ? (
+            <div className=" text-center justify-content-center">
             <div className="text-center">
             <img src={market} className="mt-5" alt="market" style={{ width: '350px', height: 'auto' , backgroundcolor:"white" }} />
             <h3 className="mb-5">You Cart Is Currently Empty.</h3>
+          </div>
+          <button className="btn" style={{ backgroundColor: "beige" }} onClick={viewOrder}>
+            Review your order
+          </button>
           </div>
           ) : (
             <table className="table mt-4" style={{ margin: "15px" }}>
@@ -211,7 +235,53 @@ const Profile = () => {
               </tbody>
             </table>
           )}
+
+      {showModal && (
+        <div className="modal fade show" style={{ display: "block", backgroundColor: "rgba(0, 0, 0, 0.5)" }}>
+          <div className="modal-dialog">
+            <div className="modal-content">
+              <div className="modal-header">
+                <h5 className="modal-title">Order Review</h5>
+              </div>
+              <div className="modal-body">
+              {previousItems.length > 0 ? (
+                <>
+              <table className="table mt-4 justify-content-center" >
+              <tbody>
+                {previousItems.map((item) => (
+                  <tr key={item.id}>
+                    <td className="text-center">
+                      <img src={item.image} className={style.imgtable} alt="" />
+                    </td>
+                    <td className="text-center">{item.title}</td> 
+                    <td className="text-center">
+                    <input
+                        type="text"
+                        className={style.qtybuton}
+                        value={item.qty}
+                        readOnly
+                      />
+                      </td>
+                      <td className="text-center">{item.price}</td>
+                      </tr>
+                ))}
+              </tbody>
+              
+            </table>
+            <h5 className="text-center">Pending ...</h5>
+            </>
+           
+              ):( <p>No items to review.</p>)}
+              </div>
+              <div className="modal-footer">
+                <button className="btn btn-secondary" onClick={closeModal}>Close</button>
+              </div>
+            </div>
+          </div>
         </div>
+      )}
+        </div>
+
         <div
           className="col-3"
           style={{
@@ -321,6 +391,7 @@ const Profile = () => {
                   type="submit"
                   className={style.checkout}
                   disabled={items.length === 0}
+                  
                 >
                   Checkout
                 </button>
@@ -328,6 +399,7 @@ const Profile = () => {
             </div>
           </form>
         </div>
+
       </div>
     </div>
   );

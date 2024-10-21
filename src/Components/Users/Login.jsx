@@ -59,12 +59,7 @@ const Login = ({ setIsLogin }) => {
     console.log("Google response", response);
     // Implement the logic to handle Google login
   };
-
-  const handleFacebookSuccess = (response) => {
-    console.log("Facebook response", response);
-    // Implement the logic to handle Facebook login
-  };
-
+  
   return (
     <div className="login-container">
       <div className="login-form">
