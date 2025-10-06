@@ -14,14 +14,8 @@ export default function Navbar({ isLogin, setIsLogin }) {
     setIsLogin(false);
   };
 
-<<<<<<< HEAD
-
   //function to count cart Items 
   const [cartItems, setCartItems] = useState([]);
-=======
-  let {numOfitems,setNumOfitems,fetchCartItems} = useContext(ProductsContext)
->>>>>>> main
-
   
   useEffect(() => {
     const getCartItems = async () => {
