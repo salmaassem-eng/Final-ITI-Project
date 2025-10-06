@@ -9,13 +9,8 @@ const Login = ({ setIsLogin }) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
-<<<<<<< HEAD
   const usenavigate = useNavigate();
-  
-=======
-  const navigate = useNavigate();
 
->>>>>>> main
   useEffect(() => {
     localStorage.clear();
   }, []);
@@ -24,15 +19,9 @@ const Login = ({ setIsLogin }) => {
     e.preventDefault();
     if (validate()) {
       fetch("http://localhost:5000/User/" + username)
-<<<<<<< HEAD
         .then((res) => {
           return res.json();
         })
-=======
-      .then((res) => {
-        return res.json();
-      })
->>>>>>> main
         .then((resp) => {
           if (Object.keys(resp).length === 0) {
             toast.error("Please Enter valid username");
